@@ -1,0 +1,122 @@
+using Backpackipelago;
+using MelonLoader;
+using HarmonyLib;
+using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
+using System;
+
+namespace Backpackipelago.Patches;
+
+public static class GameInstance
+{
+    public static MetaProgressSaveManager MetaProgressSaveManager = null;
+    public static RunTypeSelector RunTypeSelector = new RunTypeSelector();
+
+    [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.Load)), HarmonyPostfix]
+    public static void GetMetaProgressSaveManagerInstance(ref MetaProgressSaveManager __instance)
+    {
+        if (MetaProgressSaveManager == null) {
+            BPHAP.Log("MetaProgressSaveManager instance stored.");
+            MetaProgressSaveManager = __instance;
+        }
+    }
+
+    // [HarmonyPatch(typeof(RunTypeSelector), nameof(RunTypeSelector.GetProperties)), HarmonyPostfix]
+    // public static void GetMetaProgressSaveManagerInstance(ref RunTypeSelector __instance)
+    // {
+    //     if (RunTypeSelector == null) {
+    //         BPHAP.Log("RunTypeSelector instance stored.");
+    //         RunTypeSelector = __instance;
+    //     }
+    // }
+
+
+    public static ItemStorage ItemStorage = null;
+
+
+    // Turns out this function specifically puts them in the window where you sell items in the shop; find a better function to put them directly in the inventory instead
+    [HarmonyPatch(typeof(ItemStorage), nameof(ItemStorage.AddStoredItems)), HarmonyPrefix]
+    public static void GetItemStorageInstance(ref string[] itemsToAdd, ref ItemStorage __instance)
+    {
+
+        BPHAP.Log("Items being added vanilla: "); 
+        foreach (string item in itemsToAdd)
+        {
+            BPHAP.Log(item);
+            ItemsToAddToStorage.Add(item);
+        }
+
+        itemsToAdd = ItemsToAddToStorage.ToArray();
+
+        if (!allowDebug)
+        {
+            ItemsToAddToStorage.Clear();
+        }
+
+        if (ItemStorage == null) {
+            BPHAP.Log("ItemStorage instance stored.");
+            ItemStorage = __instance;
+        }
+    }
+    
+
+
+
+    private static List<string> ItemsToAddToStorage = [];
+    public static HashSet<string> ItemsInPool = [];
+
+    // Add more settings for this later
+    // Also move to a different file
+    [HarmonyPatch(typeof(Overworld_BuildingInterface.Research), nameof(Overworld_BuildingInterface.Research.Available)), HarmonyPrefix]
+    public static bool ShowAllResearch(ref bool __result)
+    {
+        __result = true;
+        return false;
+    }
+
+
+
+
+    private static bool allowDebug = false;
+
+    // Remove later or replace with function to get copies of items from server
+    [HarmonyPostfix]
+    [HarmonyPatch(typeof(ItemSpawner))]
+    [HarmonyPatch("GetAllValidItems")]
+    public static void DebugFreeItems(List<Item2> __result)
+    {
+
+        if (!allowDebug) {
+            return;
+        }
+
+        BPHAP.Log("Attempting to add items to inventory...");
+        try {
+            
+            foreach (Item2 item in __result)
+            {
+                BPHAP.Log("Item: " + item.name + $" (Display name: {item.displayName})");
+                ItemsToAddToStorage.Add(item.name);
+                // ItemsInPool.Add(Item2.GetDisplayName(item.name));
+                // if (LocationChecked.blockedItems.Contains(Item2.GetDisplayName(item.name)))
+                // {
+                //     BPHAP.LogError("Item that was force-completed was found in pool: " + item.name);
+                // }
+            }
+            // BPHAP.Log("Adding the following items to inventory: ");
+            // foreach (string item in ItemsToAddToStorage)
+            // {
+            //     BPHAP.Log("Item in storage: " + item);
+            // }
+
+
+        } catch (Exception e)
+        {
+            BPHAP.LogError("Exception caught while adding items to metainventory: " + e);
+        }
+    }
+
+
+
+}

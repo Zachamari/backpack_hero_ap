@@ -1,0 +1,92 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Backpackipelago</RootNamespace>
+    <!-- you may need this for getting the multiclient dll to output for .net 6 and netstandard 2.0 -->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>C:\Emulation\_Other_\ArchipelagoFiles\Dev\BPH\Backpack Hero AP\BPHAP\bin\$(AssemblyName)</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>none</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\$(AssemblyName)</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- <PackageReference Include="Archipelago.MultiClient.Net" Version="6.7.1" /> -->
+        <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
+        <PackageReference Include="System.Collections" Version="4.3.0" />
+        <PackageReference Include="System.Runtime" Version="4.3.1" />
+        <!-- <PackageReference Include="Archipelago.MultiClient.Net.Analyzers" Version="1.3.0"> -->
+          <!-- <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference> -->
+        <Reference Include="Assembly-CSharp">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="BundledApClient">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\UserLibs\BundledApClient.dll</HintPath>
+        </Reference>
+        <Reference Include="com.fluid.dialogue">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\com.fluid.dialogue.dll</HintPath>
+        </Reference>
+        <Reference Include="Harmony0">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\MelonLoader\net35\0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="MelonLoader">
+            <HintPath>"C:\Program Files\Epic Games\BackpackHerog4I7F\MelonLoader\net35\MelonLoader.dll"</HintPath>
+        </Reference>
+        <Reference Include="Unity.TextMeshPro">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.2D.Tilemap.Extras">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\Unity.2D.Tilemap.Extras.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\UnityEngine.UI.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AnimationModule">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.InputSystem">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\Unity.InputSystem.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+
+    <Target Name="CopyCustomContent" AfterTargets="AfterBuild">
+        <Copy
+                SourceFiles="C:\Emulation\_Other_\ArchipelagoFiles\Dev\BPH\Backpack Hero AP\BPHAP\bin\Backpackipelago\Backpackipelago.dll"
+                DestinationFolder="C:\Program Files\Epic Games\BackpackHerog4I7F\Mods"
+        />
+        <!-- <Copy
+                SourceFiles="bin/Debug/net472/KaitoKid.ArchipelagoUtilities.AssetDownloader.dll"
+                DestinationFolder="../../../UserLibs"
+        />
+        <Copy
+                SourceFiles="bin/Debug/net472/KaitoKid.Utilities.Interfaces.dll"
+                DestinationFolder="../../../UserLibs"
+        /> -->
+    </Target>
+
+</Project>
