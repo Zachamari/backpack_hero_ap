@@ -27,7 +27,7 @@ namespace Backpackipelago
             ArchipelagoClient.ServerData.Uri = "localhost:38281";
             ArchipelagoClient.ServerData.SlotName = "Player1";
             ArchipelagoClient.ServerData.Password = "";
-            // APClient.Connect();
+            APClient.Connect();
 
             HarmonyLib.Harmony.CreateAndPatchAll(typeof(LocationChecked));
             HarmonyLib.Harmony.CreateAndPatchAll(typeof(GameInstance));

@@ -19,7 +19,7 @@ namespace Backpackipelago.Archipelago;
 public class ArchipelagoClient
 {
     public const string APVersion = "0.6.7";
-    private const string Game = "We Love Katamari Reroll";
+    private const string Game = "Backpack Hero";
 
     public static bool Authenticated;
     private bool attemptingConnection;

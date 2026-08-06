@@ -1,4 +1,9 @@
 /APWorld/backpack_hero/__pycache__/*
 
+# For any concerned individuals, this "scripts" folder only contains a few scripts I "borrowed" from the SDV apworld to export my item & location data to json format. 
+# I'm not sure if I'm allowed to redistribute them, but it doesn't matter either way if I just don't redistribute them (at least, afaik), so it's just safer to not upload them to github.
+# (I probably don't need this disclaimer here honestly, but I'm paranoid about people thinking I'm covering up AI use, which is not the case. My AI disclaimer is accurate to the best of my knowledge.)
+/APWorld/backpack_hero/scripts/*
+ 
 /Mod/bin/*
 /Mod/obj/*

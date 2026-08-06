@@ -17,7 +17,7 @@ public static class LocationChecked
     public static HashSet<string> ResearchesComplete = [];
 
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.AddNewResearch)), HarmonyPrefix]
-    public static void SendResearchCheck(string name, ref string nameAndValues)
+    public static void AutoCollectResearch(string name, ref string nameAndValues)
     {
 
         // string data;
