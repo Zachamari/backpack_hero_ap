@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Archipelago.MultiClient.Net.Exceptions;
 using System.Net.WebSockets;
 using Backpackipelago;
+using Backpackipelago.Patches;
 
 namespace Backpackipelago.Archipelago;
 
@@ -219,6 +220,19 @@ public class ArchipelagoClient
 
     public static HashSet<int> checkedLocations = new HashSet<int>(); 
     
+    public void SendCheck(string locationName)
+    {
+        try {
+
+            BPHAP.Log("Sending check for location: " + locationName);
+            SendCheck(BPHAP.APIDs.LocationNameToID[locationName]);
+
+        } catch (Exception e)
+        {
+            BPHAP.LogError($"ERROR: Location with name '{locationName}' was unrecognized. Failed to send check.\n{e}");
+        }
+    }
+
 	public void SendCheck(int location) {
 
 
@@ -292,24 +306,64 @@ public class ArchipelagoClient
         int itemId = (int) receivedItem.ItemId;
         BPHAP.Log($"Received {receivedItem.ItemName} from {receivedItem.Player.Name}!");
 
-        if (itemId >= TRAP_ID_OFFSET) {
+        if (itemId >= GENERIC_FILLER_OFFSET) {
 
-            // traps go here
+            // generic filler getting added to inventory goes here
+
+            return;
 
         }
-        else
+        
 
-        if (itemId >= FILLER_ID_OFFSET) {
+        if (itemId >= ALTERNATE_COSTUMES_OFFSET) {
 
+            // Costume unlocks go here
 
-            // filler goes here
+            return;
         }
 
-        // etc
 
-        else {
-            BPHAP.Log($"Received item {receivedItem.ItemName} was not recognized. Contact the mod developer if you see this message! (ID = {itemId})");
+        if (itemId >= AREA_KEYS_OFFSET) {
+
+            // Metaprogress and character unlocks go here
+
+            return;
         }
+
+        
+        if (itemId >= BUILDING_OFFSET_TILE) {
+
+            ItemReceived.ReceiveNewPath(receivedItem.ItemName);
+            return;
+
+        }
+
+        if (itemId >= BUILDING_OFFSET_PROG) {
+
+            ItemReceived.ReceiveNewBuilding(receivedItem.ItemName);
+            return;
+            
+        }
+
+        if (itemId >= QUEST_OFFSET_PROGRESSIVE) {
+
+            string name = receivedItem.ItemName.Substring(19);
+            // TODO: Make a list of received mission names, and append a 1 or 2 depending on if mission has been received before
+            ItemReceived.ReceiveNewMission(name + " 1");
+            return;
+            
+        }
+
+        if (itemId >= ITEM_OFFSET) { // no reason to have this comparison here other than for consistency. but i like consistency
+;
+            ItemReceived.ReceiveNewItem(receivedItem.ItemName);
+            return;
+            
+        }
+
+        
+
+        BPHAP.Log($"Received item {receivedItem.ItemName} was not recognized. Contact the mod developer if you see this message! (ID = {itemId})");
     }
 
     /// <summary>
@@ -335,6 +389,18 @@ public class ArchipelagoClient
 
 
     // todo: fill these numbers
-    public const int TRAP_ID_OFFSET = 100;
-    public const int FILLER_ID_OFFSET = 200;  
+
+    public const int ITEM_OFFSET = 0;
+    public const int QUEST_OFFSET = 1000;
+    public const int QUEST_OFFSET_PROGRESSIVE = 1500;
+    public const int BUILDING_OFFSET_PROG = 2000;
+    public const int BUILDING_OFFSET_USEFUL = 2100;
+    public const int BUILDING_OFFSET_DECOR = 2200;
+    public const int BUILDING_OFFSET_TILE = 2300;
+    public const int AREA_KEYS_OFFSET = 2500;
+    public const int CHARACTERS_OFFSET = 2550;
+    public const int OTHER_PROGRESSION_OFFSET = 2600;
+    public const int ALTERNATE_COSTUMES_OFFSET = 2800;
+    public const int GENERIC_FILLER_OFFSET = 3000;
+
 }

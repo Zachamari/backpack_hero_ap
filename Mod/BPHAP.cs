@@ -18,6 +18,8 @@ namespace Backpackipelago
 
         public static ArchipelagoClient APClient;
 
+        public static APWorldIDs APIDs = new APWorldIDs();
+
         public override void OnInitializeMelon()
         {
 

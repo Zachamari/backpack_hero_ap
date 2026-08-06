@@ -2,1119 +2,1304 @@
     "items": [
     {
         "item_name": "Plate Armor",
-        "item__id": "1 + ITEM_OFFSET", 
+        "item_id": 1,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Clothing", "Armor", "Rare Items"]
     },
     {
         "item_name": "Ninja Costume",
-        "item__id": "2 + ITEM_OFFSET", 
+        "item_id": 2,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Clothing", "Armor", "Legendary Items"]
     },
     {
         "item_name": "Hercule Pavise",
-        "item__id": "3 + ITEM_OFFSET", 
+        "item_id": 3,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Shields", "Legendary Items"]
     },
     {
         "item_name": "Wild Buckler",
-        "item__id": "4 + ITEM_OFFSET", 
+        "item_id": 4,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Shields", "Uncommon Items"]
     },
     {
         "item_name": "Tattered Collar",
-        "item__id": "5 + ITEM_OFFSET", 
+        "item_id": 5,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Legendary Items"]
     },
     {
         "item_name": "Swamp Buckler",
-        "item__id": "6 + ITEM_OFFSET", 
+        "item_id": 6,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Shields", "Rare Items"]
     },
     {
         "item_name": "Steel Boots",
-        "item__id": "7 + ITEM_OFFSET", 
+        "item_id": 7,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Armor", "Footwear", "Legendary Items"]
     },
     {
         "item_name": "Slats Shield",
-        "item__id": "8 + ITEM_OFFSET", 
+        "item_id": 8,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Shields", "Common Items"]
     },
     {
         "item_name": "Right Gauntlet",
-        "item__id": "9 + ITEM_OFFSET", 
+        "item_id": 9,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Gloves", "Armor", "Rare Items"]
     },
     {
         "item_name": "Left Gauntlet",
-        "item__id": "10 + ITEM_OFFSET", 
+        "item_id": 10,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Gloves", "Armor", "Rare Items"]
     },
     {
         "item_name": "Mirror Shield",
-        "item__id": "11 + ITEM_OFFSET", 
+        "item_id": 11,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Shields", "Legendary Items"]
     },
     {
         "item_name": "Li'l Buckler",
-        "item__id": "12 + ITEM_OFFSET", 
+        "item_id": 12,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Shields", "Uncommon Items"]
     },
     {
         "item_name": "Knight's Shield",
-        "item__id": "13 + ITEM_OFFSET", 
+        "item_id": 13,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Shields", "Common Items"]
     },
     {
         "item_name": "Knight's Armor",
-        "item__id": "14 + ITEM_OFFSET", 
+        "item_id": 14,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Armor", "Clothing", "Uncommon Items"]
     },
     {
         "item_name": "King's Shield",
-        "item__id": "15 + ITEM_OFFSET", 
+        "item_id": 15,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Shields", "Legendary Items"]
     },
     {
         "item_name": "Iron Helmet",
-        "item__id": "16 + ITEM_OFFSET", 
+        "item_id": 16,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Armor", "Helmets", "Uncommon Items"]
     },
     {
         "item_name": "Greaves",
-        "item__id": "17 + ITEM_OFFSET", 
+        "item_id": 17,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Armor", "Footwear", "Legendary Items"]
     },
     {
         "item_name": "Glove of Knives",
-        "item__id": "18 + ITEM_OFFSET", 
+        "item_id": 18,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Gloves", "Armor", "Melee", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Feather Cap",
-        "item__id": "19 + ITEM_OFFSET", 
+        "item_id": 19,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Helmets", "Armor", "Legendary Items"]
     },
     {
         "item_name": "Chainmail",
-        "item__id": "20 + ITEM_OFFSET", 
+        "item_id": 20,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Armor", "Clothing", "Uncommon Items"]
     },
     {
         "item_name": "Brass Knuckles",
-        "item__id": "21 + ITEM_OFFSET", 
+        "item_id": 21,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Rare Items"]
     },
     {
         "item_name": "Boo-Hoo Buckler",
-        "item__id": "22 + ITEM_OFFSET", 
+        "item_id": 22,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Shields", "Uncommon Items"]
     },
     {
         "item_name": "Amethyst Buckler",
-        "item__id": "23 + ITEM_OFFSET", 
+        "item_id": 23,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Shields", "Gems", "Rare Items"]
     },
     {
         "item_name": "Tower Shield",
-        "item__id": "24 + ITEM_OFFSET", 
+        "item_id": 24,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Shields", "Rare Items"]
     },
     {
         "item_name": "Aged Shield",
-        "item__id": "25 + ITEM_OFFSET", 
+        "item_id": 25,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Shields", "Common Items"]
     },
     {
         "item_name": "Speedy Leaf",
-        "item__id": "26 + ITEM_OFFSET", 
+        "item_id": 26,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Uncommon Items"]
     },
     {
         "item_name": "Rare Herb",
-        "item__id": "27 + ITEM_OFFSET", 
+        "item_id": 27,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Rare Items"]
     },
     {
         "item_name": "Magical Herb",
-        "item__id": "28 + ITEM_OFFSET", 
+        "item_id": 28,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Magic Items", "Common Items"]
     },
     {
         "item_name": "Yellow Rose",
-        "item__id": "29 + ITEM_OFFSET", 
+        "item_id": 29,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Plants", "Accessories", "Rare Items"]
     },
     {
         "item_name": "Tea",
-        "item__id": "30 + ITEM_OFFSET", 
+        "item_id": 30,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Uncommon Items"]
     },
     {
         "item_name": "Steak",
-        "item__id": "31 + ITEM_OFFSET", 
+        "item_id": 31,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Rare Items"]
     },
     {
         "item_name": "Star Potion",
-        "item__id": "32 + ITEM_OFFSET", 
+        "item_id": 32,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Potions", "Consumables", "Uncommon Items"]
     },
     {
         "item_name": "Spoiled Milk",
-        "item__id": "33 + ITEM_OFFSET", 
+        "item_id": 33,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Potions", "Consumables", "Common Items"]
     },
     {
         "item_name": "Poultice",
-        "item__id": "34 + ITEM_OFFSET", 
+        "item_id": 34,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Common Items"]
     },
     {
         "item_name": "Liquid Luck",
-        "item__id": "35 + ITEM_OFFSET", 
+        "item_id": 35,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Uncommon Items"]
     },
     {
         "item_name": "Glitched Potion",
-        "item__id": "36 + ITEM_OFFSET", 
+        "item_id": 36,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Potions", "Rare Items"]
     },
     {
         "item_name": "Fish Sword",
-        "item__id": "37 + ITEM_OFFSET", 
+        "item_id": 37,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Fish", "Melee", "Weapons", "Legendary Items"]
     },
     {
         "item_name": "Double Poison Potion",
-        "item__id": "38 + ITEM_OFFSET", 
+        "item_id": 38,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Potions", "Common Items"]
     },
     {
         "item_name": "Dodge Potion",
-        "item__id": "39 + ITEM_OFFSET", 
+        "item_id": 39,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Potions", "Uncommon Items"]
     },
     {
         "item_name": "Cool Drink",
-        "item__id": "40 + ITEM_OFFSET", 
+        "item_id": 40,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Common Items"]
     },
     {
         "item_name": "Cleansing Potion",
-        "item__id": "41 + ITEM_OFFSET", 
+        "item_id": 41,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Potions", "Common Items"]
     },
     {
         "item_name": "Cleansing Bomb",
-        "item__id": "42 + ITEM_OFFSET", 
+        "item_id": 42,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Potions", "Common Items"]
     },
     {
         "item_name": "Cave Shark",
-        "item__id": "43 + ITEM_OFFSET", 
+        "item_id": 43,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Fish", "Rare Items"]
     },
     {
         "item_name": "Cave Fish",
-        "item__id": "44 + ITEM_OFFSET", 
+        "item_id": 44,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Fish", "Common Items"]
     },
     {
         "item_name": "Bluefin",
-        "item__id": "45 + ITEM_OFFSET", 
+        "item_id": 45,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Fish", "Common Items"]
     },
     {
         "item_name": "Blue Rose",
-        "item__id": "46 + ITEM_OFFSET", 
+        "item_id": 46,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Magic Items", "Plants", "Accessories", "Uncommon Items"]
     },
     {
         "item_name": "Flowers",
-        "item__id": "47 + ITEM_OFFSET", 
+        "item_id": 47,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Plants", "Common Items"]
     },
     {
         "item_name": "Angler Fish",
-        "item__id": "48 + ITEM_OFFSET", 
+        "item_id": 48,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Consumables", "Fish", "Rare Items"]
 
     },
     {
         "item_name": "Ace Cleaver",
-        "item__id": "49 + ITEM_OFFSET", 
+        "item_id": 49,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Cleavers", "Melee", "Weapons", "Legendary Items"]
     },
     {
         "item_name": "Golden Star",
-        "item__id": "50 + ITEM_OFFSET", 
+        "item_id": 50,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Shurikens", "Weapons", "Rare Items"]
     },
     {
         "item_name": "Row Chain Star",
-        "item__id": "51 + ITEM_OFFSET", 
+        "item_id": 51,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Shurikens", "Weapons", "Rare Items"]
     },
     {
         "item_name": "Alpha Star",
-        "item__id": "52 + ITEM_OFFSET", 
+        "item_id": 52,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Shurikens", "Weapons", "Legendary Items"]
     },
     {
         "item_name": "Crow Hammer",
-        "item__id": "53 + ITEM_OFFSET", 
+        "item_id": 53,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Hammers", "Melee", "Weapons", "Rare Items"]
     },
     {
         "item_name": "Wooden Knife",
-        "item__id": "54 + ITEM_OFFSET", 
+        "item_id": 54,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Common Items"]
     },
     {
         "item_name": "Vorpal Blade",
-        "item__id": "55 + ITEM_OFFSET", 
+        "item_id": 55,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Legendary Items"]
     },
     {
         "item_name": "Venom Sword",
-        "item__id": "56 + ITEM_OFFSET", 
+        "item_id": 56,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Legendary Items"]
     },
     {
         "item_name": "Spiky Club",
-        "item__id": "57 + ITEM_OFFSET", 
+        "item_id": 57,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Smoke Dagger",
-        "item__id": "58 + ITEM_OFFSET", 
+        "item_id": 58,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Rare Items"]
     },
     {
         "item_name": "Rapier",
-        "item__id": "59 + ITEM_OFFSET", 
+        "item_id": 59,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Legendary Items"]
     },
     {
         "item_name": "Mace",
-        "item__id": "60 + ITEM_OFFSET", 
+        "item_id": 60,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Rare Items"]
     },
     {
         "item_name": "Lucky Shiv",
-        "item__id": "61 + ITEM_OFFSET", 
+        "item_id": 61,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Rare Items"]
     },
     {
         "item_name": "Lizard King Sword",
-        "item__id": "62 + ITEM_OFFSET", 
+        "item_id": 62,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Legendary Items"]
     },
     {
         "item_name": "Stacking Star",
-        "item__id": "63 + ITEM_OFFSET", 
+        "item_id": 63,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Shurikens", "Weapons", "Common Items"]
     },
     {
         "item_name": "Wooden Blade",
-        "item__id": "64 + ITEM_OFFSET", 
+        "item_id": 64,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Common Items"]
     },
     {
         "item_name": "Assassin's Dagger",
-        "item__id": "65 + ITEM_OFFSET", 
+        "item_id": 65,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Legendary Items"]
     },
     {
         "item_name": "Golden Shiv",
-        "item__id": "66 + ITEM_OFFSET", 
+        "item_id": 66,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Rare Items"]
     },
     {
         "item_name": "Flame Hammer",
-        "item__id": "67 + ITEM_OFFSET", 
+        "item_id": 67,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Hammers", "Melee", "Weapons", "Rare Items"]
     },
     {
         "item_name": "Dueling Sword",
-        "item__id": "68 + ITEM_OFFSET", 
+        "item_id": 68,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Rare Items"]
     },
     {
         "item_name": "Doru",
-        "item__id": "69 + ITEM_OFFSET", 
+        "item_id": 69,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Legendary Items"]
     },
     {
         "item_name": "Dagger",
-        "item__id": "70 + ITEM_OFFSET", 
+        "item_id": 70,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Common Items"]
     },
     {
         "item_name": "Copy Star",
-        "item__id": "71 + ITEM_OFFSET", 
+        "item_id": 71,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Shurikens", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Column Chain Star",
-        "item__id": "72 + ITEM_OFFSET", 
+        "item_id": 72,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Shurikens", "Weapons", "Rare Items"]
     },
     {
         "item_name": "Claw Hammer",
-        "item__id": "73 + ITEM_OFFSET", 
+        "item_id": 73,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Hammers", "Melee", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Chipped Sword",
-        "item__id": "74 + ITEM_OFFSET", 
+        "item_id": 74,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Brutal Spear",
-        "item__id": "75 + ITEM_OFFSET", 
+        "item_id": 75,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Queen Cleaver",
-        "item__id": "76 + ITEM_OFFSET", 
+        "item_id": 76,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Cleavers", "Melee", "Weapons", "Rare Items"]
     },
     {
         "item_name": "King Cleaver",
-        "item__id": "77 + ITEM_OFFSET", 
+        "item_id": 77,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Cleavers", "Melee", "Weapons", "Rare Items"]
     },
     {
         "item_name": "Hatchet",
-        "item__id": "78 + ITEM_OFFSET", 
+        "item_id": 78,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Common Items"]
     },
     {
         "item_name": "Grapple",
-        "item__id": "79 + ITEM_OFFSET", 
+        "item_id": 79,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Uncommon Items"]
 
     },
     {
         "item_name": "Archer's Wand",
-        "item__id": "80 + ITEM_OFFSET", 
+        "item_id": 80,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Wands", "Magic Items", "Rare Items"]
     },
     {
         "item_name": "Bowblade",
-        "item__id": "81 + ITEM_OFFSET", 
+        "item_id": 81,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Bows", "Common Items"]
     },
     {
         "item_name": "Brick Arrow",
-        "item__id": "82 + ITEM_OFFSET", 
+        "item_id": 82,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Structures", "Arrows", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Electric Arrow",
-        "item__id": "83 + ITEM_OFFSET", 
+        "item_id": 83,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Arrows", "Weapons", "Rare Items"]
     },
     {
         "item_name": "Expert Arrow",
-        "item__id": "84 + ITEM_OFFSET", 
+        "item_id": 84,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Bows", "Legendary Items"]
     },
     {
         "item_name": "Fire Arrow",
-        "item__id": "85 + ITEM_OFFSET", 
+        "item_id": 85,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Arrows", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Golden Arrow",
-        "item__id": "86 + ITEM_OFFSET", 
+        "item_id": 86,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Bows", "Rare Items"]
     },
     {
         "item_name": "Manastone Bow",
-        "item__id": "87 + ITEM_OFFSET", 
+        "item_id": 87,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Manastones", "Bows", "Uncommon Items"]
     },
     {
         "item_name": "Mouse Bow",
-        "item__id": "88 + ITEM_OFFSET", 
+        "item_id": 88,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Bows", "Uncommon Items"]
     },
     {
         "item_name": "Poison Arrow",
-        "item__id": "89 + ITEM_OFFSET", 
+        "item_id": 89,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Arrows", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Explosive Arrow",
-        "item__id": "90 + ITEM_OFFSET", 
+        "item_id": 90,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Arrows", "Weapons", "Rare Items"]
 
     },
     {
         "item_name": "Charging Manastone",
-        "item__id": "91 + ITEM_OFFSET", 
+        "item_id": 91,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Manastones", "Rare Items"]
     },
     {
         "item_name": "Fire Staff",
-        "item__id": "92 + ITEM_OFFSET", 
+        "item_id": 92,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Magic Items", "Wands", "Legendary Items"]
     },
     {
         "item_name": "Bird Chant",
-        "item__id": "93 + ITEM_OFFSET", 
+        "item_id": 93,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Magic Items", "Uncommon Items"]
     },
     {
         "item_name": "Blade Summoner",
-        "item__id": "94 + ITEM_OFFSET", 
+        "item_id": 94,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Magic Items", "Wands", "Legendary Items"]
     },
     {
         "item_name": "Dark Wand",
-        "item__id": "95 + ITEM_OFFSET", 
+        "item_id": 95,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Magic Items", "Wands", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Ethereal Staff",
-        "item__id": "96 + ITEM_OFFSET", 
+        "item_id": 96,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Magic Items", "Wands", "Legendary Items"]
     },
     {
         "item_name": "Energy Wand",
-        "item__id": "97 + ITEM_OFFSET", 
+        "item_id": 97,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Magic Items", "Wands", "Legendary Items"]
     },
     {
         "item_name": "Fire Wand",
-        "item__id": "98 + ITEM_OFFSET", 
+        "item_id": 98,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Magic Items", "Wands", "Weapons", "Legendary Items"]
     },
     {
         "item_name": "Metallic Wand",
-        "item__id": "99 + ITEM_OFFSET", 
+        "item_id": 99,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Magic Items", "Wands", "Weapons", "Legendary Items"]
     },
     {
         "item_name": "Necronomicon",
-        "item__id": "100 + ITEM_OFFSET", 
+        "item_id": 100,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Magic Items", "Books", "Accessories", "Legendary Items"]
     },
     {
         "item_name": "Skull Wand",
-        "item__id": "101 + ITEM_OFFSET", 
+        "item_id": 101,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Magic Items", "Wands", "Rare Items"]
     },
     {
         "item_name": "Warrior's Spellbook",
-        "item__id": "102 + ITEM_OFFSET", 
+        "item_id": 102,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Magic Items", "Books", "Accessories", "Legendary Items"]
     },
     {
         "item_name": "Wizard Staff",
-        "item__id": "103 + ITEM_OFFSET", 
+        "item_id": 103,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Magic Items", "Wands", "Melee", "Weapons", "Uncommon Items"]
 
     },
     {
         "item_name": "Velvet Bag",
-        "item__id": "104 + ITEM_OFFSET", 
+        "item_id": 104,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Legendary Items"]
     },
     {
         "item_name": "Ninja Bag",
-        "item__id": "105 + ITEM_OFFSET", 
+        "item_id": 105,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Uncommon Items"]
     },
     {
         "item_name": "Ruby",
-        "item__id": "106 + ITEM_OFFSET", 
+        "item_id": 106,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Gems", "Legendary Items"]
     },
     {
         "item_name": "Ring of Rage",
-        "item__id": "107 + ITEM_OFFSET", 
+        "item_id": 107,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Accessories", "Magic Items", "Rings", "Rare Items"]
     },
     {
         "item_name": "Ring of Doom",
-        "item__id": "108 + ITEM_OFFSET", 
+        "item_id": 108,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Magic Items", "Rings", "Legendary Items"]
     },
     {
         "item_name": "Red Pearl",
-        "item__id": "109 + ITEM_OFFSET", 
+        "item_id": 109,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Gems", "Legendary Items"]
     },
     {
         "item_name": "Magic Star Bag",
-        "item__id": "110 + ITEM_OFFSET", 
+        "item_id": 110,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Accessories", "Uncommon Items"]
     },
     {
         "item_name": "Large Heart Ring",
-        "item__id": "111 + ITEM_OFFSET", 
+        "item_id": 111,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Rings", "Rare Items"]
     },
     {
         "item_name": "Emerald",
-        "item__id": "112 + ITEM_OFFSET", 
+        "item_id": 112,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Gems", "Rare Items"]
     },
     {
         "item_name": "Electric Stone",
-        "item__id": "113 + ITEM_OFFSET", 
+        "item_id": 113,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Accessories", "Gems", "Uncommon Items"]
     },
     {
         "item_name": "Diamond",
-        "item__id": "114 + ITEM_OFFSET", 
+        "item_id": 114,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Gems", "Rare Items"]
     },
     {
         "item_name": "Crab Cactus",
-        "item__id": "115 + ITEM_OFFSET", 
+        "item_id": 115,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Legendary Items"]
     },
     {
         "item_name": "Berserker's Ring",
-        "item__id": "116 + ITEM_OFFSET", 
+        "item_id": 116,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Rings", "Legendary Items"]
     },
     {
         "item_name": "Bag of Shurikens",
-        "item__id": "117 + ITEM_OFFSET", 
+        "item_id": 117,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Accessories", "Uncommon Items"]
     },
     {
         "item_name": "Shuriken Forge",
-        "item__id": "118 + ITEM_OFFSET", 
+        "item_id": 118,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Accessories", "Rare Items"]
     },
     {
         "item_name": "Amethyst",
-        "item__id": "119 + ITEM_OFFSET", 
+        "item_id": 119,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Accessories", "Gems", "Rare Items"]
 
     },
     {
         "item_name": "Cleansing Flame",
-        "item__id": "120 + ITEM_OFFSET", 
+        "item_id": 120,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Relics"]
     },
     {
         "item_name": "Fluffy Cotton",
-        "item__id": "121 + ITEM_OFFSET", 
+        "item_id": 121,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Relics"]
     },
     {
         "item_name": "Ice Cream",
-        "item__id": "122 + ITEM_OFFSET", 
+        "item_id": 122,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Relics"]
     },
     {
         "item_name": "Reverse Hourglass",
-        "item__id": "123 + ITEM_OFFSET", 
+        "item_id": 123,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Relics"]
     },
     {
         "item_name": "Spicy Ginger",
-        "item__id": "124 + ITEM_OFFSET", 
+        "item_id": 124,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Relics"]
     },
     {
         "item_name": "Tusk",
-        "item__id": "125 + ITEM_OFFSET", 
+        "item_id": 125,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Relics"]
 
     },
     {
         "item_name": "Spectral Orb",
-        "item__id": "126 + ITEM_OFFSET", 
+        "item_id": 126,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Legendary Items"]
     },
     {
         "item_name": "Ghost Gem",
-        "item__id": "127 + ITEM_OFFSET", 
+        "item_id": 127,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Gems", "Rare Items"]
     },
     {
         "item_name": "Ghost Glove",
-        "item__id": "128 + ITEM_OFFSET", 
+        "item_id": 128,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Gloves", "Uncommon Items"]
     },
     {
         "item_name": "Minute Hand",
-        "item__id": "129 + ITEM_OFFSET", 
+        "item_id": 129,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Common Items"]
     },
     {
         "item_name": "Hour Hand",
-        "item__id": "130 + ITEM_OFFSET", 
+        "item_id": 130,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Uncommon Items"]
     },
     {
         "item_name": "Golden Whetstone",
-        "item__id": "131 + ITEM_OFFSET", 
+        "item_id": 131,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Legendary Items"]
     },
     {
         "item_name": "Verdant Energy",
-        "item__id": "132 + ITEM_OFFSET", 
+        "item_id": 132,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Legendary Items"]
     },
     {
         "item_name": "Crimson Energy",
-        "item__id": "133 + ITEM_OFFSET", 
+        "item_id": 133,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Legendary Items"]
     },
     {
         "item_name": "Unstable Manastone",
-        "item__id": "134 + ITEM_OFFSET", 
+        "item_id": 134,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Manastones", "Consumables", "Uncommon Items"]
     },
     {
         "item_name": "Pacifist's Ring",
-        "item__id": "135 + ITEM_OFFSET", 
+        "item_id": 135,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Rings", "Legendary Items"]
     },
     {
         "item_name": "Monad's Mjolnir",
-        "item__id": "136 + ITEM_OFFSET", 
+        "item_id": 136,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Hammers", "Melee", "Weapons", "Legendary Items"]
     },
     {
         "item_name": "Pouch",
-        "item__id": "150 + ITEM_OFFSET", 
+        "item_id": 150,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Accessories", "Uncommon Items"]
     },
     {
         "item_name": "Fishing Hook",
-        "item__id": "151 + ITEM_OFFSET", 
+        "item_id": 151,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Jack Cleaver",
-        "item__id": "152 + ITEM_OFFSET", 
+        "item_id": 152,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Dungeon Items", "Cleavers", "Melee", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Berserker's Club",
-        "item__id": "153 + ITEM_OFFSET", 
+        "item_id": 153,
+        "item_id_offset": "ITEM_OFFSET", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Dungeon Items", "Melee", "Weapons", "Uncommon Items"]
     },
     {
         "item_name": "Quest: Red Tusk",
-        "item__id": "1 + QUEST_OFFSET", 
+        "item_id": 1,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Ice Cream (Purse)",
-        "item__id": "2 + QUEST_OFFSET", 
+        "item_id": 2,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Ice Cream (Satchel)",
-        "item__id": "3 + QUEST_OFFSET", 
+        "item_id": 3,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Satchel Quests"]
     },
     {
         "item_name": "Quest: Red Root",
-        "item__id": "4 + QUEST_OFFSET", 
+        "item_id": 4,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Red Flame",
-        "item__id": "5 + QUEST_OFFSET", 
+        "item_id": 5,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Red Cotton",
-        "item__id": "6 + QUEST_OFFSET", 
+        "item_id": 6,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Pacifist",
-        "item__id": "7 + QUEST_OFFSET", 
+        "item_id": 7,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Satchel Quests"]
     },
     {
         "item_name": "Quest: Micro Build",
-        "item__id": "8 + QUEST_OFFSET", 
+        "item_id": 8,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "CR-8 Quests"]
     },
     {
         "item_name": "Quest: Magnetized",
-        "item__id": "9 + QUEST_OFFSET", 
+        "item_id": 9,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "CR-8 Quests"]
     },
     {
         "item_name": "Quest: Fragile Tribe",
-        "item__id": "10 + QUEST_OFFSET", 
+        "item_id": 10,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Pochette Quests"]
     },
     {
         "item_name": "Quest: Effigies",
-        "item__id": "11 + QUEST_OFFSET", 
+        "item_id": 11,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Pochette Quests"]
     },
     {
         "item_name": "Quest: Easy Mode (Satchel)",
-        "item__id": "12 + QUEST_OFFSET", 
+        "item_id": 12,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Satchel Quests", "Easy Mode"]
     },
     {
         "item_name": "Quest: Easy Mode (Tote)",
-        "item__id": "13 + QUEST_OFFSET", 
+        "item_id": 13,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Tote Quests", "Easy Mode"]
     },
     {
         "item_name": "Quest: Easy Mode (Pochette)",
-        "item__id": "14 + QUEST_OFFSET", 
+        "item_id": 14,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Pochette Quests", "Easy Mode"]
     },
     {
         "item_name": "Quest: Easy Mode (CR-8)",
-        "item__id": "15 + QUEST_OFFSET", 
+        "item_id": 15,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "CR-8 Quests", "Easy Mode"]
     },
     {
         "item_name": "Quest: Duo Core",
-        "item__id": "16 + QUEST_OFFSET", 
+        "item_id": 16,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "CR-8 Quests"]
     },
     {
         "item_name": "Quest: Quad Core",
-        "item__id": "17 + QUEST_OFFSET", 
+        "item_id": 17,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "CR-8 Quests"]
     },
     {
         "item_name": "Quest: Spinning Core",
-        "item__id": "18 + QUEST_OFFSET", 
+        "item_id": 18,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "CR-8 Quests"]
     },
     {
         "item_name": "Quest: This One's On Me",
-        "item__id": "19 + QUEST_OFFSET", 
+        "item_id": 19,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Treats Only",
-        "item__id": "20 + QUEST_OFFSET", 
+        "item_id": 20,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Pochette Quests"]
     },
     {
         "item_name": "Quest: Warrior Bird",
-        "item__id": "21 + QUEST_OFFSET", 
+        "item_id": 21,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Satchel Quests"]
     },
     {
         "item_name": "Quest: Builder Bird",
-        "item__id": "22 + QUEST_OFFSET", 
+        "item_id": 22,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Satchel Quests"]
     },
     {
         "item_name": "Quest: Reaper",
-        "item__id": "23 + QUEST_OFFSET", 
+        "item_id": 23,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Pochette Quests"]
     },
     {
         "item_name": "Quest: Archery Mastery",
-        "item__id": "24 + QUEST_OFFSET", 
+        "item_id": 24,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Magic Archery",
-        "item__id": "25 + QUEST_OFFSET", 
+        "item_id": 25,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Tote Quests"]
     },
     {
         "item_name": "Quest: Magic Expedition",
-        "item__id": "26 + QUEST_OFFSET", 
+        "item_id": 26,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Mushroom Friend",
-        "item__id": "27 + QUEST_OFFSET", 
+        "item_id": 27,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Tote Quests"]
     },
     {
         "item_name": "Quest: Sap Primer",
-        "item__id": "28 + QUEST_OFFSET", 
+        "item_id": 28,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Tote Quests"]
     },
     {
         "item_name": "Quest: Bumpy Ride",
-        "item__id": "29 + QUEST_OFFSET", 
+        "item_id": 29,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "CR-8 Quests"]
     },
     {
         "item_name": "Quest: Throw the Book at Them",
-        "item__id": "30 + QUEST_OFFSET", 
+        "item_id": 30,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Tote Quests"]
     },
     {
         "item_name": "Quest: Cramped",
-        "item__id": "31 + QUEST_OFFSET", 
+        "item_id": 31,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
 
     },
     {
         "item_name": "Quest: Protector",
-        "item__id": "32 + QUEST_OFFSET", 
+        "item_id": 32,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Wizard's School",
-        "item__id": "33 + QUEST_OFFSET", 
+        "item_id": 33,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Energy Delivery",
-        "item__id": "34 + QUEST_OFFSET", 
+        "item_id": 34,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Campaign Trail",
-        "item__id": "35 + QUEST_OFFSET", 
+        "item_id": 35,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Archery Lessons",
-        "item__id": "36 + QUEST_OFFSET", 
+        "item_id": 36,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Fishy Business",
-        "item__id": "37 + QUEST_OFFSET", 
+        "item_id": 37,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Ghostly!",
-        "item__id": "38 + QUEST_OFFSET", 
+        "item_id": 38,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Master of Whetstones",
-        "item__id": "39 + QUEST_OFFSET", 
+        "item_id": 39,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Quest: Everyone Comes Home",
-        "item__id": "40 + QUEST_OFFSET", 
+        "item_id": 40,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Pochette Quests"]
     },
     {
         "item_name": "Quest: Meditation",
-        "item__id": "41 + QUEST_OFFSET", 
+        "item_id": 41,
+        "item_id_offset": "QUEST_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
 
     },
     {
         "item_name": "Progressive Quest: Hourglass",
-        "item__id": "1 + QUEST_OFFSET_PROGRESSIVE", 
+        "item_id": 1,
+        "item_id_offset": "QUEST_OFFSET_PROGRESSIVE", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Progressive Quest: Scissors",
-        "item__id": "2 + QUEST_OFFSET_PROGRESSIVE", 
+        "item_id": 2,
+        "item_id_offset": "QUEST_OFFSET_PROGRESSIVE", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Satchel Quests"]
     },
     {
         "item_name": "Progressive Quest: Coral",
-        "item__id": "3 + QUEST_OFFSET_PROGRESSIVE", 
+        "item_id": 3,
+        "item_id_offset": "QUEST_OFFSET_PROGRESSIVE", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
     },
     {
         "item_name": "Progressive Quest: Windmill",
-        "item__id": "4 + QUEST_OFFSET_PROGRESSIVE", 
+        "item_id": 4,
+        "item_id_offset": "QUEST_OFFSET_PROGRESSIVE", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Quests", "Purse Quests"]
 
@@ -1122,302 +1307,352 @@
     },
     {
         "item_name": "Bounty Board",
-        "item__id": "1 + BUILDING_OFFSET_PROG", 
+        "item_id": 1,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Research Buildings"]
     },
     {
         "item_name": "Blacksmith",
-        "item__id": "2 + BUILDING_OFFSET_PROG", 
+        "item_id": 2,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Research Buildings"]
     },
     {
         "item_name": "Tavern",
-        "item__id": "3 + BUILDING_OFFSET_PROG", 
+        "item_id": 3,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Research Buildings"]
     },
     {
         "item_name": "Barracks",
-        "item__id": "4 + BUILDING_OFFSET_PROG", 
+        "item_id": 4,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Research Buildings", "Resource-Generating Buildings"]
     },
     {
         "item_name": "Carpenter",
-        "item__id": "5 + BUILDING_OFFSET_PROG", 
+        "item_id": 5,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Research Buildings"]
     },
     {
         "item_name": "Fletcher",
-        "item__id": "6 + BUILDING_OFFSET_PROG", 
+        "item_id": 6,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Research Buildings", "Resource-Generating Buildings"]
     },
     {
         "item_name": "Magical Mycelium",
-        "item__id": "7 + BUILDING_OFFSET_PROG", 
+        "item_id": 7,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Research Buildings", "Resource-Generating Buildings"]
     },
     {
         "item_name": "Jeweler",
-        "item__id": "8 + BUILDING_OFFSET_PROG", 
+        "item_id": 8,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Research Buildings"]
     },
     {
         "item_name": "Library",
-        "item__id": "9 + BUILDING_OFFSET_PROG", 
+        "item_id": 9,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Research Buildings"]
     },
     {
         "item_name": "Greenhouse",
-        "item__id": "10 + BUILDING_OFFSET_PROG", 
+        "item_id": 10,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Research Buildings"]
     },
     {
         "item_name": "Schoolhouse",
-        "item__id": "11 + BUILDING_OFFSET_PROG", 
+        "item_id": 11,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Research Buildings"]
     },
     {
         "item_name": "Town Hall",
-        "item__id": "12 + BUILDING_OFFSET_PROG", 
+        "item_id": 12,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Important Buildings"]
     },
     {
         "item_name": "House",
-        "item__id": "13 + BUILDING_OFFSET_PROG", 
+        "item_id": 13,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Important Buildings"]
     },
     {
         "item_name": "Farm",
-        "item__id": "14 + BUILDING_OFFSET_PROG", 
+        "item_id": 14,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Resource-Generating Buildings"] },
     {
         "item_name": "Beacon",
-        "item__id": "15 + BUILDING_OFFSET_PROG", 
+        "item_id": 15,
+        "item_id_offset": "BUILDING_OFFSET_PROG", 
         "item_class": "ItemClassification.progression",
         "item_groups": ["Buildings", "Important Buildings"]
 
     },
     {
         "item_name": "Quarry",
-        "item__id": "1 + BUILDING_OFFSET_USEFUL", 
+        "item_id": 1,
+        "item_id_offset": "BUILDING_OFFSET_USEFUL", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Buildings", "Resource-Generating Buildings"]
     },
     {
         "item_name": "Bank",
-        "item__id": "2 + BUILDING_OFFSET_USEFUL", 
+        "item_id": 2,
+        "item_id_offset": "BUILDING_OFFSET_USEFUL", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Buildings"]
     },
     {
         "item_name": "Sawmill",
-        "item__id": "3 + BUILDING_OFFSET_USEFUL", 
+        "item_id": 3,
+        "item_id_offset": "BUILDING_OFFSET_USEFUL", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Buildings", "Resource-Generating Buildings"]
     },
     {
         "item_name": "Fishing Shack",
-        "item__id": "4 + BUILDING_OFFSET_USEFUL", 
+        "item_id": 4,
+        "item_id_offset": "BUILDING_OFFSET_USEFUL", 
         "item_class": "ItemClassification.useful",
         "item_groups": ["Buildings", "Resource-Generating Buildings"]
 
     },
     {
         "item_name": "Weapon Rack",
-        "item__id": "1 + BUILDING_OFFSET_DECOR", 
+        "item_id": 1,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Signpost",
-        "item__id": "2 + BUILDING_OFFSET_DECOR", 
+        "item_id": 2,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Beehives",
-        "item__id": "3 + BUILDING_OFFSET_DECOR", 
+        "item_id": 3,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Washbin",
-        "item__id": "4 + BUILDING_OFFSET_DECOR", 
+        "item_id": 4,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Sconce",
-        "item__id": "5 + BUILDING_OFFSET_DECOR", 
+        "item_id": 5,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Mary Statue",
-        "item__id": "6 + BUILDING_OFFSET_DECOR", 
+        "item_id": 6,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Market Stand A",
-        "item__id": "7 + BUILDING_OFFSET_DECOR", 
+        "item_id": 7,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Kate Statue",
-        "item__id": "8 + BUILDING_OFFSET_DECOR", 
+        "item_id": 8,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Gravestone",
-        "item__id": "9 + BUILDING_OFFSET_DECOR", 
+        "item_id": 9,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Cart",
-        "item__id": "10 + BUILDING_OFFSET_DECOR", 
+        "item_id": 10,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Candelabra",
-        "item__id": "11 + BUILDING_OFFSET_DECOR", 
+        "item_id": 11,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Camp Stove",
-        "item__id": "12 + BUILDING_OFFSET_DECOR", 
+        "item_id": 12,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Barricade",
-        "item__id": "13 + BUILDING_OFFSET_DECOR", 
+        "item_id": 13,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Trough",
-        "item__id": "14 + BUILDING_OFFSET_DECOR", 
+        "item_id": 14,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Anna Statue",
-        "item__id": "15 + BUILDING_OFFSET_DECOR", 
+        "item_id": 15,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Target",
-        "item__id": "16 + BUILDING_OFFSET_DECOR", 
+        "item_id": 16,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Barrel",
-        "item__id": "17 + BUILDING_OFFSET_DECOR", 
+        "item_id": 17,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Blue Hyacinth",
-        "item__id": "18 + BUILDING_OFFSET_DECOR", 
+        "item_id": 18,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Boulder",
-        "item__id": "19 + BUILDING_OFFSET_DECOR", 
+        "item_id": 19,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Bush",
-        "item__id": "20 + BUILDING_OFFSET_DECOR", 
+        "item_id": 20,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Cosmo",
-        "item__id": "21 + BUILDING_OFFSET_DECOR", 
+        "item_id": 21,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Dianthus",
-        "item__id": "22 + BUILDING_OFFSET_DECOR", 
+        "item_id": 22,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Garden Bed",
-        "item__id": "23 + BUILDING_OFFSET_DECOR", 
+        "item_id": 23,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Pine Tree",
-        "item__id": "24 + BUILDING_OFFSET_DECOR", 
+        "item_id": 24,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Primrose",
-        "item__id": "25 + BUILDING_OFFSET_DECOR", 
+        "item_id": 25,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Purple Hyacinth",
-        "item__id": "26 + BUILDING_OFFSET_DECOR", 
+        "item_id": 26,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Rock",
-        "item__id": "27 + BUILDING_OFFSET_DECOR", 
+        "item_id": 27,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Yellow Hyacinth",
-        "item__id": "28 + BUILDING_OFFSET_DECOR", 
+        "item_id": 28,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Crate",
-        "item__id": "29 + BUILDING_OFFSET_DECOR", 
+        "item_id": 29,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Pot",
-        "item__id": "30 + BUILDING_OFFSET_DECOR", 
+        "item_id": 30,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
     },
     {
         "item_name": "Item Pedestal",
-        "item__id": "31 + BUILDING_OFFSET_DECOR", 
+        "item_id": 31,
+        "item_id_offset": "BUILDING_OFFSET_DECOR", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations"]
 
@@ -1425,19 +1660,22 @@
     },
     {
         "item_name": "Stone Path",
-        "item__id": "1 + BUILDING_OFFSET_TILE", 
+        "item_id": 1,
+        "item_id_offset": "BUILDING_OFFSET_TILE", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations", "Paths"]
     },
     {
         "item_name": "Farmland",
-        "item__id": "2 + BUILDING_OFFSET_TILE", 
+        "item_id": 2,
+        "item_id_offset": "BUILDING_OFFSET_TILE", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations", "Paths"]
     },
     {
         "item_name": "Brick Path",
-        "item__id": "3 + BUILDING_OFFSET_TILE", 
+        "item_id": 3,
+        "item_id_offset": "BUILDING_OFFSET_TILE", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Decorations", "Paths"]
 
@@ -1445,31 +1683,36 @@
     },
     {
         "item_name": "Key to the Bramble",
-        "item__id": "1 + AREA_KEYS_OFFSET", 
+        "item_id": 1,
+        "item_id_offset": "AREA_KEYS_OFFSET", 
         "item_class": "ItemClassification.progression | ItemClassification.useful",
         "item_groups": ["Dungeon Area Keys"]
     },
     {
         "item_name": "Key to the Deep Caves",
-        "item__id": "2 + AREA_KEYS_OFFSET", 
+        "item_id": 2,
+        "item_id_offset": "AREA_KEYS_OFFSET", 
         "item_class": "ItemClassification.progression | ItemClassification.useful",
         "item_groups": ["Dungeon Area Keys"]
     },
     {
         "item_name": "Key to the Enchanted Swamp",
-        "item__id": "3 + AREA_KEYS_OFFSET", 
+        "item_id": 3,
+        "item_id_offset": "AREA_KEYS_OFFSET", 
         "item_class": "ItemClassification.progression | ItemClassification.useful",
         "item_groups": ["Dungeon Area Keys"]
     },
     {
         "item_name": "Key to the Magma Core",
-        "item__id": "4 + AREA_KEYS_OFFSET", 
+        "item_id": 4,
+        "item_id_offset": "AREA_KEYS_OFFSET", 
         "item_class": "ItemClassification.progression | ItemClassification.useful",
         "item_groups": ["Dungeon Area Keys"]
     },
     {
         "item_name": "Key to the Frozen Heart",
-        "item__id": "5 + AREA_KEYS_OFFSET", 
+        "item_id": 5,
+        "item_id_offset": "AREA_KEYS_OFFSET", 
         "item_class": "ItemClassification.progression | ItemClassification.useful",
         "item_groups": ["Dungeon Area Keys"]
 
@@ -1477,31 +1720,36 @@
     },
     {
         "item_name": "Satchel",
-        "item__id": "1 + CHARACTERS_OFFSET", 
+        "item_id": 1,
+        "item_id_offset": "CHARACTERS_OFFSET", 
         "item_class": "ItemClassification.progression | ItemClassification.useful",
         "item_groups": ["Playable Characters"]
     },
     {
         "item_name": "Tote",
-        "item__id": "2 + CHARACTERS_OFFSET", 
+        "item_id": 2,
+        "item_id_offset": "CHARACTERS_OFFSET", 
         "item_class": "ItemClassification.progression | ItemClassification.useful",
         "item_groups": ["Playable Characters"]
     },
     {
         "item_name": "Pochette",
-        "item__id": "3 + CHARACTERS_OFFSET", 
+        "item_id": 3,
+        "item_id_offset": "CHARACTERS_OFFSET", 
         "item_class": "ItemClassification.progression | ItemClassification.useful",
         "item_groups": ["Playable Characters"]
     },
     {
         "item_name": "CR-8",
-        "item__id": "4 + CHARACTERS_OFFSET", 
+        "item_id": 4,
+        "item_id_offset": "CHARACTERS_OFFSET", 
         "item_class": "ItemClassification.progression | ItemClassification.useful",
         "item_groups": ["Playable Characters"]
     },
     {
         "item_name": "Purse",
-        "item__id": "5 + CHARACTERS_OFFSET", 
+        "item_id": 5,
+        "item_id_offset": "CHARACTERS_OFFSET", 
         "item_class": "ItemClassification.progression | ItemClassification.useful",
         "item_groups": ["Playable Characters"]
 
@@ -1509,109 +1757,127 @@
     },
     {
         "item_name": "Tote's Totem",
-        "item__id": "1 + OTHER_PROGRESSION_OFFSET", 
+        "item_id": 1,
+        "item_id_offset": "OTHER_PROGRESSION_OFFSET", 
         "item_class": "ItemClassification.progression_deprioritized",
         "item_groups": ["Other Progression Items"]
     },
     {
         "item_name": "Blue Costume (Purse)",
-        "item__id": "1 + ALTERNATE_COSTUMES_OFFSET", 
+        "item_id": 1,
+        "item_id_offset": "ALTERNATE_COSTUMES_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Alternate Costumes"]
     },
     {
         "item_name": "Rogue Costume (Purse)",
-        "item__id": "2 + ALTERNATE_COSTUMES_OFFSET", 
+        "item_id": 2,
+        "item_id_offset": "ALTERNATE_COSTUMES_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Alternate Costumes"]
     },
     {
         "item_name": "Feral Costume (Purse)",
-        "item__id": "3 + ALTERNATE_COSTUMES_OFFSET", 
+        "item_id": 3,
+        "item_id_offset": "ALTERNATE_COSTUMES_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Alternate Costumes"]
     },
     {
         "item_name": "Elder Costume (Purse)",
-        "item__id": "4 + ALTERNATE_COSTUMES_OFFSET", 
+        "item_id": 4,
+        "item_id_offset": "ALTERNATE_COSTUMES_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Alternate Costumes"]
     },
     {
         "item_name": "Cornucopia",
-        "item__id": "1 + GENERIC_FILLER_OFFSET", 
+        "item_id": 1,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     },
     {
         "item_name": "Golden Cheese",
-        "item__id": "2 + GENERIC_FILLER_OFFSET", 
+        "item_id": 2,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     },
     {
         "item_name": "Golden Feather",
-        "item__id": "3 + GENERIC_FILLER_OFFSET", 
+        "item_id": 3,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     },
     {
         "item_name": "Golden Gear",
-        "item__id": "4 + GENERIC_FILLER_OFFSET", 
+        "item_id": 4,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     },
     {
         "item_name": "Golden Seed",
-        "item__id": "5 + GENERIC_FILLER_OFFSET", 
+        "item_id": 5,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     },
     {
         "item_name": "Golden Shell",
-        "item__id": "6 + GENERIC_FILLER_OFFSET", 
+        "item_id": 6,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     },
     {
         "item_name": "Huge Bag of Coins",
-        "item__id": "7 + GENERIC_FILLER_OFFSET", 
+        "item_id": 7,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     },
     {
         "item_name": "Old Coins",
-        "item__id": "8 + GENERIC_FILLER_OFFSET", 
+        "item_id": 8,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     },
     {
         "item_name": "Supplies",
-        "item__id": "9 + GENERIC_FILLER_OFFSET", 
+        "item_id": 9,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     },
     {
         "item_name": "Box of Nails",
-        "item__id": "10 + GENERIC_FILLER_OFFSET", 
+        "item_id": 10,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     },
     {
         "item_name": "Bowl of Fruit",
-        "item__id": "11 + GENERIC_FILLER_OFFSET", 
+        "item_id": 11,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     },
     {
         "item_name": "Bag of Treasure",
-        "item__id": "12 + GENERIC_FILLER_OFFSET", 
+        "item_id": 12,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     },
     {
         "item_name": "Coin Purse",
-        "item__id": "13 + GENERIC_FILLER_OFFSET", 
+        "item_id": 13,
+        "item_id_offset": "GENERIC_FILLER_OFFSET", 
         "item_class": "ItemClassification.filler",
         "item_groups": ["Loot"]
     }
