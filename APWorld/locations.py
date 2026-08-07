@@ -291,9 +291,19 @@ LOCATION_NAME_TO_ID = {
     "Vivienne - 3 Etchings Reward (Purse Costume)": 4 + NPC_LOCATION_OFFSET_VIV,
     "Vivienne - 4 Etchings Reward (Purse Costume)": 5 + NPC_LOCATION_OFFSET_VIV,
     "Vivienne - 5 Etchings Reward (Purse Costume)": 6 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - 6 Etchings Reward (Purse Costume)": 7 + NPC_LOCATION_OFFSET_VIV,
-    # Put the other costumes here once I figure out when they get unlocked
 
+    "Vivienne - First Hymn Reward (Satchel Costume)": 10 + NPC_LOCATION_OFFSET_VIV,
+    "Vivienne - Second Hymn Reward (Satchel Costume)": 11 + NPC_LOCATION_OFFSET_VIV,
+
+    "Vivienne - First Rune Reward (Tote Costume)": 15 + NPC_LOCATION_OFFSET_VIV,
+    "Vivienne - Second Rune Reward (Tote Costume)": 16 + NPC_LOCATION_OFFSET_VIV,
+
+    "Vivienne - First Sigil Reward (Pochette Costume)": 20 + NPC_LOCATION_OFFSET_VIV,
+    "Vivienne - Second Sigil Reward (Pochette Costume)": 21 + NPC_LOCATION_OFFSET_VIV,
+    
+    "Vivienne - First Floppy Disk Reward (CR-8 Costume)": 25 + NPC_LOCATION_OFFSET_VIV,
+    "Vivienne - Second Floppy Disk Reward (CR-8 Costume)": 26 + NPC_LOCATION_OFFSET_VIV,
+    # Fix these names once I figure out the vanilla unlock conditions
 
     "Parcel - First Meeting Gift (Pouch)": 1 + NPC_LOCATION_OFFSET_PARCEL, # Likely will move this check to "OTHER", I don't think he gives you anything else
 

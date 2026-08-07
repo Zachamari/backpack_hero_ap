@@ -170,10 +170,20 @@ def set_all_location_rules(world: BPHWorld) -> None:
 
     # Logically locking some of these behind Area 2 to prevent early required grinding
     world.set_rule(world.get_location("Vivienne - 3 Etchings Reward (Purse Costume)"), CanReachRegion("Area 2")) # Maybe add some number of Purse Quests as well
-    world.set_rule(world.get_location("Vivienne - 4 Etchings Reward (Purse Costume)"), CanReachRegion("Area 2")) # Maybe add some number of Purse Quests as well
+    world.set_rule(world.get_location("Vivienne - 4 Etchings Reward (Purse Costume)"), CanReachRegion("Area 3")) # Maybe add some number of Purse Quests as well
     world.set_rule(world.get_location("Vivienne - 5 Etchings Reward (Purse Costume)"), CanReachRegion("Area 3")) # Maybe add some number of Purse Quests as well
-    world.set_rule(world.get_location("Vivienne - 6 Etchings Reward (Purse Costume)"), CanReachRegion("Area 3")) # Maybe add some number of Purse Quests as well
+
+    world.set_rule(world.get_location("Vivienne - First Hymn Reward (Satchel Costume)"), Has("Satchel") & CanReachRegion("Area 2"))
+    world.set_rule(world.get_location("Vivienne - Second Hymn Reward (Satchel Costume)"), Has("Satchel") & CanReachRegion("Area 3"))
+
+    world.set_rule(world.get_location("Vivienne - First Rune Reward (Tote Costume)"), Has("Tote") & CanReachRegion("Area 2"))
+    world.set_rule(world.get_location("Vivienne - Second Rune Reward (Tote Costume)"), Has("Tote") & CanReachRegion("Area 3"))
     
+    world.set_rule(world.get_location("Vivienne - First Sigil Reward (Pochette Costume)"), Has("Pochette") & CanReachRegion("Area 2"))
+    world.set_rule(world.get_location("Vivienne - Second Sigil Reward (Pochette Costume)"), Has("Pochette") & CanReachRegion("Area 3"))
+    
+    world.set_rule(world.get_location("Vivienne - First Floppy Disk Reward (CR-8 Costume)"), Has("CR-8") & CanReachRegion("Area 2"))
+    world.set_rule(world.get_location("Vivienne - Second Floppy Disk Reward (CR-8 Costume)"), Has("CR-8") & CanReachRegion("Area 3"))
 
     world.set_rule(world.get_location("Purse Quest Reward - Coral 1 (Quest: Coral 2)"), CanReachLocation("(Event) Quest Complete: Coral 1")) 
     world.set_rule(world.get_location("Purse Quest Reward - Ghostly! (Spectral Orb)"), CanReachLocation("(Event) Quest Complete: Ghostly!")) 

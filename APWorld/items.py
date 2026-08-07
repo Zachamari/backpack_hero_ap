@@ -696,9 +696,6 @@ def create_all_items(world: BPHWorld) -> None:
 
     ]
 
-    print(f"Needed filler: {needed_number_of_filler_items}")
-    print(f"Amount of decor: {len(filler_decor)}")
-
     needed_number_of_filler_items_if_all_decor_added = needed_number_of_filler_items - len(filler_decor)
 
     if needed_number_of_filler_items_if_all_decor_added < 0: # if adding every decor item would lead to items > locations (likely to happen while still figuring out where locations are, may be able to be removed later)
@@ -709,11 +706,9 @@ def create_all_items(world: BPHWorld) -> None:
             loops -= 1
     else:
         if needed_number_of_filler_items_if_all_decor_added == 0:
-            print("Adding exactly all decorations to the pool.")
             for i in filler_decor:
                 itempool.append(world.create_item(i))
         else: # here, needed_number_of_filler_items_if_all_decor_added > 0
-            print("Adding all decorations and extra filler to the pool.")
             for i in filler_decor:
                 itempool.append(world.create_item(i))
             itempool += [world.create_filler() for _ in range(needed_number_of_filler_items_if_all_decor_added)]

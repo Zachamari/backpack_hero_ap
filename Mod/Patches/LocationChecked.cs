@@ -153,7 +153,7 @@ public static class LocationChecked
             if (__0.name.Contains("Purse"))
             {
                 // Costume location IDs are all in a row and should always be sent progressively (since that's how it functions in the vanilla game)
-                for (int i = 1; i < 7; i++)
+                for (int i = 2; i < 7; i++)
                 { 
                     if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
                     {
@@ -164,7 +164,7 @@ public static class LocationChecked
             }
             if (__0.name.Contains("Satchel"))
             {
-                for (int i = 7; i < 11; i++)
+                for (int i = 10; i < 12; i++)
                 { 
                     if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
                     {
@@ -175,7 +175,7 @@ public static class LocationChecked
             }
             if (__0.name.Contains("Tote"))
             {
-                for (int i = 11; i < 15; i++)
+                for (int i = 15; i < 17; i++)
                 { 
                     if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
                     {
@@ -186,7 +186,7 @@ public static class LocationChecked
             }
             if (__0.name.Contains("Pochette"))
             {
-                for (int i = 15; i < 19; i++)
+                for (int i = 20; i < 22; i++)
                 { 
                     if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
                     {
@@ -197,7 +197,7 @@ public static class LocationChecked
             }
             if (__0.name.Contains("CR8"))
             {
-                for (int i = 19; i < 23; i++)
+                for (int i = 25; i < 27; i++)
                 { 
                     if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
                     {
