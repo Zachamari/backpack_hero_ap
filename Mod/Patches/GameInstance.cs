@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 namespace Backpackipelago.Patches;
 
@@ -66,13 +67,20 @@ public static class GameInstance
     private static List<string> ItemsToAddToStorage = [];
     public static HashSet<string> ItemsInPool = [];
 
-    // Add more settings for this later
     // Also move to a different file
     [HarmonyPatch(typeof(Overworld_BuildingInterface.Research), nameof(Overworld_BuildingInterface.Research.Available)), HarmonyPrefix]
-    public static bool ShowAllResearch(ref bool __result)
+    public static bool ShowAllResearch(Overworld_BuildingInterface.Research __instance, ref bool __result)
     {
+        // This makes all research show up in the research menus no matter which items you have.
+        // The only problem is that, for whatever reason, the game hangs for a while if it tries to display a mission that requires a character that you don't have.
+        // So, to prevent that, only mess with the menu if the research doesn't unlock a mission.
+        // This is accounted for in the apworld's logic.
+        if (__instance.mission) {
+            return true;
+        } 
         __result = true;
         return false;
+
     }
 
 

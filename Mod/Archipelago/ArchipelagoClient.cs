@@ -218,14 +218,14 @@ public class ArchipelagoClient
         session.Socket.SendPacketAsync(new SayPacket { Text = message });
     }
 
-    public static HashSet<int> checkedLocations = new HashSet<int>(); 
+    public HashSet<int> checkedLocations = new HashSet<int>(); 
     
     public void SendCheck(string locationName)
     {
         try {
 
             BPHAP.Log("Sending check for location: " + locationName);
-            SendCheck(BPHAP.APIDs.LocationNameToID[locationName]);
+            SendCheck(BPHAP.APIDs.InternalUnlockToLocationID[locationName]);
 
         } catch (Exception e)
         {
@@ -256,7 +256,6 @@ public class ArchipelagoClient
 
                 session.Locations.CompleteLocationChecks(location);
                 checkedLocations.Add(location);  // Add the location to the list of cached locations so it doesn't try to send the same check 9 billion times
-                // If save data is cleared, the memory will be cleared to allow sending the checks again
 
             } catch (NullReferenceException e) {
 
@@ -287,6 +286,8 @@ public class ArchipelagoClient
 	// 	DeathLinkHandler.SendDeathLink(deathMessage);
 	// }
 
+    public static List<long> ReceivedProgressiveMissions = []; 
+    public static List<long> ReceivedImportantProgression = [];
 
     /// <summary>
     /// we received an item so reward it here
@@ -303,7 +304,8 @@ public class ArchipelagoClient
         // if items can be received while in an invalid state for actually handling them, they can be placed in a local
         // queue/collection to be handled later
 
-        int itemId = (int) receivedItem.ItemId;
+        long itemId = receivedItem.ItemId;
+
         BPHAP.Log($"Received {receivedItem.ItemName} from {receivedItem.Player.Name}!");
 
         if (itemId >= GENERIC_FILLER_OFFSET) {
@@ -323,10 +325,49 @@ public class ArchipelagoClient
         }
 
 
-        if (itemId >= AREA_KEYS_OFFSET) {
+        if (itemId >= AREA_KEYS_OFFSET) { // Range includes characters and other progression
 
-            // Metaprogress and character unlocks go here
+            ReceivedImportantProgression.Add(itemId);
 
+            // this could technically be more optimized if I used the item IDs instead of the item names, but whateverrrrrrrrr, this is more readable
+            switch (receivedItem.ItemName) {
+
+
+                case "Key to the Bramble":
+                    ItemReceived.ReceiveNewMetaProgress(50);
+                    break;
+                case "Key to the Deep Caves":
+                    ItemReceived.ReceiveNewMetaProgress(51);
+                    break;
+                case "Key to the Enchanted Swamp":
+                    ItemReceived.ReceiveNewMetaProgress(52);
+                    break;
+                case "Key to the Magma Core":
+                    ItemReceived.ReceiveNewMetaProgress(53);
+                    break;
+                case "Key to the Frozen Heart":
+                    ItemReceived.ReceiveNewMetaProgress(54);
+                    break;
+
+
+                case "Tote":
+                    ItemReceived.ReceiveNewMetaProgress(6);
+                    break;
+                case "CR-8":
+                    ItemReceived.ReceiveNewMetaProgress(7);
+                    break;
+                case "Satchel":
+                    ItemReceived.ReceiveNewMetaProgress(8);
+                    break;
+                case "Pochette":
+                    ItemReceived.ReceiveNewMetaProgress(9);
+                    break;
+
+
+                default:
+                    BPHAP.LogError($"ERROR: Progression Item {receivedItem.ItemName} was not recognized.");
+                    break;
+            }
             return;
         }
 
@@ -338,9 +379,9 @@ public class ArchipelagoClient
 
         }
 
-        if (itemId >= BUILDING_OFFSET_PROG) {
+        if (itemId >= BUILDING_OFFSET_PROG) { // range includes non-prog buildings as well
 
-            ItemReceived.ReceiveNewBuilding(receivedItem.ItemName);
+            ItemReceived.ReceiveNewBuilding(APWorldIDs.GetInternalBuildingName(receivedItem.ItemName));
             return;
             
         }
@@ -348,15 +389,35 @@ public class ArchipelagoClient
         if (itemId >= QUEST_OFFSET_PROGRESSIVE) {
 
             string name = receivedItem.ItemName.Substring(19);
-            // TODO: Make a list of received mission names, and append a 1 or 2 depending on if mission has been received before
+            if (ReceivedProgressiveMissions.Contains(itemId))
+            {
+                ItemReceived.ReceiveNewMission(name + " 2");
+                return;
+            }
+            if (name == "Scissors")
+            {
+                ItemReceived.ReceiveNewMission("Scissors"); // Scissors 1 is just called Scissors internally (without the 1), so it needs a special exception
+                ReceivedProgressiveMissions.Add(itemId);
+                return;
+            }
             ItemReceived.ReceiveNewMission(name + " 1");
+            ReceivedProgressiveMissions.Add(itemId);
             return;
             
         }
 
-        if (itemId >= ITEM_OFFSET) { // no reason to have this comparison here other than for consistency. but i like consistency
-;
-            ItemReceived.ReceiveNewItem(receivedItem.ItemName);
+        if (itemId >= QUEST_OFFSET) {
+
+            string name = APWorldIDs.GetInternalMissionName(receivedItem.ItemName.Substring(7));
+            ItemReceived.ReceiveNewMission(name);
+            return;
+            
+        }
+
+        if (itemId >= ITEM_OFFSET) { // no reason to have this comparison here other than for consistency since ITEM_OFFSET == 0. but i like consistency
+
+            string name = APWorldIDs.GetInternalItemName(receivedItem.ItemName);
+            ItemReceived.ReceiveNewItem(name);
             return;
             
         }
@@ -387,8 +448,6 @@ public class ArchipelagoClient
         Disconnect();
     }
 
-
-    // todo: fill these numbers
 
     public const int ITEM_OFFSET = 0;
     public const int QUEST_OFFSET = 1000;

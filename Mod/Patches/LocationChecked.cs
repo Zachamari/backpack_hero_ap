@@ -1,12 +1,13 @@
 using Backpackipelago;
 using MelonLoader;
 using HarmonyLib;
-using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
+using CreepyUtil.Archipelago.ApClient;
+using Backpackipelago.Archipelago;
 
 namespace Backpackipelago.Patches;
 
@@ -64,6 +65,7 @@ public static class LocationChecked
     // }
 
 
+    // Not sure if this patch is needed anymore
     [HarmonyPatch(typeof(PerformSpecialAction), nameof(PerformSpecialAction.OnStart)), HarmonyPrefix]
     public static bool SendOtherChecks(PerformSpecialAction __instance)
     {
@@ -74,15 +76,15 @@ public static class LocationChecked
         {
             case PerformSpecialAction.ActionType.AddBuilding:
                 BPHAP.Log($"Building unlocked: {__instance.genericObject}");
-                // send check here, make return false
+                // send check here, make return false?
                 break;
             case PerformSpecialAction.ActionType.UnlockCharacter:
                 BPHAP.Log($"Character unlocked: {__instance.character}");
-                // send check here, make return false
+                // send check here, make return false?
                 break;
             case PerformSpecialAction.ActionType.UnlockCostume:
                 BPHAP.Log($"Costume unlocked: {__instance.costume}");
-                // send check here, make return false
+                // send check here, make return false?
                 break;
         }
 
@@ -105,7 +107,7 @@ public static class LocationChecked
         {
             BPHAP.Log("Item " + item.name + " was prevented from being unlocked.");
 
-            // Send check here
+            BPHAP.APClient.SendCheck(item.name);
 
             return false;
         }
@@ -115,7 +117,7 @@ public static class LocationChecked
     public static bool newMissionIsFromAP = false;
 
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.AddMission)), HarmonyPrefix]
-    public static bool PreventVanillaMissionUnlock(Missions m)
+    public static bool PreventVanillaQuestUnlockAndSendCheck(Missions m)
     {
         if (newMissionIsFromAP)
         {
@@ -126,7 +128,7 @@ public static class LocationChecked
         {
             BPHAP.Log("Mission " + m.name + " was prevented from being unlocked.");
 
-            // Send check here
+            BPHAP.APClient.SendCheck(m.name);
 
             return false;
         }
@@ -136,7 +138,7 @@ public static class LocationChecked
     public static bool newCostumeIsFromAP = false;
 
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.UnlockCostume)), HarmonyPrefix]
-    public static bool PreventVanillaCostumeUnlock(RuntimeAnimatorController __0)
+    public static bool PreventVanillaCostumeUnlockAndSendCheck(RuntimeAnimatorController __0)
     {
         if (newCostumeIsFromAP)
         {
@@ -145,11 +147,69 @@ public static class LocationChecked
         }
         else
         {
+
             BPHAP.Log("Costume " + __0.name + " was prevented from being unlocked.");
 
-            // Send check here
+            if (__0.name.Contains("Purse"))
+            {
+                // Costume location IDs are all in a row and should always be sent progressively (since that's how it functions in the vanilla game)
+                for (int i = 1; i < 7; i++)
+                { 
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
+                    {
+                        BPHAP.APClient.SendCheck(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET);
+                    }
+                }          
+                return false;  
+            }
+            if (__0.name.Contains("Satchel"))
+            {
+                for (int i = 7; i < 11; i++)
+                { 
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
+                    {
+                        BPHAP.APClient.SendCheck(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET);
+                    }
+                }      
+                return false;
+            }
+            if (__0.name.Contains("Tote"))
+            {
+                for (int i = 11; i < 15; i++)
+                { 
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
+                    {
+                        BPHAP.APClient.SendCheck(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET);
+                    }
+                }      
+                return false;
+            }
+            if (__0.name.Contains("Pochette"))
+            {
+                for (int i = 15; i < 19; i++)
+                { 
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
+                    {
+                        BPHAP.APClient.SendCheck(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET);
+                    }
+                }      
+                return false;
+            }
+            if (__0.name.Contains("CR8"))
+            {
+                for (int i = 19; i < 23; i++)
+                { 
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
+                    {
+                        BPHAP.APClient.SendCheck(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET);
+                    }
+                }      
+                return false;
+            }
 
-            return false;
+            BPHAP.LogError("ERROR: Internal costume name does not contain a character's name: " + __0.name);
+            return true;
+
         }
     }
 
@@ -168,7 +228,7 @@ public static class LocationChecked
         {
             BPHAP.Log("Building " + __0 + " was prevented from being unlocked.");
 
-            // Send check here
+            BPHAP.APClient.SendCheck(__0);
 
             return false;
         }
@@ -192,6 +252,9 @@ public static class LocationChecked
                 return true;
             }
             BPHAP.Log("Building " + __0.name + " was prevented from being unlocked.");
+
+            BPHAP.APClient.SendCheck(__0.name);
+
             return false;
         }
     }
@@ -208,7 +271,7 @@ public static class LocationChecked
         {
             BPHAP.Log("Tile " + __0 + " was prevented from being unlocked.");
 
-            // Send check here
+            BPHAP.APClient.SendCheck(__0);
 
             return false;
         }
@@ -227,25 +290,25 @@ public static class LocationChecked
             case 6:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Tote unlocked; Blocking progress marker.");
-                    // Send check
+                    BPHAP.APClient.SendCheck("Tote");
                     return false;
                 } else { return true; }
             case 7:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("CR-8 unlocked; Blocking progress marker.");
-                    // Send check
+                    BPHAP.APClient.SendCheck("CR-8");
                     return false;
                 } else { return true; }
             case 8:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Satchel unlocked; Blocking progress marker.");
-                    // Send check
+                    BPHAP.APClient.SendCheck("Satchel");
                     return false;
                 } else { return true; }
             case 9:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Pochette unlocked; Blocking progress marker.");
-                    // Send check
+                    BPHAP.APClient.SendCheck("Pochette");
                     return false;
                 } else { return true; }
             case 25:
@@ -270,44 +333,45 @@ public static class LocationChecked
             case 50:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Bramble research finished; Blocking progress marker.");
-                    // Send check
+                    BPHAP.APClient.SendCheck("Key to the Bramble");
                     return false;
                 } else { return true; }
             case 51:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Deep Cave research finished; Blocking progress marker.");
-                    // Send check
+                    BPHAP.APClient.SendCheck("Key to the Deep Caves");
                     return false;
                 } else { return true; }
             case 52:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Enchanted Swamp research finished; Blocking progress marker.");
-                    // Send check
+                    BPHAP.APClient.SendCheck("Key to the Enchanted Swamp");
                     return false;
                 } else { return true; }
             case 53:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Magma Core research finished; Blocking progress marker.");
-                    // Send check
+                    BPHAP.APClient.SendCheck("Key to the Magma Core");
                     return false;
                 } else { return true; }
             case 54:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Frozen Heart research finished; Blocking progress marker.");
-                    // Send check
+                    BPHAP.APClient.SendCheck("Key to the Frozen Heart");
                     return false;
                 } else { return true; }
-            case 100:
-                if (!metaProgressIsFromAP) {
-                    BPHAP.Log("Forges unlocked; Blocking progress marker.");
-                    // Send check
-                    return false;
-                } else { return true; }
+            // case 100:
+            //     if (!metaProgressIsFromAP) {
+            //         BPHAP.Log("Forges unlocked; Blocking progress marker.");
+            //         // Send check
+            //         return false;
+            //     } else { return true; }
             case 148:
                 BPHAP.Log("You win! Conglaturations!");
                 BPHAP.APClient.Goal();
                 return true;
-            default: return true;
+            default: 
+                return true;
         }
     }
 

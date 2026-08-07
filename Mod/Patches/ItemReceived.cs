@@ -53,4 +53,12 @@ public static class ItemReceived
         // Figure out how to make a custom popup later
     }
 
+    public static void ReceiveNewCostume(string costumeName)
+    {
+        BPHAP.Log($"Adding costume {costumeName} to available costumes...");
+        LocationChecked.newCostumeIsFromAP = true;
+        GameInstance.MetaProgressSaveManager.availableCostumes.Add(costumeName);
+        // Overworld_Manager.main.OpenNewCostumeWindow(costumeName); // Function requires a RuntimeAnimatorController, not sure if I'm able to get that type of object easily
+    }
+
 }
