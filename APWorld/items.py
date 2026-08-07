@@ -352,7 +352,7 @@ def get_item_groups() -> dict[str, Set[str]]:
 
 def get_random_filler_item_name(world: BPHWorld) -> str:
     
-    match world.random.randint(0, 6):
+    match world.random.randint(0, 5):
         case 0:
             return "Cornucopia"
         case 1:
@@ -365,8 +365,8 @@ def get_random_filler_item_name(world: BPHWorld) -> str:
             return "Golden Seed"
         case 5:
             return "Golden Shell"
-    
-    return "Dev Is Stupid And Doesn't Know How The RandInt Function Works" # python has inclusive on one end and exclusive on the other, and it always fucks me up, so I just put this here to catch if I made a dumb mistake with the randint function
+        
+    return "Cornucopia" # to make the red squiggles go away
 
 
 def create_item_with_correct_classification(world: BPHWorld, name: str) -> BPHItem:
