@@ -570,7 +570,7 @@ def create_all_items(world: BPHWorld) -> None:
         world.create_item("Pochette"),
         world.create_item("CR-8"),
 
-        world.create_item("Tote's Totem"),
+        # world.create_item("Tote's Totem"),
 
 
     ]

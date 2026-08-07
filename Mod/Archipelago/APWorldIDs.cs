@@ -14,17 +14,19 @@ public class APWorldIDs
     
     public APWorldIDs()
     {
-
-        using (StreamReader reader = new StreamReader("apworld_item_name_to_id.json"))
-        {
+        BPHAP.Log("Reading JSON Data...");
+        using (StreamReader reader = new StreamReader("UserData/bph_item_table.json"))
+        {  
+            BPHAP.Log("Reading item data...");
             string contents = reader.ReadToEnd();
             this.ItemNameToID = JsonConvert.DeserializeObject<Dictionary<string, int>>(contents);
         }
 
         Dictionary<string, int> LocationNameToID;
 
-        using (StreamReader reader = new StreamReader("apworld_location_name_to_id.json"))
+        using (StreamReader reader = new StreamReader("UserData/bph_location_table.json"))
         {
+            BPHAP.Log("Reading location data...");
             string contents = reader.ReadToEnd();
             LocationNameToID = JsonConvert.DeserializeObject<Dictionary<string, int>>(contents);
         }
@@ -38,8 +40,11 @@ public class APWorldIDs
             // from triggering on the major progression unlocks in the foreach loop below 
             string specificLocation = location.Split([" - "], System.StringSplitOptions.None)[1];
 
+            BPHAP.Log($"Adding location {specificLocation} (full location name: {location})");
+
             foreach (string item in ItemNameToID.Keys)
             {
+                
                 if (specificLocation.Contains(item))
                 {
                     if (item == "Charging Manastone")
@@ -56,6 +61,58 @@ public class APWorldIDs
         
                         }
                         break;
+                    }
+                    if (item == "Ice Cream")
+                    {
+                        // The string "Ice Cream" is present in 3 locations (1 item unlock, 2 quest unlocks), so we need to account for that
+                        if (!specificLocation.Contains("Purse") && !specificLocation.Contains("Satchel"))
+                        {
+                            temp.Add("Ice Cream", LocationNameToID[location]);
+                            break;
+                        } 
+                        else { continue; }
+                    }
+                    if (item == "Tusk")
+                    {
+                        // "Tusk" is also present in both Quest: Red Tusk and Tusk. 
+                        // Additionally, the internal name for Quest: Red Tusk is "Tusk", which is the same as the item name, so there's double overlap here.
+                        if (location.Contains("Red Tusk"))
+                        {
+                            temp.Add("Red Tusk", LocationNameToID[location]);
+                            break;  
+                        } else
+                        {
+                            temp.Add("Tusk", LocationNameToID[location]);
+                            break;
+                        }
+                    }
+                    if (item == "Farm")
+                    {
+                        if (specificLocation.Contains("Farmland"))
+                        {
+                            temp.Add("Farmland", LocationNameToID[location]);
+                            break;
+                        }
+                    }
+                    if (item == "Satchel" || item == "Tote" || item == "Pochette")
+                    {
+                        if (!specificLocation.Contains("Recruit"))
+                        {
+                            continue;
+                        }
+                    }
+                    if (item == "Purse")
+                    {
+                        continue; // There is no vanilla Purse unlock location
+                        // (The only reason she's in the item list in the first place is bc i think it's cool to have it show her as a starting item on the website tracker)
+                    }
+                    if (item == "CR-8")
+                    {
+                        if (specificLocation != "CR-8")
+                        {
+                            continue;
+                            // CR-8 is a research location, so it has to be separate from the other 3 unlockable characters b/c no "Recruit" in name
+                        }
                     }
                     if (item.Contains("Quest:"))
                     {
@@ -82,12 +139,12 @@ public class APWorldIDs
         this.InternalUnlockToLocationID = temp; // Dictionary should contain items in the form of, ex. {"Dagger": ID} with no other extraneous information
 
 
-        BPHAP.Log("");
+        BPHAP.Log($"Total number of items in dict: {ItemNameToID.Count}");
         foreach(KeyValuePair<string, int> item in ItemNameToID)
         {
             BPHAP.Log($"Logged Item Name: {item.Key} - ID: {item.Value}");
         }
-        BPHAP.Log("");
+        BPHAP.Log($"Total number of locations in dict: {InternalUnlockToLocationID.Count}");
         foreach(KeyValuePair<string, int> location in InternalUnlockToLocationID)
         {
             BPHAP.Log($"Logged Internal Location Name: {location.Key} - ID: {location.Value}");

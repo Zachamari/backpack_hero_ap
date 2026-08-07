@@ -270,7 +270,7 @@ LOCATION_NAME_TO_ID = {
 
     "Nora - Proto Manastone Reward 1 (Magical Mycelium)": 1 + NPC_LOCATION_OFFSET_NORA,
     "Nora - Proto Manastone Reward 2 (Quest: Wizard's School)": 2 + NPC_LOCATION_OFFSET_NORA,
-    "Nora - Built Magical Mycelium Reward (Tote's Totem)": 3 + NPC_LOCATION_OFFSET_NORA,
+    # "Nora - Built Magical Mycelium Reward (Tote's Totem)": 3 + NPC_LOCATION_OFFSET_NORA,
     
     "Zaar - Built Store Reward (Quest: Energy Delivery)": 1 + NPC_LOCATION_OFFSET_ZAAR,
     "Zaar - Finished 3 Runs Reward 1 (Crate)": 2 + NPC_LOCATION_OFFSET_ZAAR,
@@ -348,6 +348,11 @@ LOCATION_NAME_TO_ID = {
 
     "CR-8 Quest Reward - Duo Core (Quest: Quad Core)": 1 + QUEST_OFFSET_CR8,
     "CR-8 Quest Reward - Quad Core (Quest: Spinning Core)": 2 + QUEST_OFFSET_CR8,
+
+    
+    "Area 2 - Recruit Satchel": 1 + DUNGEON_LOCATION_OFFSET,
+    "Area 2 - Recruit Tote": 2 + DUNGEON_LOCATION_OFFSET,
+    "Area 3 - Recruit Pochette": 3 + DUNGEON_LOCATION_OFFSET,
 
 }
 
@@ -510,6 +515,17 @@ def create_regular_locations(world: BPHWorld) -> None:
             continue
 
 
+        if location.startswith("Area 1"):
+            area_1.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+        if location.startswith("Area 2"):
+            area_2.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+        if location.startswith("Area 3"):
+            area_3.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+
+
         # These regions only have 1 location each, so I put them at the end so it wouldn't have to iterate through all of them for all the larger regions
         if location.startswith("Master Archer"):
             archer.add_locations(get_location_names_with_ids([location]), BPHLocation)
@@ -525,6 +541,26 @@ def create_regular_locations(world: BPHWorld) -> None:
             continue
         if location.startswith("Doug"):
             doug.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+
+
+        if location.startswith("The Crypt"):
+            crypt.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+        if location.startswith("The Bramble"):
+            bramble.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+        if location.startswith("The Deep Caves"):
+            deep_caves.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+        if location.startswith("The Enchanted Swamp"):
+            enchanted_swamp.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+        if location.startswith("The Magma Core"):
+            magma_core.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+        if location.startswith("The Frozen Heart"):
+            frozen_heart.add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
 
 

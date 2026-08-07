@@ -332,7 +332,6 @@ public class ArchipelagoClient
             // this could technically be more optimized if I used the item IDs instead of the item names, but whateverrrrrrrrr, this is more readable
             switch (receivedItem.ItemName) {
 
-
                 case "Key to the Bramble":
                     ItemReceived.ReceiveNewMetaProgress(50);
                     break;
@@ -349,7 +348,6 @@ public class ArchipelagoClient
                     ItemReceived.ReceiveNewMetaProgress(54);
                     break;
 
-
                 case "Tote":
                     ItemReceived.ReceiveNewMetaProgress(6);
                     break;
@@ -362,7 +360,8 @@ public class ArchipelagoClient
                 case "Pochette":
                     ItemReceived.ReceiveNewMetaProgress(9);
                     break;
-
+                case "Purse":
+                    break;
 
                 default:
                     BPHAP.LogError($"ERROR: Progression Item {receivedItem.ItemName} was not recognized.");

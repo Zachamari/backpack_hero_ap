@@ -128,7 +128,14 @@ public static class LocationChecked
         {
             BPHAP.Log("Mission " + m.name + " was prevented from being unlocked.");
 
-            BPHAP.APClient.SendCheck(m.name);
+            string quest = m.name;
+
+            if (m.name == "Tusk") // internal item name overlap
+            {
+                quest = "Red Tusk";
+            }
+
+            BPHAP.APClient.SendCheck(quest);
 
             return false;
         }
