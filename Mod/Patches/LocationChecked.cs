@@ -117,8 +117,10 @@ public static class LocationChecked
     public static bool newMissionIsFromAP = false;
 
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.AddMission)), HarmonyPrefix]
-    public static bool PreventVanillaQuestUnlockAndSendCheck(Missions m)
+    public static bool PreventVanillaQuestUnlockAndSendCheck(Missions m, ref MetaProgressSaveManager __instance)
     {
+        BPHAP.Log("Mission MPSM instance: " + __instance.ToString());
+        
         if (newMissionIsFromAP)
         {
             newMissionIsFromAP = false;
@@ -126,6 +128,12 @@ public static class LocationChecked
         }
         else
         {
+            
+            if (m.name == "First Journey" || m.name == "Standard Run")
+            {
+                return true;
+            }
+
             BPHAP.Log("Mission " + m.name + " was prevented from being unlocked.");
 
             string quest = m.name;
@@ -142,6 +150,7 @@ public static class LocationChecked
     }
 
 
+    private const int NPC_LOCATION_OFFSET_VIV = 2100;
     public static bool newCostumeIsFromAP = false;
 
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.UnlockCostume)), HarmonyPrefix]
@@ -162,55 +171,65 @@ public static class LocationChecked
                 // Costume location IDs are all in a row and should always be sent progressively (since that's how it functions in the vanilla game)
                 for (int i = 2; i < 7; i++)
                 { 
-                    if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
                     {
-                        BPHAP.APClient.SendCheck(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET);
+                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
+                        return false;
                     }
-                }          
+                }
+                BPHAP.LogError("Unable to send costume check for item " + __0.name);          
                 return false;  
             }
             if (__0.name.Contains("Satchel"))
             {
                 for (int i = 10; i < 12; i++)
                 { 
-                    if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
                     {
-                        BPHAP.APClient.SendCheck(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET);
+                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
+                        return false;
                     }
-                }      
+                }
+                BPHAP.LogError("Unable to send costume check for item " + __0.name);       
                 return false;
             }
             if (__0.name.Contains("Tote"))
             {
                 for (int i = 15; i < 17; i++)
                 { 
-                    if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
                     {
-                        BPHAP.APClient.SendCheck(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET);
+                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
+                        return false;
                     }
-                }      
+                }
+                BPHAP.LogError("Unable to send costume check for item " + __0.name);       
                 return false;
             }
             if (__0.name.Contains("Pochette"))
             {
                 for (int i = 20; i < 22; i++)
                 { 
-                    if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
                     {
-                        BPHAP.APClient.SendCheck(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET);
+                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
+                        return false;
                     }
-                }      
+                }
+                BPHAP.LogError("Unable to send costume check for item " + __0.name);       
                 return false;
             }
             if (__0.name.Contains("CR8"))
             {
                 for (int i = 25; i < 27; i++)
                 { 
-                    if (!BPHAP.APClient.checkedLocations.Contains(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET))
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
                     {
-                        BPHAP.APClient.SendCheck(i + ArchipelagoClient.ALTERNATE_COSTUMES_OFFSET);
+                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
+                        return false;
                     }
-                }      
+                }
+                BPHAP.LogError("Unable to send costume check for item " + __0.name);       
                 return false;
             }
 

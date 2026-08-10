@@ -112,6 +112,8 @@ public class ArchipelagoClient
             session.Locations.CompleteLocationChecksAsync(ServerData.CheckedLocations.ToArray());
             outText = $"Successfully connected to {ServerData.Uri} as {ServerData.SlotName}!";
 
+            checkedLocations = ServerData.CheckedLocations.ToHashSet<long>();
+
             // if (Plugin.deathLinkEnabled)
             // {
             //     DeathLinkHandler.SetDeathLink(true);
@@ -218,14 +220,20 @@ public class ArchipelagoClient
         session.Socket.SendPacketAsync(new SayPacket { Text = message });
     }
 
-    public HashSet<int> checkedLocations = new HashSet<int>(); 
+    public HashSet<long> checkedLocations = new HashSet<long>(); 
     
     public void SendCheck(string locationName)
     {
         try {
+            string location = locationName;
 
-            BPHAP.Log("Sending check for location: " + locationName);
-            SendCheck(BPHAP.APIDs.InternalUnlockToLocationID[locationName]);
+    	    if (location.Contains(" Variant"))
+	        {
+	    	    location = location.Substring(0, location.IndexOf(" Variant"));
+        	}
+
+            BPHAP.Log("Sending check for location: " + location);
+            SendCheck(BPHAP.APIDs.InternalUnlockToLocationID[location]);
 
         } catch (Exception e)
         {

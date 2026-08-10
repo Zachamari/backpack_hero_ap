@@ -272,25 +272,25 @@ LOCATION_NAME_TO_ID = {
     "Nora - Proto Manastone Reward 2 (Quest: Wizard's School)": 2 + NPC_LOCATION_OFFSET_NORA,
     # "Nora - Built Magical Mycelium Reward (Tote's Totem)": 3 + NPC_LOCATION_OFFSET_NORA,
     
-    "Zaar - Built Store Reward (Quest: Energy Delivery)": 1 + NPC_LOCATION_OFFSET_ZAAR,
+    "Zaar - Sold Something at the Store Reward (Quest: Energy Delivery)": 1 + NPC_LOCATION_OFFSET_ZAAR,
     "Zaar - Finished 3 Runs Reward 1 (Crate)": 2 + NPC_LOCATION_OFFSET_ZAAR,
     "Zaar - Finished 3 Runs Reward 2 (Pot)": 3 + NPC_LOCATION_OFFSET_ZAAR,
     "Zaar - Finished 4 Runs Reward 1 (Quest: Coral 1)": 4 + NPC_LOCATION_OFFSET_ZAAR,
     "Zaar - Finished 4 Runs Reward 2 (Quest: Windmill 1)": 5 + NPC_LOCATION_OFFSET_ZAAR,
 
-    "Mayor Quillswish - First Meeting Gift 1 (Farm)": 1 + NPC_LOCATION_OFFSET_MAYOR,
-    "Mayor Quillswish - First Meeting Gift 2 (House)": 2 + NPC_LOCATION_OFFSET_MAYOR,
+    "Mayor Quillswish - Donation Reward 1 (Farm)": 1 + NPC_LOCATION_OFFSET_MAYOR,
+    "Mayor Quillswish - Donation Reward 2 (House)": 2 + NPC_LOCATION_OFFSET_MAYOR,
     "Mayor Quillswish - Mayor Quillswish Plush Reward (Quest: Campaign Trail)": 3 + NPC_LOCATION_OFFSET_MAYOR,
 
     "Sir Wartsley - First Meeting Gift 1 (Jeweler)": 1 + NPC_LOCATION_OFFSET_WART,
     "Sir Wartsley - First Meeting Gift 2 (Item Pedestal)": 2 + NPC_LOCATION_OFFSET_WART,
 
     "Vivienne - First Meeting Gift (Library)": 1 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - 1 Etching Reward (Purse Costume)": 2 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - 2 Etchings Reward (Purse Costume)": 3 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - 3 Etchings Reward (Purse Costume)": 4 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - 4 Etchings Reward (Purse Costume)": 5 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - 5 Etchings Reward (Purse Costume)": 6 + NPC_LOCATION_OFFSET_VIV,
+    "Vivienne - 1 Etching/Sigil Reward (Purse Costume)": 2 + NPC_LOCATION_OFFSET_VIV,
+    "Vivienne - 2 Etchings/Sigils Reward (Purse Costume)": 3 + NPC_LOCATION_OFFSET_VIV,
+    "Vivienne - 3 Etchings/Sigils Reward (Purse Costume)": 4 + NPC_LOCATION_OFFSET_VIV,
+    "Vivienne - 4 Etchings/Sigils Reward (Purse Costume)": 5 + NPC_LOCATION_OFFSET_VIV,
+    "Vivienne - 5 Etchings/Sigils Reward (Purse Costume)": 6 + NPC_LOCATION_OFFSET_VIV,
 
     "Vivienne - First Hymn Reward (Satchel Costume)": 10 + NPC_LOCATION_OFFSET_VIV,
     "Vivienne - Second Hymn Reward (Satchel Costume)": 11 + NPC_LOCATION_OFFSET_VIV,

@@ -11,16 +11,60 @@ namespace Backpackipelago.Patches;
 
 public static class GameInstance
 {
-    public static MetaProgressSaveManager MetaProgressSaveManager = null;
+    public static MetaProgressSaveManager MetaProgressSaveManagerMissions = null;
+    public static MetaProgressSaveManager MetaProgressSaveManagerItems = null;
     public static RunTypeSelector RunTypeSelector = new RunTypeSelector();
 
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.Load)), HarmonyPostfix]
     public static void GetMetaProgressSaveManagerInstance(ref MetaProgressSaveManager __instance)
     {
-        if (MetaProgressSaveManager == null) {
-            BPHAP.Log("MetaProgressSaveManager instance stored.");
-            MetaProgressSaveManager = __instance;
+        BPHAP.Log("MetaProgressSaveManager instance stored for Missions: " + __instance.ToString());
+        MetaProgressSaveManagerMissions = __instance;
+        // For some reason, there's multiple instances of MetaProgressSaveManager being thrown around, and this is really the only way I can think of to differentiate them
+        // The one that gets called last is the one that works for mission unlocks, so that one's fine to just have be stored normally
+        // The items don't work properly unless they use the item-specific one though
+        if (__instance.itemsUnlocked.Count > 6)
+        {
+            BPHAP.Log("MetaProgressSaveManager instance stored for Items: " + __instance.ToString());
+            MetaProgressSaveManagerItems = __instance;
         }
+
+        if (ItemReceived.missionQueue.Count > 0)
+        {
+            foreach (string mission in ItemReceived.missionQueue)
+            {
+                ItemReceived.ReceiveNewMission(mission);
+            }
+            ItemReceived.missionQueue.Clear();
+        }
+
+        if (ItemReceived.itemQueue.Count > 0)
+        {
+            foreach (string itemName in ItemReceived.itemQueue)
+            {
+                ItemReceived.ReceiveNewItem(itemName);
+            }
+            ItemReceived.itemQueue.Clear();
+        }
+    
+        if (ItemReceived.metaQueue.Count > 0)
+        {
+            foreach (int val in ItemReceived.metaQueue)
+            {
+                ItemReceived.ReceiveNewMetaProgress(val);
+            }
+            ItemReceived.metaQueue.Clear();
+        }        
+        
+        if (ItemReceived.costumeQueue.Count > 0)
+        {
+            foreach (string costume in ItemReceived.costumeQueue)
+            {
+                ItemReceived.ReceiveNewCostume(costume);
+            }
+            ItemReceived.costumeQueue.Clear();
+        }
+
     }
 
     // [HarmonyPatch(typeof(RunTypeSelector), nameof(RunTypeSelector.GetProperties)), HarmonyPostfix]
@@ -32,6 +76,39 @@ public static class GameInstance
     //     }
     // }
 
+    public static Overworld_BuildingManager BuildingInstance = null;
+
+    [HarmonyPatch(typeof(Overworld_BuildingManager), nameof(Overworld_BuildingManager.GetBuildings)), HarmonyPostfix]
+    public static void GetOverworldBuidingManagerInstance(ref Overworld_BuildingManager __instance)
+    {
+        BuildingInstance = __instance;
+        BPHAP.Log("BuildingManager instance stored: " + __instance.ToString());
+
+        if (ItemReceived.buildingQueue.Count > 0)
+        {
+            foreach (string building in ItemReceived.buildingQueue)
+            {
+                ItemReceived.ReceiveNewBuilding(building);
+            }
+            ItemReceived.buildingQueue.Clear();
+        }
+
+        if (ItemReceived.tileQueue.Count > 0)
+        {
+            foreach (string tile in ItemReceived.tileQueue)
+            {
+                ItemReceived.ReceiveNewPath(tile);
+            }
+            ItemReceived.tileQueue.Clear();
+        }
+    }
+
+
+    [HarmonyPatch(typeof(LoadStoryGame), nameof(LoadStoryGame.LoadStoryGameCommand)), HarmonyPostfix]
+    public static void TempConnectLate()
+    {
+        BPHAP.APClient.Connect();
+    }
 
     public static ItemStorage ItemStorage = null;
 
