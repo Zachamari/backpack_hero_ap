@@ -99,7 +99,7 @@ def set_all_location_rules(world: BPHWorld) -> None:
     world.set_rule(world.get_location("Bounty Board Research - Quest: Easy Mode (Tote)"), Has("Tote"))
     world.set_rule(world.get_location("Bounty Board Research - Quest: Easy Mode (Pochette)"), Has("Pochette"))
     world.set_rule(world.get_location("Bounty Board Research - Quest: Easy Mode (CR-8)"), Has("CR-8"))
-    world.set_rule(world.get_location("Bounty Board Research - Quest: Scissors"), Has("Satchel"))
+    world.set_rule(world.get_location("Bounty Board Research - Quest: Scissors 1"), Has("Satchel"))
     world.set_rule(world.get_location("Bounty Board Research - Quest: Duo Core"), Has("CR-8"))
 
     world.set_rule(world.get_location("Blacksmith Research - Plate Armor"), Has("Chainmail"))
@@ -169,9 +169,9 @@ def set_all_location_rules(world: BPHWorld) -> None:
     world.set_rule(world.get_location("Mayor Quillswish - Mayor Quillswish Plush Reward (Quest: Campaign Trail)"), Has("House"))
 
     # Logically locking some of these behind Area 2 to prevent early required grinding
-    world.set_rule(world.get_location("Vivienne - 3 Etchings Reward (Purse Costume)"), CanReachRegion("Area 2")) # Maybe add some number of Purse Quests as well
-    world.set_rule(world.get_location("Vivienne - 4 Etchings Reward (Purse Costume)"), CanReachRegion("Area 3")) # Maybe add some number of Purse Quests as well
-    world.set_rule(world.get_location("Vivienne - 5 Etchings Reward (Purse Costume)"), CanReachRegion("Area 3")) # Maybe add some number of Purse Quests as well
+    world.set_rule(world.get_location("Vivienne - 3 Etchings/Sigils Reward (Purse Costume)"), CanReachRegion("Area 2")) # Maybe add some number of Purse Quests as well
+    world.set_rule(world.get_location("Vivienne - 4 Etchings/Sigils Reward (Purse Costume)"), CanReachRegion("Area 3")) # Maybe add some number of Purse Quests as well
+    world.set_rule(world.get_location("Vivienne - 5 Etchings/Sigils Reward (Purse Costume)"), CanReachRegion("Area 3")) # Maybe add some number of Purse Quests as well
 
     world.set_rule(world.get_location("Vivienne - First Hymn Reward (Satchel Costume)"), Has("Satchel") & CanReachRegion("Area 2"))
     world.set_rule(world.get_location("Vivienne - Second Hymn Reward (Satchel Costume)"), Has("Satchel") & CanReachRegion("Area 3"))
@@ -179,8 +179,8 @@ def set_all_location_rules(world: BPHWorld) -> None:
     world.set_rule(world.get_location("Vivienne - First Rune Reward (Tote Costume)"), Has("Tote") & CanReachRegion("Area 2"))
     world.set_rule(world.get_location("Vivienne - Second Rune Reward (Tote Costume)"), Has("Tote") & CanReachRegion("Area 3"))
     
-    world.set_rule(world.get_location("Vivienne - First Sigil Reward (Pochette Costume)"), Has("Pochette") & CanReachRegion("Area 2"))
-    world.set_rule(world.get_location("Vivienne - Second Sigil Reward (Pochette Costume)"), Has("Pochette") & CanReachRegion("Area 3"))
+    world.set_rule(world.get_location("Vivienne - First ??? Reward (Pochette Costume)"), Has("Pochette") & CanReachRegion("Area 2"))
+    world.set_rule(world.get_location("Vivienne - Second ??? Reward (Pochette Costume)"), Has("Pochette") & CanReachRegion("Area 3"))
     
     world.set_rule(world.get_location("Vivienne - First Floppy Disk Reward (CR-8 Costume)"), Has("CR-8") & CanReachRegion("Area 2"))
     world.set_rule(world.get_location("Vivienne - Second Floppy Disk Reward (CR-8 Costume)"), Has("CR-8") & CanReachRegion("Area 3"))

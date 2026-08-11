@@ -5,6 +5,7 @@ using System.Text;
 using Newtonsoft.Json;
 using UnityEngine.InputSystem;
 using System.Runtime.InteropServices;
+using System.Linq;
 
 namespace Backpackipelago.Archipelago;
 public class APWorldIDs
@@ -133,6 +134,61 @@ public class APWorldIDs
                     break;
                 }
             }
+
+            if (temp.Values.Contains(LocationNameToID[location]))
+            {
+                // nested foreach statements suck, there's probably a better way to do this
+                continue;
+            }
+
+            // The progressive quest items are formatted differently, so they're not caught by the above foreach loop and need to be added independently
+            // I could probably automate this, but there's so few of them that it's not a big difference to just do it manually
+            if (location.Contains("Quest: Coral 1"))
+            {
+                temp.Add("Coral 1", LocationNameToID[location]);
+                continue;
+            }
+            if (location.Contains("Quest: Coral 2"))
+            {
+                temp.Add("Coral 2", LocationNameToID[location]);
+                continue;
+            }
+            if (location.Contains("Quest: Windmill 1"))
+            {
+                temp.Add("windmill 1", LocationNameToID[location]);
+                continue;
+            }
+            if (location.Contains("Quest: Windmill 2"))
+            {
+                temp.Add("windmill 2", LocationNameToID[location]);
+                continue;
+            }
+            if (location.Contains("Quest: Hourglass 1"))
+            {
+                temp.Add("Hourglass 1", LocationNameToID[location]);
+                continue;
+            }
+            if (location.Contains("Quest: Hourglass 2"))
+            {
+                temp.Add("Hourglass 2", LocationNameToID[location]);
+                continue;
+            }
+            if (location.Contains("Quest: Scissors 1"))
+            {
+                temp.Add("Scissors", LocationNameToID[location]);
+                continue;
+            }
+            if (location.Contains("Quest: Scissors 2"))
+            {
+                temp.Add("Scissors 2", LocationNameToID[location]); // Might be wrong
+                continue;
+            }
+            if (location.Contains("Quest: Hourglass 1"))
+            {
+                temp.Add("Hourglass 1", LocationNameToID[location]);
+                continue;
+            }
+            BPHAP.LogWarning($"WARNING: Location {location} was unable to be added to the dictionary.");
         }
 
 
@@ -171,6 +227,7 @@ public class APWorldIDs
             "Builder Bird" => "Builder Bird Mission",
             "Magic Archery" => "Magic Archery 1",
             "Windmill 1" => "windmill 1",
+            "Wizard's School" => "Wizard School",
             _ => mission,
         };
     }

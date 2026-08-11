@@ -100,6 +100,7 @@ public static class LocationChecked
     {
         if (newItemIsFromAP)
         {
+            BPHAP.Log("Allowing item " + item.name + " to be unlocked from AP.");
             newItemIsFromAP = false;
             return true;
         }

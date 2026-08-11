@@ -46,5 +46,8 @@ namespace Backpackipelago
         public static void Log(string message) {
             MelonLogger.Msg(message);
         }
+        public static void LogWarning(string message) {
+            MelonLogger.Warning(message);
+        }
     }
 }

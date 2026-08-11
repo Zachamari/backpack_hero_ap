@@ -66,7 +66,7 @@ LOCATION_NAME_TO_ID = {
     "Bounty Board Research - Quest: Easy Mode (Tote)": 14 + RESEARCH_OFFSET_BOUNTY,
     "Bounty Board Research - Quest: Easy Mode (Pochette)": 15 + RESEARCH_OFFSET_BOUNTY,
     "Bounty Board Research - Quest: Easy Mode (CR-8)": 16 + RESEARCH_OFFSET_BOUNTY,
-    "Bounty Board Research - Quest: Scissors": 17 + RESEARCH_OFFSET_BOUNTY,
+    "Bounty Board Research - Quest: Scissors 1": 17 + RESEARCH_OFFSET_BOUNTY,
     "Bounty Board Research - Quest: Duo Core": 18 + RESEARCH_OFFSET_BOUNTY,
 
     "Blacksmith Research - Plate Armor": 1 + RESEARCH_OFFSET_SMITH,
@@ -298,8 +298,8 @@ LOCATION_NAME_TO_ID = {
     "Vivienne - First Rune Reward (Tote Costume)": 15 + NPC_LOCATION_OFFSET_VIV,
     "Vivienne - Second Rune Reward (Tote Costume)": 16 + NPC_LOCATION_OFFSET_VIV,
 
-    "Vivienne - First Sigil Reward (Pochette Costume)": 20 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - Second Sigil Reward (Pochette Costume)": 21 + NPC_LOCATION_OFFSET_VIV,
+    "Vivienne - First ??? Reward (Pochette Costume)": 20 + NPC_LOCATION_OFFSET_VIV,
+    "Vivienne - Second ??? Reward (Pochette Costume)": 21 + NPC_LOCATION_OFFSET_VIV,
     
     "Vivienne - First Floppy Disk Reward (CR-8 Costume)": 25 + NPC_LOCATION_OFFSET_VIV,
     "Vivienne - Second Floppy Disk Reward (CR-8 Costume)": 26 + NPC_LOCATION_OFFSET_VIV,

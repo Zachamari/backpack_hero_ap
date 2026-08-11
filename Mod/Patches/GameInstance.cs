@@ -14,10 +14,28 @@ public static class GameInstance
     public static MetaProgressSaveManager MetaProgressSaveManagerMissions = null;
     public static MetaProgressSaveManager MetaProgressSaveManagerItems = null;
     public static RunTypeSelector RunTypeSelector = new RunTypeSelector();
+    private static byte count = 0;
 
-    [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.Load)), HarmonyPostfix]
-    public static void GetMetaProgressSaveManagerInstance(ref MetaProgressSaveManager __instance)
+    [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.SetupMetaData)), HarmonyPostfix]
+    public static void GetMetaProgressSaveManagerInstance(int __0, ref MetaProgressSaveManager __instance)
     {
+        BPHAP.Log("Slot number: " + __0.ToString());
+        // The game runs this function to load data from all 3 slots first, then from whichever slot is the one being loaded into
+        // We only want the fourth one, and I can't figure out a better way to isolate specifically the fourth one other than doing this
+        // If I just take whatever the most recent one to be used is, it later gets overwritten and everything breaks
+        // (I could figure out which save file the player clicked on in a different function, but this is easier)
+        if (count == 3) {        
+            BPHAP.Log("MetaProgressSaveManager instance stored for Missions: " + __instance.ToString());
+            MetaProgressSaveManagerMissions = __instance;
+            BPHAP.Log("MetaProgressSaveManager instance stored for Items: " + __instance.ToString());
+            MetaProgressSaveManagerItems = __instance;
+        } 
+
+        if (count < 4)
+        {
+            count += 1;
+        }
+
         BPHAP.Log("Instance missions: ");
         foreach (string mission in __instance.missionsUnlocked)
         {
@@ -29,16 +47,6 @@ public static class GameInstance
             BPHAP.Log(item);
         }
         
-        BPHAP.Log("MetaProgressSaveManager instance stored for Missions: " + __instance.ToString());
-        MetaProgressSaveManagerMissions = __instance;
-
-        // For some reason, there's multiple instances of MetaProgressSaveManager being thrown around, and this is really the only way I can think of to differentiate them
-        if (__instance.itemsUnlocked.Count > 6)
-        {
-            BPHAP.Log("MetaProgressSaveManager instance stored for Items: " + __instance.ToString());
-            MetaProgressSaveManagerItems = __instance;
-        }
-
         if (ItemReceived.missionQueue.Count > 0)
         {
             foreach (string mission in ItemReceived.missionQueue)
