@@ -327,7 +327,7 @@ public class ArchipelagoClient
 
         if (itemId >= ALTERNATE_COSTUMES_OFFSET) {
 
-            // Costume unlocks go here
+            ItemReceived.ReceiveNewCostume(APWorldIDs.GetInternalCostumeName(receivedItem.ItemName));
 
             return;
         }
@@ -381,14 +381,14 @@ public class ArchipelagoClient
         
         if (itemId >= BUILDING_OFFSET_TILE) {
 
-            ItemReceived.ReceiveNewPath(receivedItem.ItemName);
+            ItemReceived.buildingQueue.Add(receivedItem.ItemName);
             return;
 
         }
 
         if (itemId >= BUILDING_OFFSET_PROG) { // range includes non-prog buildings as well
 
-            ItemReceived.ReceiveNewBuilding(APWorldIDs.GetInternalBuildingName(receivedItem.ItemName));
+            ItemReceived.buildingQueue.Add(APWorldIDs.GetInternalBuildingName(receivedItem.ItemName));
             return;
             
         }

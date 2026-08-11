@@ -18,11 +18,21 @@ public static class GameInstance
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.Load)), HarmonyPostfix]
     public static void GetMetaProgressSaveManagerInstance(ref MetaProgressSaveManager __instance)
     {
+        BPHAP.Log("Instance missions: ");
+        foreach (string mission in __instance.missionsUnlocked)
+        {
+            BPHAP.Log(mission);
+        }
+        BPHAP.Log("\nInstance items: ");
+        foreach(string item in __instance.itemsUnlocked)
+        {
+            BPHAP.Log(item);
+        }
+        
         BPHAP.Log("MetaProgressSaveManager instance stored for Missions: " + __instance.ToString());
         MetaProgressSaveManagerMissions = __instance;
+
         // For some reason, there's multiple instances of MetaProgressSaveManager being thrown around, and this is really the only way I can think of to differentiate them
-        // The one that gets called last is the one that works for mission unlocks, so that one's fine to just have be stored normally
-        // The items don't work properly unless they use the item-specific one though
         if (__instance.itemsUnlocked.Count > 6)
         {
             BPHAP.Log("MetaProgressSaveManager instance stored for Items: " + __instance.ToString());
@@ -81,8 +91,10 @@ public static class GameInstance
     [HarmonyPatch(typeof(Overworld_BuildingManager), nameof(Overworld_BuildingManager.GetBuildings)), HarmonyPostfix]
     public static void GetOverworldBuidingManagerInstance(ref Overworld_BuildingManager __instance)
     {
-        BuildingInstance = __instance;
-        BPHAP.Log("BuildingManager instance stored: " + __instance.ToString());
+        if (BuildingInstance == null) {
+            BuildingInstance = __instance;
+            BPHAP.Log("BuildingManager instance stored: " + __instance.ToString());
+        }
 
         if (ItemReceived.buildingQueue.Count > 0)
         {
@@ -90,7 +102,6 @@ public static class GameInstance
             {
                 ItemReceived.ReceiveNewBuilding(building);
             }
-            ItemReceived.buildingQueue.Clear();
         }
 
         if (ItemReceived.tileQueue.Count > 0)
@@ -162,7 +173,7 @@ public static class GameInstance
 
 
 
-
+    public static HashSet<string> receivedItems = [];
     private static bool allowDebug = false;
 
     // Remove later or replace with function to get copies of items from server
@@ -171,6 +182,14 @@ public static class GameInstance
     [HarmonyPatch("GetAllValidItems")]
     public static void DebugFreeItems(List<Item2> __result)
     {
+
+        foreach (Item2 item in __result)
+        {
+            if (receivedItems.Contains(Item2.GetDisplayName(item.name)))
+            {
+                BPHAP.Log("Received item found in pool: " + Item2.GetDisplayName(item.name));
+            }
+        }
 
         if (!allowDebug) {
             return;

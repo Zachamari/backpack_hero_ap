@@ -1,0 +1,4 @@
+- Checks for unlocking Coral 1 and Windmill 1 (Zaar) don't send, they're not present in the dictionary for some reason
+- Mission instance only works on first run because it's being overwritten- figure out a way to differentiate the fourth instance specifically and use that one only
+- Item instance likely doesn't work at all, figure out which one actually works
+- Theory: Each concurrent instance is a different save file? (this is a whole crapshoot if true)

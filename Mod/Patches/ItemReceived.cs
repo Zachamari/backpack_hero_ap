@@ -54,12 +54,12 @@ public static class ItemReceived
     public static List<string> buildingQueue = [];
     public static void ReceiveNewBuilding(string buildingName)
     {
+        // This function is only ever called through the building queue
         if (GameInstance.BuildingInstance == null)
         {
-            buildingQueue.Add(buildingName);
             return;
         }
-        buildingQueue.Clear();
+        buildingQueue.Remove(buildingName);
         BPHAP.Log($"Adding building {buildingName} to list of buildable buildings...");
         LocationChecked.newBuildingIsFromAP = true;
         GameInstance.BuildingInstance.AddBuilding(buildingName);

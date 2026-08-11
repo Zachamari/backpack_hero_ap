@@ -170,6 +170,7 @@ public class APWorldIDs
             "This One's On Me" => "This Round Is On Me",
             "Builder Bird" => "Builder Bird Mission",
             "Magic Archery" => "Magic Archery 1",
+            "Windmill 1" => "windmill 1",
             _ => mission,
         };
     }
