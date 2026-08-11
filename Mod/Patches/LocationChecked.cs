@@ -98,20 +98,20 @@ public static class LocationChecked
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.UnlockItem)), HarmonyPrefix]
     public static bool PreventVanillaItemUnlock(Item2 item)
     {
-        // if (newItemIsFromAP)
-        // {
-        //     BPHAP.Log("Allowing item " + item.name + " to be unlocked from AP.");
-        //     newItemIsFromAP = false;
-        //     return true;
-        // }
-        // else
-        // {
+        if (newItemIsFromAP)
+        {
+            BPHAP.Log("Allowing item " + item.name + " to be unlocked from AP.");
+            newItemIsFromAP = false;
+            return true;
+        }
+        else
+        {
             BPHAP.Log("Item " + item.name + " was prevented from being unlocked.");
 
             BPHAP.APClient.SendCheck(item.name);
 
             return false;
-        // }
+        }
     }
 
 
@@ -310,6 +310,8 @@ public static class LocationChecked
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.AddMetaProgressMarker), new Type[] { typeof(MetaProgressSaveManager.MetaProgressMarker) }), HarmonyPrefix]
     public static bool HandleMetaProgressMarker(MetaProgressSaveManager.MetaProgressMarker m)
     {
+        // ItemReceived.UpdateReceivedItemQueues();
+        
         BPHAP.Log("AddMetaProgressMarker was run; Marker was added with enum value of " + (int)m);
 
         switch ((int)m)

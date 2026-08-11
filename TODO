@@ -1,3 +1,4 @@
-- Mission instance only works on first run because it's being overwritten- figure out a way to differentiate the fourth instance specifically and use that one only
-- Item instance likely doesn't work at all, figure out which one actually works
-- Theory: Each concurrent instance is a different save file? (this is true)
+- Items aren't being added to pool because Item2.GetItemByName() is returning null
+- itemQueue seems to be getting cleared after going through 1 item from the update function
+- Starting a mission sends the check for the vanilla mission unlock location
+- Look in OverworldInventory class for adding things to inventory from AP

@@ -36,53 +36,17 @@ public static class GameInstance
             count += 1;
         }
 
-        BPHAP.Log("Instance missions: ");
-        foreach (string mission in __instance.missionsUnlocked)
-        {
-            BPHAP.Log(mission);
-        }
-        BPHAP.Log("\nInstance items: ");
-        foreach(string item in __instance.itemsUnlocked)
-        {
-            BPHAP.Log(item);
-        }
+        // BPHAP.Log("Instance missions: ");
+        // foreach (string mission in __instance.missionsUnlocked)
+        // {
+        //     BPHAP.Log(mission);
+        // }
+        // BPHAP.Log("\nInstance items: ");
+        // foreach(string item in __instance.itemsUnlocked)
+        // {
+        //     BPHAP.Log(item);
+        // }
         
-        if (ItemReceived.missionQueue.Count > 0)
-        {
-            foreach (string mission in ItemReceived.missionQueue)
-            {
-                ItemReceived.ReceiveNewMission(mission);
-            }
-            ItemReceived.missionQueue.Clear();
-        }
-
-        if (ItemReceived.itemQueue.Count > 0)
-        {
-            foreach (string itemName in ItemReceived.itemQueue)
-            {
-                ItemReceived.ReceiveNewItem(itemName);
-            }
-            ItemReceived.itemQueue.Clear();
-        }
-    
-        if (ItemReceived.metaQueue.Count > 0)
-        {
-            foreach (int val in ItemReceived.metaQueue)
-            {
-                ItemReceived.ReceiveNewMetaProgress(val);
-            }
-            ItemReceived.metaQueue.Clear();
-        }        
-        
-        if (ItemReceived.costumeQueue.Count > 0)
-        {
-            foreach (string costume in ItemReceived.costumeQueue)
-            {
-                ItemReceived.ReceiveNewCostume(costume);
-            }
-            ItemReceived.costumeQueue.Clear();
-        }
-
     }
 
     // [HarmonyPatch(typeof(RunTypeSelector), nameof(RunTypeSelector.GetProperties)), HarmonyPostfix]
@@ -94,6 +58,9 @@ public static class GameInstance
     //     }
     // }
 
+
+
+
     public static Overworld_BuildingManager BuildingInstance = null;
 
     [HarmonyPatch(typeof(Overworld_BuildingManager), nameof(Overworld_BuildingManager.GetBuildings)), HarmonyPostfix]
@@ -104,22 +71,21 @@ public static class GameInstance
             BPHAP.Log("BuildingManager instance stored: " + __instance.ToString());
         }
 
-        if (ItemReceived.buildingQueue.Count > 0)
-        {
-            foreach (string building in ItemReceived.buildingQueue)
-            {
-                ItemReceived.ReceiveNewBuilding(building);
-            }
-        }
+        // if (ItemReceived.buildingQueue.Count > 0)
+        // {
+        //     foreach (string building in ItemReceived.buildingQueue)
+        //     {
+        //         ItemReceived.ReceiveNewBuilding(building);
+        //     }
+        // }
 
-        if (ItemReceived.tileQueue.Count > 0)
-        {
-            foreach (string tile in ItemReceived.tileQueue)
-            {
-                ItemReceived.ReceiveNewPath(tile);
-            }
-            ItemReceived.tileQueue.Clear();
-        }
+        // if (ItemReceived.tileQueue.Count > 0)
+        // {
+        //     foreach (string tile in ItemReceived.tileQueue)
+        //     {
+        //         ItemReceived.ReceiveNewPath(tile);
+        //     }
+        // }
     }
 
 
@@ -157,6 +123,17 @@ public static class GameInstance
         }
     }
     
+    public static DebugItemManager DebugItemManagerInstance = null;
+
+    [HarmonyPatch(typeof(DebugItemManager), nameof(DebugItemManager.GetItem2ByName)), HarmonyPostfix]
+    public static void GetDebugItemManagerInstance(ref DebugItemManager __instance)
+    {
+        if (DebugItemManagerInstance == null) {        
+            BPHAP.Log("DebugItemManager Instance stored.");
+            DebugItemManagerInstance = __instance;
+            ItemReceived.UpdateReceivedItemQueues();
+        }
+    }
 
 
 
