@@ -98,20 +98,20 @@ public static class LocationChecked
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.UnlockItem)), HarmonyPrefix]
     public static bool PreventVanillaItemUnlock(Item2 item)
     {
-        if (newItemIsFromAP)
-        {
-            BPHAP.Log("Allowing item " + item.name + " to be unlocked from AP.");
-            newItemIsFromAP = false;
-            return true;
-        }
-        else
-        {
+        // if (newItemIsFromAP)
+        // {
+        //     BPHAP.Log("Allowing item " + item.name + " to be unlocked from AP.");
+        //     newItemIsFromAP = false;
+        //     return true;
+        // }
+        // else
+        // {
             BPHAP.Log("Item " + item.name + " was prevented from being unlocked.");
 
             BPHAP.APClient.SendCheck(item.name);
 
             return false;
-        }
+        // }
     }
 
 
@@ -122,13 +122,13 @@ public static class LocationChecked
     {
         BPHAP.Log("Mission MPSM instance: " + __instance.ToString());
         
-        if (newMissionIsFromAP)
-        {
-            newMissionIsFromAP = false;
-            return true;
-        }
-        else
-        {
+        // if (newMissionIsFromAP)
+        // {
+        //     newMissionIsFromAP = false;
+        //     return true;
+        // }
+        // else
+        // {
             
             if (m.name == "First Journey" || m.name == "Standard Run")
             {
@@ -147,7 +147,7 @@ public static class LocationChecked
             BPHAP.APClient.SendCheck(quest);
 
             return false;
-        }
+        // }
     }
 
 

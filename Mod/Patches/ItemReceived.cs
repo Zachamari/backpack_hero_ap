@@ -19,7 +19,7 @@ public static class ItemReceived
             return;
         }
         BPHAP.Log($"Adding item {itemName} to pool...");
-        LocationChecked.newItemIsFromAP = true;
+        // LocationChecked.newItemIsFromAP = true;
         if (!GameInstance.MetaProgressSaveManagerItems.itemsUnlocked.Contains(itemName)) {
             GameInstance.MetaProgressSaveManagerItems.itemsUnlocked.Add(itemName);
             // Overworld_Manager.main.OpenNewItemWindow(Item2.GetItemByName(itemName));
@@ -39,7 +39,7 @@ public static class ItemReceived
         }
         
         BPHAP.Log($"Adding mission {missionName} to list of accessible missions...");
-        LocationChecked.newMissionIsFromAP = true;
+        // LocationChecked.newMissionIsFromAP = true;
         if (!GameInstance.MetaProgressSaveManagerMissions.missionsUnlocked.Contains(missionName)) { 
             GameInstance.MetaProgressSaveManagerMissions.missionsUnlocked.Add(missionName);
             if (GameInstance.RunTypeSelector != null) {
