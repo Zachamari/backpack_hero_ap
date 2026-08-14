@@ -1,4 +1,4 @@
-- Items aren't being added to pool because Item2.GetItemByName() is returning null
-- itemQueue seems to be getting cleared after going through 1 item from the update function
 - Starting a mission sends the check for the vanilla mission unlock location
 - Look in OverworldInventory class for adding things to inventory from AP
+- Matthew doesn't let you do his research after you receive every area key 
+- Check if it's possible to get character unlock locations after the character has been received

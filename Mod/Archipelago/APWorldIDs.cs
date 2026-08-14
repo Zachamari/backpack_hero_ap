@@ -245,6 +245,9 @@ public class APWorldIDs
             "Assassin's Dagger" => "assassin's dagger",
             "Lucky Shiv" => "LUCKY Shiv",
             "Charging Manastone" => "Charging ManaStone",
+            "Golden Star" => "Golden Shuriken",
+            "Alpha Star" => "Alpha Shuriken",
+            "Unstable Manastone" => "Unstable ManaStone",
             
             _ => item,
         };

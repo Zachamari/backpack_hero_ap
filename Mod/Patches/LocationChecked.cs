@@ -85,7 +85,7 @@ public static class LocationChecked
                 break;
             case PerformSpecialAction.ActionType.UnlockCostume:
                 BPHAP.Log($"Costume unlocked: {__instance.costume}");
-                BPHAP.APClient.SendCheck(__instance.costume.ToString());
+                SendCostumeCheck(__instance.costume.ToString());
                 // send check here, make return false?
                 break;
         }
@@ -94,6 +94,78 @@ public static class LocationChecked
 
     }
 
+    private static void SendCostumeCheck(string costumeName)
+    {
+        
+            if (costumeName.Contains("Purse"))
+            {
+                // Costume location IDs are all in a row and should always be sent progressively (since that's how it functions in the vanilla game)
+                for (int i = 2; i < 7; i++)
+                { 
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
+                    {
+                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
+                        return;
+                    }
+                }
+                BPHAP.LogError("Unable to send costume check for item " + costumeName);          
+                return;  
+            }
+            if (costumeName.Contains("Satchel"))
+            {
+                for (int i = 10; i < 12; i++)
+                { 
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
+                    {
+                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
+                        return;
+                    }
+                }
+                BPHAP.LogError("Unable to send costume check for item " + costumeName);       
+                return;
+            }
+            if (costumeName.Contains("Tote"))
+            {
+                for (int i = 15; i < 17; i++)
+                { 
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
+                    {
+                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
+                        return;
+                    }
+                }
+                BPHAP.LogError("Unable to send costume check for item " + costumeName);       
+                return;
+            }
+            if (costumeName.Contains("Pochette"))
+            {
+                for (int i = 20; i < 22; i++)
+                { 
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
+                    {
+                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
+                        return;
+                    }
+                }
+                BPHAP.LogError("Unable to send costume check for item " + costumeName);       
+                return;
+            }
+            if (costumeName.Contains("CR8"))
+            {
+                for (int i = 25; i < 27; i++)
+                { 
+                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
+                    {
+                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
+                        return;
+                    }
+                }
+                BPHAP.LogError("Unable to send costume check for item " + costumeName);       
+                return;
+            }
+
+            BPHAP.LogError("ERROR: Internal costume name does not contain a character's name: " + costumeName);
+    }
 
     public static bool newItemIsFromAP = false;
 
@@ -169,74 +241,6 @@ public static class LocationChecked
 
             BPHAP.Log("Costume " + __0.name + " was prevented from being unlocked.");
 
-            if (__0.name.Contains("Purse"))
-            {
-                // Costume location IDs are all in a row and should always be sent progressively (since that's how it functions in the vanilla game)
-                for (int i = 2; i < 7; i++)
-                { 
-                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
-                    {
-                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
-                        return false;
-                    }
-                }
-                BPHAP.LogError("Unable to send costume check for item " + __0.name);          
-                return false;  
-            }
-            if (__0.name.Contains("Satchel"))
-            {
-                for (int i = 10; i < 12; i++)
-                { 
-                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
-                    {
-                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
-                        return false;
-                    }
-                }
-                BPHAP.LogError("Unable to send costume check for item " + __0.name);       
-                return false;
-            }
-            if (__0.name.Contains("Tote"))
-            {
-                for (int i = 15; i < 17; i++)
-                { 
-                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
-                    {
-                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
-                        return false;
-                    }
-                }
-                BPHAP.LogError("Unable to send costume check for item " + __0.name);       
-                return false;
-            }
-            if (__0.name.Contains("Pochette"))
-            {
-                for (int i = 20; i < 22; i++)
-                { 
-                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
-                    {
-                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
-                        return false;
-                    }
-                }
-                BPHAP.LogError("Unable to send costume check for item " + __0.name);       
-                return false;
-            }
-            if (__0.name.Contains("CR8"))
-            {
-                for (int i = 25; i < 27; i++)
-                { 
-                    if (!BPHAP.APClient.checkedLocations.Contains(i + NPC_LOCATION_OFFSET_VIV))
-                    {
-                        BPHAP.APClient.SendCheck(i + NPC_LOCATION_OFFSET_VIV);
-                        return false;
-                    }
-                }
-                BPHAP.LogError("Unable to send costume check for item " + __0.name);       
-                return false;
-            }
-
-            BPHAP.LogError("ERROR: Internal costume name does not contain a character's name: " + __0.name);
             return true;
 
         }
