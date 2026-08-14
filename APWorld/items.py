@@ -344,8 +344,11 @@ class BPHItem(Item):
 
 def get_item_groups() -> dict[str, Set[str]]:
     item_groups = {}
+
     for item in ITEM_NAME_TO_ID_AND_CLASSIFICATION:
-        item_groups.update({item: ITEM_NAME_TO_ID_AND_CLASSIFICATION[item][2]})
+        for group in ITEM_NAME_TO_ID_AND_CLASSIFICATION[item][2]:
+            item_groups.setdefault(group, set()).add(item)
+            
     return item_groups
 
 

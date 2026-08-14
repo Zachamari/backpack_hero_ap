@@ -71,21 +71,21 @@ public static class GameInstance
             BPHAP.Log("BuildingManager instance stored: " + __instance.ToString());
         }
 
-        // if (ItemReceived.buildingQueue.Count > 0)
-        // {
-        //     foreach (string building in ItemReceived.buildingQueue)
-        //     {
-        //         ItemReceived.ReceiveNewBuilding(building);
-        //     }
-        // }
+        if (ItemReceived.buildingQueue.Count > 0)
+        {
+            foreach (string building in ItemReceived.buildingQueue)
+            {
+                ItemReceived.ReceiveNewBuilding(building);
+            }
+        }
 
-        // if (ItemReceived.tileQueue.Count > 0)
-        // {
-        //     foreach (string tile in ItemReceived.tileQueue)
-        //     {
-        //         ItemReceived.ReceiveNewPath(tile);
-        //     }
-        // }
+        if (ItemReceived.tileQueue.Count > 0)
+        {
+            foreach (string tile in ItemReceived.tileQueue)
+            {
+                ItemReceived.ReceiveNewPath(tile);
+            }
+        }
     }
 
 

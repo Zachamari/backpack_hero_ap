@@ -76,16 +76,16 @@ public static class LocationChecked
         {
             case PerformSpecialAction.ActionType.AddBuilding:
                 BPHAP.Log($"Building unlocked: {__instance.genericObject}");
-                BPHAP.APClient.SendCheck(__instance.genericObject);
+                BPHAP.APClient.SendCheck(__instance.genericObject.ToString());
                 break;
             case PerformSpecialAction.ActionType.UnlockCharacter:
                 BPHAP.Log($"Character unlocked: {__instance.character}");
-                BPHAP.APClient.SendCheck(__instance.character);
+                BPHAP.APClient.SendCheck(__instance.character.ToString());
                 // send check here, make return false?
                 break;
             case PerformSpecialAction.ActionType.UnlockCostume:
                 BPHAP.Log($"Costume unlocked: {__instance.costume}");
-                BPHAP.APClient.SendCheck(__instance.costume);
+                BPHAP.APClient.SendCheck(__instance.costume.ToString());
                 // send check here, make return false?
                 break;
         }
@@ -132,7 +132,7 @@ public static class LocationChecked
         // else
         // {
             
-            if (m.name == "First Journey" || m.name == "Standard Run")
+            if (m.name == "First Journey" || m.name == "Standard Run" || m.name == "Satchel Standard" || m.name == "Tote Standard" || m.name == "Pochette Standard" || m.name == "CR8 Standard")
             {
                 return true;
             }
