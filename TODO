@@ -1,4 +1,5 @@
-- Starting a mission sends the check for the vanilla mission unlock location
+<!-- - Starting a mission sends the check for the vanilla mission unlock location -->
 - Look in OverworldInventory class for adding things to inventory from AP
-- Matthew doesn't let you do his research after you receive every area key 
+- Matthew doesn't let you do his research after you receive every area key
 - Check if it's possible to get character unlock locations after the character has been received
+- Check if receiving an npc item from the mw makes it impossible to send the corresponding check

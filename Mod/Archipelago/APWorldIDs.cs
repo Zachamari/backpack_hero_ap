@@ -221,7 +221,7 @@ public class APWorldIDs
             "Ice Cream (Satchel)" => "Satchel Ice Cream",
             "Ice Cream (Purse)" => "Scaling Energy",
             "Red Tusk" => "Tusk",
-            "Double Core" => "CR8 Double Core",
+            "Duo Core" => "CR8 Double Core",
             "Scissors 1" => "Scissors",
             "This One's On Me" => "This Round Is On Me",
             "Builder Bird" => "Builder Bird Mission",

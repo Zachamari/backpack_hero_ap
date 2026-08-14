@@ -381,7 +381,7 @@ public class ArchipelagoClient
         
         if (itemId >= BUILDING_OFFSET_TILE) {
 
-            ItemReceived.buildingQueue.Add(receivedItem.ItemName);
+            ItemReceived.tileQueue.Add(receivedItem.ItemName);
             return;
 
         }

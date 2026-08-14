@@ -109,9 +109,9 @@ ITEM_NAME_TO_ID_AND_CLASSIFICATION = {
     "Bowblade": [81 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Melee", "Weapons", "Bows", "Common Items"]],
     "Brick Arrow": [82 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Structures", "Arrows", "Weapons", "Uncommon Items"]],
     "Electric Arrow": [83 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Arrows", "Weapons", "Rare Items"]],
-    "Expert Arrow": [84 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Bows", "Legendary Items"]],
+    "Expert Bow": [84 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Bows", "Legendary Items"]],
     "Fire Arrow": [85 + ITEM_OFFSET, ItemClassification.progression_deprioritized, ["Dungeon Items", "Arrows", "Weapons", "Uncommon Items"]],
-    "Golden Arrow": [86 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Bows", "Rare Items"]],
+    "Golden Bow": [86 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Bows", "Rare Items"]],
     "Manastone Bow": [87 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Manastones", "Bows", "Uncommon Items"]],
     "Mouse Bow": [88 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Bows", "Uncommon Items"]],
     "Poison Arrow": [89 + ITEM_OFFSET, ItemClassification.progression_deprioritized, ["Dungeon Items", "Arrows", "Weapons", "Uncommon Items"]],
@@ -238,7 +238,8 @@ ITEM_NAME_TO_ID_AND_CLASSIFICATION = {
     "Town Hall": [12 + BUILDING_OFFSET_PROG, ItemClassification.progression, ["Buildings", "Important Buildings"]],
     "House": [13 + BUILDING_OFFSET_PROG, ItemClassification.progression, ["Buildings", "Important Buildings"]],
     "Farm": [14 + BUILDING_OFFSET_PROG, ItemClassification.progression, ["Buildings", "Resource-Generating Buildings"]], # I think you need this for one of Mayor's requests iirc,
-    "Beacon": [15 + BUILDING_OFFSET_PROG, ItemClassification.progression, ["Buildings", "Important Buildings"]],
+    "Purse's House": [15 + BUILDING_OFFSET_PROG, ItemClassification.progression, ["Buildings", "Important Buildings"]],
+    "Beacon": [16 + BUILDING_OFFSET_PROG, ItemClassification.progression, ["Buildings", "Important Buildings"]],
 
     "Quarry": [1 + BUILDING_OFFSET_USEFUL, ItemClassification.useful, ["Buildings", "Resource-Generating Buildings"]],
     "Bank": [2 + BUILDING_OFFSET_USEFUL, ItemClassification.useful, ["Buildings"]],
@@ -281,6 +282,7 @@ ITEM_NAME_TO_ID_AND_CLASSIFICATION = {
     "Stone Path": [1 + BUILDING_OFFSET_TILE, ItemClassification.filler, ["Decorations", "Paths"]],
     "Farmland": [2 + BUILDING_OFFSET_TILE, ItemClassification.filler, ["Decorations", "Paths"]],
     "Brick Path": [3 + BUILDING_OFFSET_TILE, ItemClassification.filler, ["Decorations", "Paths"]],
+    "Dirt Path": [4 + BUILDING_OFFSET_TILE, ItemClassification.filler, ["Decorations", "Paths"]],
 
 
     "Key to the Bramble": [1 + AREA_KEYS_OFFSET, ItemClassification.progression | ItemClassification.useful, ["Dungeon Area Keys"]],
@@ -473,9 +475,9 @@ def create_all_items(world: BPHWorld) -> None:
         world.create_item("Bowblade"),
         world.create_item("Brick Arrow"),
         world.create_item("Electric Arrow"),
-        world.create_item("Expert Arrow"),
+        world.create_item("Expert Bow"),
         world.create_item("Fire Arrow"),
-        world.create_item("Golden Arrow"),
+        world.create_item("Golden Bow"),
         world.create_item("Manastone Bow"),
         world.create_item("Mouse Bow"),
         world.create_item("Poison Arrow"),
@@ -549,6 +551,7 @@ def create_all_items(world: BPHWorld) -> None:
         world.create_item("Town Hall"),
         world.create_item("House"),
         world.create_item("Farm"),
+        world.create_item("Purse's House"),
         world.create_item("Beacon"),
 
         world.create_item("Quarry"),
@@ -560,6 +563,7 @@ def create_all_items(world: BPHWorld) -> None:
         world.create_item("Stone Path"),
         world.create_item("Farmland"),
         world.create_item("Brick Path"),
+        world.create_item("Dirt Path"),
 
         world.create_item("Key to the Bramble"),
         world.create_item("Key to the Deep Caves"),

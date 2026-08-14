@@ -263,8 +263,13 @@ LOCATION_NAME_TO_ID = {
     "Constance Research - CR-8": 10 + RESEARCH_OFFSET_OTHER,
     "Constance Research - Beacon": 11 + RESEARCH_OFFSET_OTHER,
 
+    "Mayor Quillswish Research - Tavern": 12 + RESEARCH_OFFSET_OTHER,
+    "Mayor Quillswish Research - Blacksmith": 13 + RESEARCH_OFFSET_OTHER,
+    "Mayor Quillswish Research - Barracks": 14 + RESEARCH_OFFSET_OTHER,
+
 
     "Louis - Quest: Protector": 1 + NPC_LOCATION_OFFSET_LOUIS,
+    "Louis - Large Town Gift (Purse's House)": 2 + NPC_LOCATION_OFFSET_LOUIS,
 
     "Pasha - First Meeting Gift (Bounty Board)": 1 + NPC_LOCATION_OFFSET_PASHA,
 
@@ -280,7 +285,9 @@ LOCATION_NAME_TO_ID = {
 
     "Mayor Quillswish - Donation Reward 1 (Farm)": 1 + NPC_LOCATION_OFFSET_MAYOR,
     "Mayor Quillswish - Donation Reward 2 (House)": 2 + NPC_LOCATION_OFFSET_MAYOR,
-    "Mayor Quillswish - Mayor Quillswish Plush Reward (Quest: Campaign Trail)": 3 + NPC_LOCATION_OFFSET_MAYOR,
+    "Mayor Quillswish - Expanding Town Reward 1 (Town Hall)": 3 + NPC_LOCATION_OFFSET_MAYOR,
+    "Mayor Quillswish - Expanding Town Reward 2 (Dirt Path)": 4 + NPC_LOCATION_OFFSET_MAYOR,
+    "Mayor Quillswish - Mayor Quillswish Plush Reward (Quest: Campaign Trail)": 5 + NPC_LOCATION_OFFSET_MAYOR,
 
     "Sir Wartsley - First Meeting Gift 1 (Jeweler)": 1 + NPC_LOCATION_OFFSET_WART,
     "Sir Wartsley - First Meeting Gift 2 (Item Pedestal)": 2 + NPC_LOCATION_OFFSET_WART,

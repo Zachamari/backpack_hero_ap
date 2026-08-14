@@ -47,6 +47,7 @@ public static class LocationChecked
 
 
         BPHAP.Log($"Research completed for item {name} (full code: {nameAndValues})");
+        BPHAP.APClient.SendCheck(APWorldIDs.GetInternalItemName(name)); // This would cause checks to send multiple times, add a safeguard for this
 
         // (preventing this function from running does nothing, item is still unlocked like normal)
 
@@ -170,7 +171,7 @@ public static class LocationChecked
     public static bool newItemIsFromAP = false;
 
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.UnlockItem)), HarmonyPrefix]
-    public static bool PreventVanillaItemUnlock(Item2 item)
+    public static bool PreventVanillaItemUnlockAndSendCheck(Item2 item)
     {
         if (newItemIsFromAP)
         {
@@ -189,20 +190,27 @@ public static class LocationChecked
     }
 
 
-    public static bool newMissionIsFromAP = false;
+    [HarmonyPatch(typeof(RunTypeManager), nameof(RunTypeManager.AssignRunType)), HarmonyPrefix]
+    public static void DetectMissionStart(Missions m, ref MetaProgressSaveManager __instance)
+    {
+        missionJustStarted = true;
+    }
+    
+    private static bool missionJustStarted = false;
 
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.AddMission)), HarmonyPrefix]
     public static bool PreventVanillaQuestUnlockAndSendCheck(Missions m, ref MetaProgressSaveManager __instance)
     {
         BPHAP.Log("Mission MPSM instance: " + __instance.ToString());
         
-        // if (newMissionIsFromAP)
-        // {
-        //     newMissionIsFromAP = false;
-        //     return true;
-        // }
-        // else
-        // {
+        if (missionJustStarted)
+        {
+            // This function is also run when starting a quest (from RunTypeManager.AssignRunType), so it would erroneously send checks for researching quests at the start of missions unlocked from AP
+            missionJustStarted = false;
+            return true;
+        }
+        else
+        {
             
             if (m.name == "First Journey" || m.name == "Standard Run" || m.name == "Satchel Standard" || m.name == "Tote Standard" || m.name == "Pochette Standard" || m.name == "CR8 Standard")
             {
@@ -221,7 +229,7 @@ public static class LocationChecked
             BPHAP.APClient.SendCheck(quest);
 
             return false;
-        // }
+        }
     }
 
 

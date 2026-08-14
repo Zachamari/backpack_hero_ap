@@ -163,10 +163,17 @@ def set_all_location_rules(world: BPHWorld) -> None:
     
     world.set_rule(world.get_location("Pasha Research - Brick Path"), CanReachRegion("Area 2")) # Brickwall sucks to get early (Uncommon item that takes up 2 spaces and isn't at all useful unless you're going for a very specific build), so I'm logically putting this behind reaching Area 2 so you don't have to grind for this at the start of every run
 
+    world.set_rule(world.get_location("Mayor Quillswish Research - Tavern"), Has("House"))
+    world.set_rule(world.get_location("Mayor Quillswish Research - Barracks"), Has("House"))
+    world.set_rule(world.get_location("Mayor Quillswish Research - Blacksmith"), Has("House"))
+    
+    world.set_rule(world.get_location("Louis - Large Town Gift (Purse's House)"), Has("House")) # possibly more required
 
     # world.set_rule(world.get_location("Nora - Built Magical Mycelium Reward (Tote's Totem)"), Has("Magical Mycelium"))
 
-    world.set_rule(world.get_location("Mayor Quillswish - Mayor Quillswish Plush Reward (Quest: Campaign Trail)"), Has("House"))
+    world.set_rule(world.get_location("Mayor Quillswish - Expanding Town Reward 1 (Town Hall)"), HasAll("House", "Tavern", "Barracks", "Blacksmith"))
+    world.set_rule(world.get_location("Mayor Quillswish - Expanding Town Reward 2 (Dirt Path)"), HasAll("House", "Tavern", "Barracks", "Blacksmith"))
+    world.set_rule(world.get_location("Mayor Quillswish - Mayor Quillswish Plush Reward (Quest: Campaign Trail)"), HasAll("House", "Tavern", "Barracks", "Blacksmith"))
 
     # Logically locking some of these behind Area 2 to prevent early required grinding
     world.set_rule(world.get_location("Vivienne - 3 Etchings/Sigils Reward (Purse Costume)"), CanReachRegion("Area 2")) # Maybe add some number of Purse Quests as well
