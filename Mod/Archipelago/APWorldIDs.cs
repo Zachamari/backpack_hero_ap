@@ -124,9 +124,9 @@ public class APWorldIDs
                         break;
     
                     }
-                    if (item.Contains("Hyacinth"))
+                    if (item.Contains("Hyacinth") || item.Contains("Item Pedestal"))
                     {
-                        // literally only the hyacinths have capitalization mismatches between AP and internal. All the other buildings are fine
+                        // literally only the hyacinths and item pedestal have capitalization mismatches between AP and internal. All the other buildings are fine
                         temp.Add(GetInternalBuildingName(item), LocationNameToID[location]); 
                         break;
                     }
@@ -258,6 +258,7 @@ public class APWorldIDs
             "Yellow Hyacinth" => "Yellow hyacinth",
             "Purple Hyacinth" => "Purple hyacinth",
             "Blue Hyacinth" => "Blue hyacinth",
+            "Item Pedestal" => "item pedestal",
             _ => building,
         };
     }

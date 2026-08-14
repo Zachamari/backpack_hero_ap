@@ -76,14 +76,16 @@ public static class LocationChecked
         {
             case PerformSpecialAction.ActionType.AddBuilding:
                 BPHAP.Log($"Building unlocked: {__instance.genericObject}");
-                // send check here, make return false?
+                BPHAP.APClient.SendCheck(__instance.genericObject);
                 break;
             case PerformSpecialAction.ActionType.UnlockCharacter:
                 BPHAP.Log($"Character unlocked: {__instance.character}");
+                BPHAP.APClient.SendCheck(__instance.character);
                 // send check here, make return false?
                 break;
             case PerformSpecialAction.ActionType.UnlockCostume:
                 BPHAP.Log($"Costume unlocked: {__instance.costume}");
+                BPHAP.APClient.SendCheck(__instance.costume);
                 // send check here, make return false?
                 break;
         }
@@ -255,8 +257,6 @@ public static class LocationChecked
         {
             BPHAP.Log("Building " + __0 + " was prevented from being unlocked.");
 
-            BPHAP.APClient.SendCheck(__0);
-
             return false;
         }
     }
@@ -279,8 +279,6 @@ public static class LocationChecked
                 return true;
             }
             BPHAP.Log("Building " + __0.name + " was prevented from being unlocked.");
-
-            BPHAP.APClient.SendCheck(__0.name);
 
             return false;
         }

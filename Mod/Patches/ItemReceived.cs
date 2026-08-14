@@ -83,7 +83,7 @@ public static class ItemReceived
     public static List<string> buildingQueue = [];
     public static void ReceiveNewBuilding(string buildingName)
     {
-        // This function is only ever called through the building queue
+        // This function is only ever called when buildingQueue.Count > 0
         if (GameInstance.BuildingInstance == null)
         {
             return;
