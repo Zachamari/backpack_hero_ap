@@ -95,6 +95,14 @@ public class APWorldIDs
                             break;
                         }
                     }
+                    if (item == "House")
+                    {
+                        if (specificLocation.Contains("Purse's House"))
+                        {
+                            temp.Add("Purse's House", LocationNameToID[location]);
+                            break;
+                        }
+                    }
                     if (item == "Satchel" || item == "Tote" || item == "Pochette")
                     {
                         if (!specificLocation.Contains("Recruit"))
@@ -223,11 +231,12 @@ public class APWorldIDs
             "Red Tusk" => "Tusk",
             "Duo Core" => "CR8 Double Core",
             "Scissors 1" => "Scissors",
-            "This One's On Me" => "This Round Is On Me",
+            "This One's On Me" => "This Round is On Me",
             "Builder Bird" => "Builder Bird Mission",
             "Magic Archery" => "Magic Archery 1",
             "Windmill 1" => "windmill 1",
             "Wizard's School" => "Wizard School",
+            "Master of Whetstones" => "Whetstone",
             _ => mission,
         };
     }
@@ -240,14 +249,15 @@ public class APWorldIDs
         {
             "Poultice" => "poultice",
             "Amethyst Buckler" => "Amethyste Buckler", // roulxs kaard worked on this game, contributed this one internal item name, and left
-            "Boo-Hoo Buckler" => "Boo-hoo Buckler",
+            "Boo-Hoo Buckler" => "Boo-hoo Buckler ", // yes the extra space is required
             "Berserker's Club" => "berserker's club",
             "Assassin's Dagger" => "assassin's dagger",
             "Lucky Shiv" => "LUCKY Shiv",
             "Charging Manastone" => "Charging ManaStone",
             "Golden Star" => "Golden Shuriken",
             "Alpha Star" => "Alpha Shuriken",
-            "Unstable Manastone" => "Unstable ManaStone",
+            "Unstable Manastone" => "Unstable Mana",
+            "Bowblade" => "BowBlade",
             
             _ => item,
         };
@@ -278,4 +288,5 @@ public class APWorldIDs
             _ => "COSTUME UNKNOWN", // None of my costume names match the internal names, so if it gets here, that means there's a problem
         };
     }
+
 }

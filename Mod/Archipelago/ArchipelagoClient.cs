@@ -231,6 +231,10 @@ public class ArchipelagoClient
 	        {
 	    	    location = location.Substring(0, location.IndexOf(" Variant"));
         	}
+    	    if (location.Contains(" (UnityEngine.GameObject)"))
+	        {
+	    	    location = location.Substring(0, location.IndexOf(" (UnityEngine.GameObject)"));
+        	}
 
             BPHAP.Log("Sending check for location: " + location);
             SendCheck(BPHAP.APIDs.InternalUnlockToLocationID[location]);

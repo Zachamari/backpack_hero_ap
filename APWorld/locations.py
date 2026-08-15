@@ -312,13 +312,14 @@ LOCATION_NAME_TO_ID = {
     "Vivienne - Second Floppy Disk Reward (CR-8 Costume)": 26 + NPC_LOCATION_OFFSET_VIV,
     # Fix these names once I figure out the vanilla unlock conditions
 
-    "Parcel - First Meeting Gift (Pouch)": 1 + NPC_LOCATION_OFFSET_PARCEL, # Likely will move this check to "OTHER", I don't think he gives you anything else
+    "Parcel - First-Time Customer Reward (Pouch)": 1 + NPC_LOCATION_OFFSET_PARCEL, # Likely will move this check to "OTHER", I don't think he gives you anything else
 
     "Master Archer - Town Meeting Gift (Quest: Archery Lessons)": 1 + NPC_LOCATION_OFFSET_ARCHER,
 
     "Miss Burrough - First Meeting Gift (Schoolhouse)": 1 + NPC_LOCATION_OFFSET_MS_B,
 
     "Doug - First Meeting Gift (Sawmill)": 1 + NPC_LOCATION_OFFSET_DOUG,
+    "Doug - Bramble Clear Reward (Carpenter)": 2 + NPC_LOCATION_OFFSET_DOUG, # Maybe?
 
     "Fish Enthusiast - First Meeting Gift (Fishing Hook)": 1 + NPC_LOCATION_OFFSET_FISHER,
     "Fish Enthusiast - Fish Reward 1 (Quest: Fishy Business)": 2 + NPC_LOCATION_OFFSET_FISHER,
@@ -328,7 +329,7 @@ LOCATION_NAME_TO_ID = {
 
     # I don't remember where these locations are unlocked, but I should be able to send them clientside anyway until I figure out when they get sent
     "??? - ??? (Quest: Ghostly!)": 1 + NPC_LOCATION_OFFSET_OTHER, # this might be that one ghost character in town?
-    "??? - ??? (Quest: Master of Whetstones)": 2 + NPC_LOCATION_OFFSET_OTHER,
+    "??? - ??? (Quest: Master of Whetstones)": 2 + NPC_LOCATION_OFFSET_OTHER, # this is Felix
 
 
     "Purse Quest Reward - Coral 1 (Quest: Coral 2)": 1 + QUEST_OFFSET_PURSE,

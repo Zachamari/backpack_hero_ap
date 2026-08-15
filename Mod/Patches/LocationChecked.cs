@@ -47,7 +47,8 @@ public static class LocationChecked
 
 
         BPHAP.Log($"Research completed for item {name} (full code: {nameAndValues})");
-        BPHAP.APClient.SendCheck(APWorldIDs.GetInternalItemName(name)); // This would cause checks to send multiple times, add a safeguard for this
+        if (name.StartsWith("unlocked")) { return; }
+        BPHAP.APClient.SendCheck(APWorldIDs.GetInternalItemName(name));
 
         // (preventing this function from running does nothing, item is still unlocked like normal)
 
@@ -191,8 +192,9 @@ public static class LocationChecked
 
 
     [HarmonyPatch(typeof(RunTypeManager), nameof(RunTypeManager.AssignRunType)), HarmonyPrefix]
-    public static void DetectMissionStart(Missions m, ref MetaProgressSaveManager __instance)
+    public static void DetectMissionStart()
     {
+        BPHAP.Log("Mission just started.");
         missionJustStarted = true;
     }
     
@@ -324,6 +326,11 @@ public static class LocationChecked
         
         BPHAP.Log("AddMetaProgressMarker was run; Marker was added with enum value of " + (int)m);
 
+        if (missionJustStarted)
+        {
+            missionJustStarted = false;
+        }
+
         switch ((int)m)
         {
             case 6:
@@ -331,25 +338,37 @@ public static class LocationChecked
                     BPHAP.Log("Tote unlocked; Blocking progress marker.");
                     BPHAP.APClient.SendCheck("Tote");
                     return false;
-                } else { return true; }
+                } else { 
+                    metaProgressIsFromAP = false;
+                    return true; 
+                }
             case 7:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("CR-8 unlocked; Blocking progress marker.");
                     BPHAP.APClient.SendCheck("CR-8");
                     return false;
-                } else { return true; }
+                } else { 
+                    metaProgressIsFromAP = false;
+                    return true; 
+                }
             case 8:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Satchel unlocked; Blocking progress marker.");
                     BPHAP.APClient.SendCheck("Satchel");
                     return false;
-                } else { return true; }
+                } else { 
+                    metaProgressIsFromAP = false;
+                    return true; 
+                }
             case 9:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Pochette unlocked; Blocking progress marker.");
                     BPHAP.APClient.SendCheck("Pochette");
                     return false;
-                } else { return true; }
+                } else { 
+                    metaProgressIsFromAP = false;
+                    return true; 
+                }
             case 25:
                 BPHAP.Log("Archery unlocked.");
                 return true;
@@ -374,31 +393,46 @@ public static class LocationChecked
                     BPHAP.Log("Bramble research finished; Blocking progress marker.");
                     BPHAP.APClient.SendCheck("Key to the Bramble");
                     return false;
-                } else { return true; }
+                } else { 
+                    metaProgressIsFromAP = false;
+                    return true; 
+                }
             case 51:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Deep Cave research finished; Blocking progress marker.");
                     BPHAP.APClient.SendCheck("Key to the Deep Caves");
                     return false;
-                } else { return true; }
+                } else { 
+                    metaProgressIsFromAP = false;
+                    return true; 
+                }
             case 52:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Enchanted Swamp research finished; Blocking progress marker.");
                     BPHAP.APClient.SendCheck("Key to the Enchanted Swamp");
                     return false;
-                } else { return true; }
+                } else { 
+                    metaProgressIsFromAP = false;
+                    return true; 
+                }
             case 53:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Magma Core research finished; Blocking progress marker.");
                     BPHAP.APClient.SendCheck("Key to the Magma Core");
                     return false;
-                } else { return true; }
+                } else { 
+                    metaProgressIsFromAP = false;
+                    return true; 
+                }
             case 54:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Frozen Heart research finished; Blocking progress marker.");
                     BPHAP.APClient.SendCheck("Key to the Frozen Heart");
                     return false;
-                } else { return true; }
+                } else { 
+                    metaProgressIsFromAP = false;
+                    return true; 
+                }
             // case 100:
             //     if (!metaProgressIsFromAP) {
             //         BPHAP.Log("Forges unlocked; Blocking progress marker.");

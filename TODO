@@ -1,5 +1,13 @@
-<!-- - Starting a mission sends the check for the vanilla mission unlock location -->
 - Look in OverworldInventory class for adding things to inventory from AP
 - Matthew doesn't let you do his research after you receive every area key
 - Check if it's possible to get character unlock locations after the character has been received
 - Check if receiving an npc item from the mw makes it impossible to send the corresponding check
+- Fix logic for archery and magic research locations
+- Costume was unlocked from vanilla function (ap works tho)
+    - Also CR-8 didn't unlock anything from bringing back 5/6 floppy disks. Might be better to leave out alt costumes for now or make every brought back thing a unique check, costume or not
+- "This One's On Me" works for being received, but not sent
+
+<!-- - Sam (bartender) spawns after building tavern, asks for 25 residents --> <- irrelevant, sam doesn't give any checks
+- Make Herb checks logically require later areas
+
+- Felix - spawns after building blacksmith, gives master of whetstones quest upon first meeting (might be infinite loop?)

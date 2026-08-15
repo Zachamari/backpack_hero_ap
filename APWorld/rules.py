@@ -18,6 +18,8 @@ def set_all_rules(world: BPHWorld) -> None:
 
 def set_all_entrance_rules(world: BPHWorld) -> None:
 
+    can_find_archery = CanReachLocation("(Event) Quest Complete: Archery Lessons")
+
     library_built = world.get_entrance("Build the Library")
     bounty_built = world.get_entrance("Build the Bounty Board")
     blacksmith_built = world.get_entrance("Build the Blacksmith")
@@ -36,7 +38,7 @@ def set_all_entrance_rules(world: BPHWorld) -> None:
     world.set_rule(tavern_built, Has("Tavern"))
     world.set_rule(barracks_built, Has("Barracks"))
     world.set_rule(carpenter_built, Has("Carpenter"))
-    world.set_rule(fletcher_built, Has("Fletcher"))
+    world.set_rule(fletcher_built, Has("Fletcher") & can_find_archery) # Even though you can build the fletcher without archery, every research location in the fletcher requires archery anyway
     world.set_rule(mycelium_built, Has("Magical Mycelium"))
     world.set_rule(jeweler_built, Has("Jeweler"))
     world.set_rule(greenhouse_built, Has("Greenhouse"))
@@ -89,6 +91,9 @@ def set_all_entrance_rules(world: BPHWorld) -> None:
 
 def set_all_location_rules(world: BPHWorld) -> None:
 
+    can_find_magic = CanReachLocation("(Event) Quest Complete: Wizard's School")
+    can_find_archery = CanReachLocation("(Event) Quest Complete: Archery Lessons")
+
     world.set_rule(world.get_location("Bounty Board Research - Quest: Ice Cream (Satchel)"), Has("Satchel"))
     world.set_rule(world.get_location("Bounty Board Research - Quest: Pacifist"), Has("Satchel"))
     world.set_rule(world.get_location("Bounty Board Research - Quest: Micro Build"), Has("CR-8"))
@@ -109,11 +114,9 @@ def set_all_location_rules(world: BPHWorld) -> None:
     world.set_rule(world.get_location("Blacksmith Research - Knight's Armor"), Has("Knight's Shield"))
     world.set_rule(world.get_location("Blacksmith Research - King's Shield"), Has("Knight's Shield"))
     world.set_rule(world.get_location("Blacksmith Research - Greaves"), Has("Chainmail"))
-    # world.set_rule(world.get_location("Blacksmith Research - Feather Cap"), Has("Leather Cap")) # I think Leather Cap is unlocked by default
     world.set_rule(world.get_location("Blacksmith Research - Amethyst Buckler"), HasAll("Li'l Buckler", "Amethyst"))
 
     world.set_rule(world.get_location("Tavern Research - Quest: Treats Only"), Has("Pochette"))
-    # world.set_rule(world.get_location("Tavern Research - Dodge Potion"), Has("Debuff Potion")) # Not sure if Debuff Potion is unlocked by default
     
     world.set_rule(world.get_location("Barracks Research - Ace Cleaver"), HasAll("Jack Cleaver", "King Cleaver", "Queen Cleaver"))
     world.set_rule(world.get_location("Barracks Research - Quest: Warrior Bird"), Has("Satchel"))
@@ -121,7 +124,6 @@ def set_all_location_rules(world: BPHWorld) -> None:
     world.set_rule(world.get_location("Barracks Research - Crow Hammer"), Has("Satchel"))
     world.set_rule(world.get_location("Barracks Research - Wooden Knife"), Has("Wooden Blade"))
     world.set_rule(world.get_location("Barracks Research - Vorpal Blade"), Has("Smoke Dagger"))
-    # world.set_rule(world.get_location("Barracks Research - Lizard King Sword"), Has("Lizard Blade")) # not sure about this one
     world.set_rule(world.get_location("Barracks Research - Quest: Reaper"), Has("Pochette"))
     world.set_rule(world.get_location("Barracks Research - Assassin's Dagger"), Has("Dagger"))
     world.set_rule(world.get_location("Barracks Research - Copy Star"), Has("Stacking Star"))
@@ -131,6 +133,7 @@ def set_all_location_rules(world: BPHWorld) -> None:
     
     world.set_rule(world.get_location("Carpenter Research - Quest: Builder Bird"), Has("Satchel"))
     
+    # Everything in the Fletcher requires archery, so I just assign that rule to the entire region
     world.set_rule(world.get_location("Fletcher Research - Quest: Archery Mastery"), Has("Lost Spark", count=17))
     world.set_rule(world.get_location("Fletcher Research - Electric Arrow"), Has("Electric Stone"))
     world.set_rule(world.get_location("Fletcher Research - Manastone Bow"), HasAll("Fire Arrow", "Poison Arrow"))
@@ -140,12 +143,14 @@ def set_all_location_rules(world: BPHWorld) -> None:
     world.set_rule(world.get_location("Magical Mycelium Research - Quest: Mushroom Friend"), Has("Tote"))
     world.set_rule(world.get_location("Magical Mycelium Research - Quest: Sap Primer"), Has("Tote"))
     world.set_rule(world.get_location("Magical Mycelium Research - Metallic Wand"), Has("Skull Wand"))
-    world.set_rule(world.get_location("Magical Mycelium Research - Energy Wand"), CanReachRegion("Area 2")) # This is a Legendary-rarity item, so I logically require access to area 2 to prevent early horrible grinding
+    world.set_rule(world.get_location("Magical Mycelium Research - Energy Wand"), CanReachRegion("Area 2")) # This is a Legendary-rarity item, so I logically require access to area 2 to hopefully prevent early horrible grinding
 
     world.set_rule(world.get_location("Jeweler Research - Velvet Bag"), HasAll("Bag of Shurikens", "Magic Star Bag", "Shuriken Forge"))
     world.set_rule(world.get_location("Jeweler Research - Quest: Bumpy Ride"), Has("CR-8"))
+    world.set_rule(world.get_location("Jeweler Research - Ring of Rage"), can_find_magic)
     world.set_rule(world.get_location("Jeweler Research - Ring of Doom"), Has("Ring of Rage"))
     world.set_rule(world.get_location("Jeweler Research - Berserker's Ring"), Has("Spiky Club"))
+    world.set_rule(world.get_location("Jeweler Research - Magic Star Bag"), can_find_magic)
     
     world.set_rule(world.get_location("Library Research - Quest: Throw the Book at Them"), Has("Tote"))
     world.set_rule(world.get_location("Library Research - Cleansing Flame"), CanReachLocation("(Event) Quest Complete: Red Flame"))
@@ -169,11 +174,15 @@ def set_all_location_rules(world: BPHWorld) -> None:
     
     world.set_rule(world.get_location("Louis - Large Town Gift (Purse's House)"), Has("House")) # possibly more required
 
+    world.set_rule(world.get_location("Doug - Bramble Clear Reward (Carpenter)"), CanReachRegion("The Bramble")) # possibly more required
+
     # world.set_rule(world.get_location("Nora - Built Magical Mycelium Reward (Tote's Totem)"), Has("Magical Mycelium"))
 
     world.set_rule(world.get_location("Mayor Quillswish - Expanding Town Reward 1 (Town Hall)"), HasAll("House", "Tavern", "Barracks", "Blacksmith"))
     world.set_rule(world.get_location("Mayor Quillswish - Expanding Town Reward 2 (Dirt Path)"), HasAll("House", "Tavern", "Barracks", "Blacksmith"))
     world.set_rule(world.get_location("Mayor Quillswish - Mayor Quillswish Plush Reward (Quest: Campaign Trail)"), HasAll("House", "Tavern", "Barracks", "Blacksmith"))
+
+    world.set_rule(world.get_location("Parcel - First-Time Customer Reward (Pouch)"), CanReachRegion("Area 2"))
 
     # Logically locking some of these behind Area 2 to prevent early required grinding
     world.set_rule(world.get_location("Vivienne - 3 Etchings/Sigils Reward (Purse Costume)"), CanReachRegion("Area 2")) # Maybe add some number of Purse Quests as well
