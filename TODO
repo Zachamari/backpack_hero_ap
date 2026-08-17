@@ -11,3 +11,34 @@
 - Make Herb checks logically require later areas
 
 - Felix - spawns after building blacksmith, gives master of whetstones quest upon first meeting (might be infinite loop?)
+
+- Mysterious Letter (from dungeon) is needed to get Robin Family Flute (bring back to Sam (Tavern required))
+    - RFF is needed to get Satchel
+        - RFF is not prevented from being unlocked by function I have - maybe just leave vanilla
+        - (presumably same for Tote's Totem)
+    - Satchel is only found in the Bramble
+
+- Tote is specifically found in Enchanted Swamp
+
+- Second checks for char unlocks are named "Satchel (Character)" etc
+    - first run works fine tho, but will likely be a problem if char is already received
+    - character locking works perfectly fine
+
+- Emerald is required for column chain star research (logic bug)
+
+- Make Quest: Standard Run (Tote) be force unlocked when tote is unlocked (and possibly same for other characters? Ithink it worked fine for CR8 tho which is a little odd)
+
+
+- Charging Manastone research doesn't work:
+[01:58:54.817] [Backpackipelago] Research completed for item Charging ManaStone Variant (full code: Charging ManaStone Variant1)
+[01:58:54.818] [Backpackipelago] Sending check for location: Charging ManaStone
+[01:58:54.818] [ERROR] [Backpackipelago] ERROR: Location with name 'Charging ManaStone Variant' was unrecognized. Failed to send check.
+System.Collections.Generic.KeyNotFoundException: The given key 'Charging ManaStone' was not present in the dictionary.
+  at System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item (TKey key) [0x0001e] in <88e4733ac7bc4ae1b496735e6b83bbd3>:0
+  at Backpackipelago.Archipelago.ArchipelagoClient.SendCheck (System.String locationName) [0x00068] in <95af3886c0ef43d59b7eac7dc170214d>:0
+[01:58:54.819] [Backpackipelago] Item Charging ManaStone Variant was prevented from being unlocked.
+[01:58:54.819] [Backpackipelago] Sending check for location: Charging ManaStone
+[01:58:54.819] [ERROR] [Backpackipelago] ERROR: Location with name 'Charging ManaStone Variant' was unrecognized. Failed to send check.
+System.Collections.Generic.KeyNotFoundException: The given key 'Charging ManaStone' was not present in the dictionary.
+  at System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item (TKey key) [0x0001e] in <88e4733ac7bc4ae1b496735e6b83bbd3>:0
+  at Backpackipelago.Archipelago.ArchipelagoClient.SendCheck (System.String locationName) [0x00068] in <95af3886c0ef43d59b7eac7dc170214d>:0

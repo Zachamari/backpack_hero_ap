@@ -258,6 +258,7 @@ public class APWorldIDs
             "Alpha Star" => "Alpha Shuriken",
             "Unstable Manastone" => "Unstable Mana",
             "Bowblade" => "BowBlade",
+            "Rare Herb" => "Rare herb",
             
             _ => item,
         };
