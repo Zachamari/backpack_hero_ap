@@ -1,18 +1,18 @@
 - Look in OverworldInventory class for adding things to inventory from AP
 - Matthew doesn't let you do his research after you receive every area key
-- Check if it's possible to get character unlock locations after the character has been received
-- Check if receiving an npc item from the mw makes it impossible to send the corresponding check
+- Check if it's possible to get character unlock locations after the character has been received (technically, requires a workaround)
+- Check if receiving an npc item from the mw makes it impossible to send the corresponding check (sometimes (tm))
 - Fix logic for archery and magic research locations
-- Costume was unlocked from vanilla function (ap works tho)
+- Costume was unlocked from vanilla function (ap recieving works tho)
     - Also CR-8 didn't unlock anything from bringing back 5/6 floppy disks. Might be better to leave out alt costumes for now or make every brought back thing a unique check, costume or not
 - "This One's On Me" works for being received, but not sent
 
-<!-- - Sam (bartender) spawns after building tavern, asks for 25 residents --> <- irrelevant, sam doesn't give any checks
-- Make Herb checks logically require later areas
+- Sam (bartender) spawns after building tavern, asks for 25 residents
+- Make Herb checks logically require later areas (maybe)
 
 - Felix - spawns after building blacksmith, gives master of whetstones quest upon first meeting (might be infinite loop?)
 
-- Mysterious Letter (from dungeon) is needed to get Robin Family Flute (bring back to Sam (Tavern required))
+- Mysterious Letter (from dungeon) is needed to get Robin Family Flute (bring back to Sam (Tavern required, possibly house as well))
     - RFF is needed to get Satchel
         - RFF is not prevented from being unlocked by function I have - maybe just leave vanilla
         - (presumably same for Tote's Totem)
@@ -28,6 +28,8 @@
 
 - Make Quest: Standard Run (Tote) be force unlocked when tote is unlocked (and possibly same for other characters? Ithink it worked fine for CR8 tho which is a little odd)
 
+- Tote still shows up in dungeon after being unlocked as long as you bring Tote's Totem with you
+    - However, check doesn't send because check is currently sent in town, figure out how to send as soon as fight is won
 
 - Charging Manastone research doesn't work:
 [01:58:54.817] [Backpackipelago] Research completed for item Charging ManaStone Variant (full code: Charging ManaStone Variant1)
@@ -42,3 +44,10 @@ System.Collections.Generic.KeyNotFoundException: The given key 'Charging ManaSto
 System.Collections.Generic.KeyNotFoundException: The given key 'Charging ManaStone' was not present in the dictionary.
   at System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item (TKey key) [0x0001e] in <88e4733ac7bc4ae1b496735e6b83bbd3>:0
   at Backpackipelago.Archipelago.ArchipelagoClient.SendCheck (System.String locationName) [0x00068] in <95af3886c0ef43d59b7eac7dc170214d>:0
+
+- Quest reward for charging manastyone also doesnt work
+    - Recieving it works fine tho
+
+- Red Tusk quest unlock is sending library tusk location
+
+- prio Everybody Comes Home unlock, satchel is there inthe genned seed

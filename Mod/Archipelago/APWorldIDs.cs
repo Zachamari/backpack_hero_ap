@@ -132,7 +132,7 @@ public class APWorldIDs
                         break;
     
                     }
-                    if (item.Contains("Hyacinth") || item.Contains("Item Pedestal"))
+                    if (item.Contains("Hyacinth") || item.Contains("Item Pedestal") || item.Contains("Beehives"))
                     {
                         // literally only the hyacinths and item pedestal have capitalization mismatches between AP and internal. All the other buildings are fine
                         temp.Add(GetInternalBuildingName(item), LocationNameToID[location]); 
@@ -259,6 +259,7 @@ public class APWorldIDs
             "Unstable Manastone" => "Unstable Mana",
             "Bowblade" => "BowBlade",
             "Rare Herb" => "Rare herb",
+            "Energy Wand" => "Ethereal Wand",
             
             _ => item,
         };
@@ -273,6 +274,7 @@ public class APWorldIDs
             "Purple Hyacinth" => "Purple hyacinth",
             "Blue Hyacinth" => "Blue hyacinth",
             "Item Pedestal" => "item pedestal",
+            "Beehives" => "BeeHives",
             _ => building,
         };
     }
