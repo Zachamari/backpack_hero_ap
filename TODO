@@ -51,3 +51,15 @@ System.Collections.Generic.KeyNotFoundException: The given key 'Charging ManaSto
 - Red Tusk quest unlock is sending library tusk location
 
 - prio Everybody Comes Home unlock, satchel is there inthe genned seed
+
+
+
+
+Future function notes:
+
+- SaveIncrementer.GetFilenameForSlot() -> use for making seed-specific save files?
+- PopUpManager - create new instance, use PopUpManager.CreatePopUp(string) to create a popup message telling you to connect to server before allowing you to enter the save menu
+    - Actually maybe do MenuManager.CreatePopUp() instead
+- SatchelEvent.CompleteEventAndLaunchConversation(int) -> check for sending Satchel recruit check, likely similar exists for Tote and Pochette as well
+- MenuManager.OpenSaveMenuManager() -> Patch it to return false and make the  AP connection box pop up instead (then run it again after it closes and make it return true)
+- MetaProgressSaveManager.AddItems() -> Might be how items are added to Haversack inventory?

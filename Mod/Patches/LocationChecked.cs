@@ -15,7 +15,8 @@ public static class LocationChecked
 {
 
     // The list of completed researches used ingame is a private variable I have no way of accessing, so I just make my own list and force the game to use that instead
-    public static HashSet<string> ResearchesComplete = [];
+    public static HashSet<string> researchesComplete = [];
+    public static HashSet<string> researchesToScout = [];
 
     [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.AddNewResearch)), HarmonyPrefix]
     public static void AutoCollectResearch(string name, ref string nameAndValues)
@@ -39,7 +40,10 @@ public static class LocationChecked
             // nameAndValues = nameAndValues.Replace('0', '1');
             // BPHAP.Log($"Item {name} was forced complete (new code: {nameAndValues})");
             // ResearchesComplete.Add(Item2.GetDisplayName(name));
+            // return;
 
+            // if (scoutHints == true)
+            researchesToScout.Add(name);
 
             return;
         }
@@ -47,11 +51,45 @@ public static class LocationChecked
 
 
         BPHAP.Log($"Research completed for item {name} (full code: {nameAndValues})");
-        if (name.StartsWith("unlocked")) { return; }
         BPHAP.APClient.SendCheck(APWorldIDs.GetInternalItemName(name));
 
         // (preventing this function from running does nothing, item is still unlocked like normal)
 
+    }
+
+    [HarmonyPatch(typeof(Overworld_BuildingInterfaceLauncher), nameof(Overworld_BuildingInterfaceLauncher.CloseInterface)), HarmonyPostfix]
+    public static void CreateResearchHints()
+    {
+        BPHAP.Log("CloseInterface was run.");
+        if (researchesToScout.Count > 0)
+        {
+
+            long[] locationIds = new long[researchesToScout.Count];
+            int index = 0;
+
+            foreach (string locationName in researchesToScout)
+            {
+                BPHAP.Log("Scouting " + locationName);
+                try 
+                {
+                    locationIds[index] = BPHAP.APIDs.InternalUnlockToLocationID[APWorldIDs.FixLocationName(locationName)];
+                    index++;
+                }
+                catch (Exception e)
+                {
+                    BPHAP.LogError("ERROR: Unable to identify location ID for location " + locationName + ". \n" + e);
+                }
+            }
+            if (index != locationIds.Count())
+            {
+                // Removing any ids of 0 because otherwise we get disconnected when scouting the hints
+                Array.Resize(ref locationIds, index);
+            }
+
+            BPHAP.APClient.ScoutServerHints(locationIds);
+            researchesToScout.Clear();
+
+        }
     }
 
     // [HarmonyPatch(typeof(MetaProgressSaveManager), nameof(MetaProgressSaveManager.ResearchComplete)), HarmonyPrefix]

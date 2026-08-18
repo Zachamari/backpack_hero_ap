@@ -132,6 +132,31 @@ public class APWorldIDs
                         break;
     
                     }
+                    if (item.StartsWith("Key to the "))
+                    {
+                        switch (item) 
+                        {
+                            case "Key to the Bramble":
+                                temp.Add("unlockedBramble", LocationNameToID[location]);
+                                break;
+                            case "Key to the Deep Caves":
+                                temp.Add("unlockedDeepCave", LocationNameToID[location]);
+                                break;
+                            case "Key to the Magma Core":
+                                temp.Add("unlockedMagmaCore", LocationNameToID[location]);
+                                break;
+                            case "Key to the Enchanted Swamp":
+                                temp.Add("unlockedEnchantedSwamp", LocationNameToID[location]);
+                                break;
+                            case "Key to the Frozen Heart":
+                                temp.Add("unlockedFrozenHeart", LocationNameToID[location]);
+                                break;
+                            default:
+                                BPHAP.LogError("what: " + item);
+                                break;
+                        }
+                        break;
+                    }
                     if (item.Contains("Hyacinth") || item.Contains("Item Pedestal") || item.Contains("Beehives"))
                     {
                         // literally only the hyacinths and item pedestal have capitalization mismatches between AP and internal. All the other buildings are fine
@@ -216,6 +241,23 @@ public class APWorldIDs
 
     }
 
+    public static string FixLocationName(string locationName)
+    {
+            string location = locationName;
+
+    	    if (location.Contains(" Variant"))
+	        {
+	    	    location = location.Substring(0, location.IndexOf(" Variant"));
+        	}
+    	    if (location.Contains(" (UnityEngine.GameObject)"))
+	        {
+	    	    location = location.Substring(0, location.IndexOf(" (UnityEngine.GameObject)"));
+        	}
+
+            return location;
+
+    }
+
     public static string GetInternalMissionName(string mission)
     {
         // The internal naming of quests is very inconsistent, so I need to check if the mission location is one of the weird ones before I send the check.
@@ -260,6 +302,8 @@ public class APWorldIDs
             "Bowblade" => "BowBlade",
             "Rare Herb" => "Rare herb",
             "Energy Wand" => "Ethereal Wand",
+            "Manastone Bow" => "ManaStone Bow",
+            "Berserker's Ring" => "Beserker's Ring",
             
             _ => item,
         };

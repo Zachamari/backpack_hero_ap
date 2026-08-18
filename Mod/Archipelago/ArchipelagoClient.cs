@@ -149,8 +149,6 @@ public class ArchipelagoClient
                 // APSaveData.roomSeed = session.RoomState.Seed;
                 // APSaveData.saveFilePath = $"BepInEx/plugins/WeLoveArchipelago/APSaveData/AP_{APSaveData.roomSeed}.json";
                 // APSaveData.LoadAPDataFromFile();
-
-                // Music Rando stuff, could probably be moved elsewhere later
                 
                 initialConnectionStepsComplete = true;
                 
@@ -225,16 +223,8 @@ public class ArchipelagoClient
     public void SendCheck(string locationName)
     {
         try {
-            string location = locationName;
 
-    	    if (location.Contains(" Variant"))
-	        {
-	    	    location = location.Substring(0, location.IndexOf(" Variant"));
-        	}
-    	    if (location.Contains(" (UnityEngine.GameObject)"))
-	        {
-	    	    location = location.Substring(0, location.IndexOf(" (UnityEngine.GameObject)"));
-        	}
+            string location = APWorldIDs.FixLocationName(locationName);
 
             BPHAP.Log("Sending check for location: " + location);
             SendCheck(BPHAP.APIDs.InternalUnlockToLocationID[location]);
@@ -285,6 +275,11 @@ public class ArchipelagoClient
         
         }
 	}
+
+    public void ScoutServerHints(long[] locationIds)
+    {
+        session.Hints.CreateHints(0, locationIds);
+    }
 
 	public void Goal() {
 		session.SetGoalAchieved();
@@ -434,8 +429,8 @@ public class ArchipelagoClient
         }
 
         
-
         BPHAP.Log($"Received item {receivedItem.ItemName} was not recognized. Contact the mod developer if you see this message! (ID = {itemId})");
+    
     }
 
     /// <summary>
