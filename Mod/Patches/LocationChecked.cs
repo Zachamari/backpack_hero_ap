@@ -69,6 +69,11 @@ public static class LocationChecked
 
             foreach (string locationName in researchesToScout)
             {
+                if (locationName == "Unlock Bar(Clone)")
+                {
+                    // I don't know what this item is, but it appears sometimes and idk why
+                    continue;
+                }
                 BPHAP.Log("Scouting " + locationName);
                 try 
                 {

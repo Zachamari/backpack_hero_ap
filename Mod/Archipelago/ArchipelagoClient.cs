@@ -278,7 +278,7 @@ public class ArchipelagoClient
 
     public void ScoutServerHints(long[] locationIds)
     {
-        session.Hints.CreateHints(0, locationIds);
+        session.Hints.CreateHints(HintStatus.Unspecified, locationIds);
     }
 
 	public void Goal() {

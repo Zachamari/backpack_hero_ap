@@ -206,6 +206,11 @@ public static class GameInstance
         }
     }
 
+    // [HarmonyPatch(typeof(SaveIncrementer), nameof(SaveIncrementer.GetFilenameForSlot)), HarmonyPostfix]
+    // public static void TestFigureOutWhenFileNameIsDetn(string __result)
+    // {
+    //     BPHAP.Log("File name has been chosen: " + __result);
+    // }
 
 
 }
