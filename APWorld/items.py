@@ -324,6 +324,9 @@ ITEM_NAME_TO_ID_AND_CLASSIFICATION = {
     # "Bag of Treasure": [12 + GENERIC_FILLER_OFFSET, ItemClassification.filler, ["Loot"]],
     # "Coin Purse": [13 + GENERIC_FILLER_OFFSET, ItemClassification.filler, ["Loot"]],
 
+
+    "Possible OOL": [5555555, ItemClassification.progression, []] # used for UT glitched logic
+
 }
 
 def get_item_name_to_id() -> dict[str, int]:

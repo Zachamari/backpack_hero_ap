@@ -31,6 +31,8 @@ class BPHWorld(World):
 
     origin_region_name = "Haversack Hills"
 
+    ut_can_gen_without_yaml = False # change once this is added
+    glitches_item_name = "Possible OOL"
 
     def create_regions(self) -> None:
         regions.create_and_connect_regions(self)
