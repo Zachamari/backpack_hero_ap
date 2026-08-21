@@ -8,6 +8,75 @@ from BaseClasses import Entrance, Region
 if TYPE_CHECKING:
     from .world import BPHWorld
 
+def get_all_regions(world: BPHWorld) -> dict[str, Region]:
+
+    REGIONS = {
+    "haversack_hills": world.get_region("Haversack Hills"),
+    "raid": world.get_region("Post-Raid Haversack Hills"),
+    
+    "purse_quests_a1": world.get_region("Purse Quests (Area 1)"),
+    "satchel_quests_a1": world.get_region("Satchel Quests (Area 1)"),
+    "tote_quests_a1": world.get_region("Tote Quests (Area 1)"),
+    "pochette_quests_a1": world.get_region("Pochette Quests (Area 1)"),
+    "cr8_quests_a1": world.get_region("CR-8 Quests (Area 1)"),
+
+    "purse_quests_a2": world.get_region("Purse Quests (Area 2)"),
+    "satchel_quests_a2": world.get_region("Satchel Quests (Area 2)"),
+    "tote_quests_a2": world.get_region("Tote Quests (Area 2)"),
+    "pochette_quests_a2": world.get_region("Pochette Quests (Area 2)"),
+    "cr8_quests_a2": world.get_region("CR-8 Quests (Area 2)"),
+
+    "purse_quests_a3": world.get_region("Purse Quests (Area 3)"),
+    "satchel_quests_a3": world.get_region("Satchel Quests (Area 3)"),
+    "tote_quests_a3": world.get_region("Tote Quests (Area 3)"),
+    "pochette_quests_a3": world.get_region("Pochette Quests (Area 3)"),
+    "cr8_quests_a3": world.get_region("CR-8 Quests (Area 3)"),
+
+    "crypt": world.get_region("The Crypt"),
+    "deep_caves": world.get_region("The Deep Caves"),
+    "bramble": world.get_region("The Bramble"),
+    "magma_core": world.get_region("The Magma Core"),
+    "frozen_heart": world.get_region("The Frozen Heart"),
+    "enchanted_swamp": world.get_region("The Enchanted Swamp"),
+
+    "area_1": world.get_region("Area 1"),
+    "area_2": world.get_region("Area 2"),
+    "area_3": world.get_region("Area 3"),
+
+    "library": world.get_region("Library Research"),
+    "bounty_board": world.get_region("Bounty Board Research"),
+    "blacksmith": world.get_region("Blacksmith Research"),
+    "tavern": world.get_region("Tavern Research"),
+    "barracks": world.get_region("Barracks Research"),
+    "carpenter": world.get_region("Carpenter Research"),
+    "fletcher": world.get_region("Fletcher Research"),
+    "mycelium": world.get_region("Magical Mycelium Research"),
+    "jeweler": world.get_region("Jeweler Research"),
+    "greenhouse": world.get_region("Greenhouse Research"),
+    "schoolhouse": world.get_region("Schoolhouse Research"),
+
+    "louis": world.get_region("Louis"),
+    "mayor": world.get_region("Mayor Quillswish"),
+    "vivienne": world.get_region("Vivienne"),
+    "matthew": world.get_region("Matthew"),
+    "pasha": world.get_region("Pasha"),
+    "nora": world.get_region("Nora"),
+    "parcel": world.get_region("Parcel"),
+    "wartsley": world.get_region("Sir Wartsley"),
+    "fisher": world.get_region("Fish Enthusiast"),
+    "constance": world.get_region("Constance"),
+    "zaar": world.get_region("Zaar"),
+    "archer": world.get_region("Master Archer"),
+    "burrough": world.get_region("Miss Burrough"),
+    "doug": world.get_region("Doug"),
+    "sam": world.get_region("Sam"),
+    "felix": world.get_region("Felix"),
+    "ghost": world.get_region("Ghost"),
+
+    }
+
+    return REGIONS
+
 
 def create_and_connect_regions(world: BPHWorld) -> None:
     create_all_regions(world)
@@ -15,8 +84,9 @@ def create_and_connect_regions(world: BPHWorld) -> None:
 
 
 def create_all_regions(world: BPHWorld) -> None:
-    # Generic region to help connect everything more easily
+    
     haversack_hills = Region("Haversack Hills", world.player, world.multiworld)
+    raid = Region("Post-Raid Haversack Hills", world.player, world.multiworld)
 
 
     purse_quests_a1 = Region("Purse Quests (Area 1)", world.player, world.multiworld)
@@ -83,13 +153,13 @@ def create_all_regions(world: BPHWorld) -> None:
     archer = Region("Master Archer", world.player, world.multiworld)
     burrough = Region("Miss Burrough", world.player, world.multiworld)
     doug = Region("Doug", world.player, world.multiworld)
+    sam = Region("Sam", world.player, world.multiworld)
+    felix = Region("Felix", world.player, world.multiworld)
+    ghost = Region("Ghost", world.player, world.multiworld)
 
-    npc_regions = [louis, mayor, vivienne, matthew, pasha, nora, parcel, wartsley, fisher, constance, zaar, archer, burrough, doug]
+    npc_regions = [louis, mayor, vivienne, matthew, pasha, nora, parcel, wartsley, fisher, constance, zaar, archer, burrough, doug, sam, felix, ghost]
 
-
-    # Note to self: whenever I add the option to not shuffle quest rewards, make the quest regions only be added to the list if that option is off
-
-    regions = [haversack_hills]
+    regions = [haversack_hills, raid]
     regions += quest_regions
     regions += dungeon_regions
     regions += research_regions
@@ -102,6 +172,7 @@ def create_all_regions(world: BPHWorld) -> None:
 def connect_regions(world: BPHWorld) -> None:
 
     haversack_hills = world.get_region("Haversack Hills")
+    raid = world.get_region("Post-Raid Haversack Hills")
     
     purse_quests_a1 = world.get_region("Purse Quests (Area 1)")
     satchel_quests_a1 = world.get_region("Satchel Quests (Area 1)")
@@ -158,8 +229,12 @@ def connect_regions(world: BPHWorld) -> None:
     archer = world.get_region("Master Archer")
     burrough = world.get_region("Miss Burrough")
     doug = world.get_region("Doug")
+    sam = world.get_region("Sam")
+    felix = world.get_region("Felix")
+    ghost = world.get_region("Ghost")
 
 
+    haversack_hills.connect(raid, "Defend Haversack Hills against the Raid")
 
     haversack_hills.connect(louis, "Talk to Louis")
     haversack_hills.connect(mayor, "Talk to Mayor Quillswish")
@@ -170,11 +245,16 @@ def connect_regions(world: BPHWorld) -> None:
     haversack_hills.connect(parcel, "Talk to Parcel")
     haversack_hills.connect(wartsley, "Talk to Sir Wartsley")
     haversack_hills.connect(fisher, "Talk to Fish Enthusiast")
-    haversack_hills.connect(constance, "Talk to Constance")
     haversack_hills.connect(zaar, "Talk to Zaar")
     haversack_hills.connect(archer, "Talk to Master Archer")
     haversack_hills.connect(burrough, "Talk to Miss Burrough")
     haversack_hills.connect(doug, "Talk to Doug")
+
+    tavern.connect(sam, "Talk to Sam")
+    blacksmith.connect(felix, "Talk to Felix")
+    
+    raid.connect(ghost, "Talk to the Ghost")
+    raid.connect(constance, "Talk to Constance")
 
     haversack_hills.connect(library, "Build the Library")
     haversack_hills.connect(bounty_board, "Build the Bounty Board")

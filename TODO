@@ -2,29 +2,30 @@
 - Matthew doesn't let you do his research after you receive every area key
 - Check if it's possible to get character unlock locations after the character has been received (technically, requires a workaround)
 - Check if receiving an npc item from the mw makes it impossible to send the corresponding check (sometimes (tm))
-- Fix logic for archery and magic research locations
-- Costume was unlocked from vanilla function (ap recieving works tho)
-    - Also CR-8 didn't unlock anything from bringing back 5/6 floppy disks. Might be better to leave out alt costumes for now or make every brought back thing a unique check, costume or not
-- "This One's On Me" works for being received, but not sent
+- Fix logic for archery and magic research locations (half-fixed)
+<!-- - Costume was unlocked from vanilla function (ap recieving works tho)
+    - Also CR-8 didn't unlock anything from bringing back 5/6 floppy disks. Might be better to leave out alt costumes for now or make every brought back thing a unique check, costume or not -->
+- "This One's On Me" works for being received, but not sent (fixed?)
+<!-- - Add COnstance's House and Bridge to item and location pool -->
 
-- Sam (bartender) spawns after building tavern, asks for 25 residents
-- Make Herb checks logically require later areas (maybe)
+<!-- - Sam (bartender) spawns after building tavern, asks for 25 residents -->
+<!-- - Make Herb checks logically require later areas (maybe) -->
 
-- Felix - spawns after building blacksmith, gives master of whetstones quest upon first meeting (might be infinite loop?)
-
+<!-- - Felix - spawns after building blacksmith, gives master of whetstones quest upon first meeting (might be infinite loop?) -->
+<!-- 
 - Mysterious Letter (from dungeon) is needed to get Robin Family Flute (bring back to Sam (Tavern required, possibly house as well))
     - RFF is needed to get Satchel
         - RFF is not prevented from being unlocked by function I have - maybe just leave vanilla
         - (presumably same for Tote's Totem)
-    - Satchel is only found in the Bramble
+    - Satchel is only found in the Bramble -->
 
-- Tote is specifically found in Enchanted Swamp
+<!-- - Tote is specifically found in Enchanted Swamp -->
 
 - Second checks for char unlocks are named "Satchel (Character)" etc
     - first run works fine tho, but will likely be a problem if char is already received
     - character locking works perfectly fine
 
-- Emerald is required for column chain star research (logic bug)
+<!-- - Emerald is required for column chain star research (logic bug) -->
 
 - Make Quest: Standard Run (Tote) be force unlocked when tote is unlocked (and possibly same for other characters? Ithink it worked fine for CR8 tho which is a little odd)
 
@@ -50,8 +51,7 @@ System.Collections.Generic.KeyNotFoundException: The given key 'Charging ManaSto
 
 - Red Tusk quest unlock is sending library tusk location
 
-- prio Everybody Comes Home unlock, satchel is there inthe genned seed
-
+- Pochette still stays in dungeon after unlocking her, even stays after being in go mode
 
 
 
@@ -63,3 +63,20 @@ Future function notes:
 - SatchelEvent.CompleteEventAndLaunchConversation(int) -> check for sending Satchel recruit check, likely similar exists for Tote and Pochette as well
 - MenuManager.OpenSaveMenuManager() -> Patch it to return false and make the  AP connection box pop up instead (then run it again after it closes and make it return true)
 - MetaProgressSaveManager.AddItems() -> Might be how items are added to Haversack inventory?
+
+
+
+- Raid starts after building Purse's House and Town Hall (and being able to progress far enough to where those checks normally come in)
+- Thankfully it looks like none of Louis's checks are missable because the raid is tied to story progress that requires his checks to be given
+- After raid:
+    - Constance spawns (requires Bridge to access)
+        - Gives Constance's House (internal = visual)
+        - After building house, CR8 research becomes accessible (3 parts + 1 lost spark)
+        - If you already built the Beacon before doing the research, the checks become missable. Possibly same for having CR8, not sure
+            - For some reason the Beacon check actually sends correctly
+        - CR8 check is internally called "gotAllCR8pieces" (lowercase p)
+    - Ghost spawns, gives Ghostly! quest (internal location name is "Ghostly" (no exclamation))
+    - Doug gives you Bridge (internal = visual)
+    - Limited Edition Mayor Quillswish Plush quest begins
+
+- goal works properly! yay!

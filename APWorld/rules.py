@@ -20,6 +20,10 @@ def set_all_entrance_rules(world: BPHWorld) -> None:
 
     can_find_archery = CanReachLocation("(Event) Quest Complete: Archery Lessons")
     
+    raid_complete = world.get_entrance("Defend Haversack Hills against the Raid")
+
+    world.set_rule(raid_complete, HasAll("House", "Town Hall", "Purse's House", "Tavern", "Barracks", "Blacksmith"))
+
     library_built = world.get_entrance("Build the Library")
     bounty_built = world.get_entrance("Build the Bounty Board")
     blacksmith_built = world.get_entrance("Build the Blacksmith")
@@ -89,10 +93,16 @@ def set_all_entrance_rules(world: BPHWorld) -> None:
     world.set_rule(cr8_quests_a3, Has("CR-8"))
 
 
+    constance_accessible = world.get_entrance("Talk to Constance")
+
+    world.set_rule(constance_accessible, Has("Bridge"))
+
+
 def set_all_location_rules(world: BPHWorld) -> None:
 
     can_find_magic = CanReachLocation("(Event) Quest Complete: Wizard's School")
     can_find_archery = CanReachLocation("(Event) Quest Complete: Archery Lessons")
+
     possible_ool = Has("Possible OOL")
     # Note to self: Apply OOL rules to all Fletcher locations individually later based on whether Bow/Arrow is needed (remove rule from region)
 
@@ -119,6 +129,9 @@ def set_all_location_rules(world: BPHWorld) -> None:
     world.set_rule(world.get_location("Blacksmith Research - Amethyst Buckler"), HasAll("Li'l Buckler", "Amethyst"))
 
     world.set_rule(world.get_location("Tavern Research - Quest: Treats Only"), Has("Pochette"))
+    world.set_rule(world.get_location("Tavern Research - Speedy Leaf"), CanReachRegion("Area 3") | possible_ool) # these checks suck to grind for bc you specifically need the one uncommon log item that sucks and you need to use it at least 3 times in battle to get enough herbs to get all the researches
+    world.set_rule(world.get_location("Tavern Research - Rare Herb"), CanReachRegion("Area 3") | possible_ool)
+    world.set_rule(world.get_location("Tavern Research - Magical Herb"), CanReachRegion("Area 3") | possible_ool)
     
     world.set_rule(world.get_location("Barracks Research - Ace Cleaver"), HasAll("Jack Cleaver", "King Cleaver", "Queen Cleaver"))
     world.set_rule(world.get_location("Barracks Research - Quest: Warrior Bird"), Has("Satchel"))
@@ -131,17 +144,18 @@ def set_all_location_rules(world: BPHWorld) -> None:
     world.set_rule(world.get_location("Barracks Research - Copy Star"), Has("Stacking Star"))
     world.set_rule(world.get_location("Barracks Research - Claw Hammer"), Has("Satchel"))
     world.set_rule(world.get_location("Barracks Research - Brutal Spear"), Has("Hatchet"))
+    world.set_rule(world.get_location("Barracks Research - Column Chain Star"), Has("Emerald"))
     world.set_rule(world.get_location("Barracks Research - Hatchet"), Has("Spiky Club"))
     
     world.set_rule(world.get_location("Carpenter Research - Quest: Builder Bird"), Has("Satchel"))
     
     # Everything in the Fletcher requires archery, so I just assign that rule to the entire region
-    world.set_rule(world.get_location("Fletcher Research - Quest: Archery Mastery"), Has("Lost Spark", count=17))
+    world.set_rule(world.get_location("Fletcher Research - Quest: Archery Mastery"), Has("Lost Spark", count=18))
     world.set_rule(world.get_location("Fletcher Research - Electric Arrow"), Has("Electric Stone"))
     world.set_rule(world.get_location("Fletcher Research - Manastone Bow"), HasAll("Fire Arrow", "Poison Arrow"))
     world.set_rule(world.get_location("Fletcher Research - Quest: Magic Archery"), Has("Tote"))
     
-    world.set_rule(world.get_location("Magical Mycelium Research - Quest: Magic Expedition"), Has("Lost Spark", count=17) & Has("Tote"))
+    world.set_rule(world.get_location("Magical Mycelium Research - Quest: Magic Expedition"), Has("Lost Spark", count=18) & Has("Tote"))
     world.set_rule(world.get_location("Magical Mycelium Research - Quest: Mushroom Friend"), Has("Tote"))
     world.set_rule(world.get_location("Magical Mycelium Research - Quest: Sap Primer"), Has("Tote"))
     world.set_rule(world.get_location("Magical Mycelium Research - Metallic Wand"), Has("Skull Wand"))
@@ -162,19 +176,22 @@ def set_all_location_rules(world: BPHWorld) -> None:
     world.set_rule(world.get_location("Library Research - Spicy Ginger"), CanReachLocation("(Event) Quest Complete: Red Root"))
     world.set_rule(world.get_location("Library Research - Tusk"), CanReachLocation("(Event) Quest Complete: Red Tusk"))
 
-    world.set_rule(world.get_location("Matthew Research - Key to the Deep Caves"), Has("Lost Spark", count=17) | (possible_ool & Has("Lost Spark", count=1)))
-    world.set_rule(world.get_location("Matthew Research - Key to the Bramble"), Has("Lost Spark", count=17) | (possible_ool & Has("Lost Spark", count=2)))
-    world.set_rule(world.get_location("Matthew Research - Key to the Magma Core"), Has("Lost Spark", count=17) | (possible_ool & Has("Lost Spark", count=3)))
-    world.set_rule(world.get_location("Matthew Research - Key to the Frozen Heart"), Has("Lost Spark", count=17) | (possible_ool & Has("Lost Spark", count=3)))
-    world.set_rule(world.get_location("Matthew Research - Key to the Enchanted Swamp"), Has("Lost Spark", count=17) | (possible_ool & Has("Lost Spark", count=3)))
+    world.set_rule(world.get_location("Matthew Research - Key to the Deep Caves"), Has("Lost Spark", count=18) | (possible_ool & Has("Lost Spark", count=1)))
+    world.set_rule(world.get_location("Matthew Research - Key to the Bramble"), Has("Lost Spark", count=18) | (possible_ool & Has("Lost Spark", count=2)))
+    world.set_rule(world.get_location("Matthew Research - Key to the Magma Core"), Has("Lost Spark", count=18) | (possible_ool & Has("Lost Spark", count=3)))
+    world.set_rule(world.get_location("Matthew Research - Key to the Frozen Heart"), Has("Lost Spark", count=18) | (possible_ool & Has("Lost Spark", count=3)))
+    world.set_rule(world.get_location("Matthew Research - Key to the Enchanted Swamp"), Has("Lost Spark", count=18) | (possible_ool & Has("Lost Spark", count=3)))
     
     world.set_rule(world.get_location("Pasha Research - Brick Path"), CanReachRegion("Area 2") | possible_ool) # Brickwall sucks to get early (Uncommon item that takes up 2 spaces and isn't at all useful unless you're going for a very specific build), so I'm logically putting this behind reaching Area 2 so you don't have to grind for this at the start of every run
 
     world.set_rule(world.get_location("Mayor Quillswish Research - Tavern"), Has("House"))
     world.set_rule(world.get_location("Mayor Quillswish Research - Barracks"), Has("House"))
     world.set_rule(world.get_location("Mayor Quillswish Research - Blacksmith"), Has("House"))
+        
+    world.set_rule(world.get_location("Constance Research - CR-8"), Has("Constance's House") & Has("Lost Spark", count=18))
+    world.set_rule(world.get_location("Constance Research - Beacon"), Has("CR-8") & CanReachLocation("Constance Research - CR-8"))
     
-    world.set_rule(world.get_location("Louis - Large Town Gift (Purse's House)"), Has("House")) # possibly more required
+    world.set_rule(world.get_location("Louis - Built Town Hall Reward (Purse's House)"), HasAll("House", "Town Hall")) # possibly more required
 
     world.set_rule(world.get_location("Doug - Bramble Clear Reward (Carpenter)"), CanReachRegion("The Bramble")) # possibly more required
 
@@ -182,26 +199,26 @@ def set_all_location_rules(world: BPHWorld) -> None:
 
     world.set_rule(world.get_location("Mayor Quillswish - Expanding Town Reward 1 (Town Hall)"), HasAll("House", "Tavern", "Barracks", "Blacksmith"))
     world.set_rule(world.get_location("Mayor Quillswish - Expanding Town Reward 2 (Dirt Path)"), HasAll("House", "Tavern", "Barracks", "Blacksmith"))
-    world.set_rule(world.get_location("Mayor Quillswish - Mayor Quillswish Plush Reward (Quest: Campaign Trail)"), HasAll("House", "Tavern", "Barracks", "Blacksmith"))
+    world.set_rule(world.get_location("Mayor Quillswish - Limited Edition Mayor Quillswish Plush Reward (Quest: Campaign Trail)"), CanReachRegion("Post-Raid Haversack Hills"))
 
     world.set_rule(world.get_location("Parcel - First-Time Customer Reward (Pouch)"), CanReachRegion("Area 2")) # this location might be buggy, maybe remove or force exclude for now
 
-    # Logically locking some of these behind Area 2 to prevent early required grinding
-    world.set_rule(world.get_location("Vivienne - 3 Etchings/Sigils Reward (Purse Costume)"), possible_ool | CanReachRegion("Area 2")) # Maybe add some number of Purse Quests as well
-    world.set_rule(world.get_location("Vivienne - 4 Etchings/Sigils Reward (Purse Costume)"), possible_ool | CanReachRegion("Area 3")) # Maybe add some number of Purse Quests as well
-    world.set_rule(world.get_location("Vivienne - 5 Etchings/Sigils Reward (Purse Costume)"), possible_ool | CanReachRegion("Area 3")) # Maybe add some number of Purse Quests as well
+    # # Logically locking some of these behind Area 2 to prevent early required grinding
+    # world.set_rule(world.get_location("Vivienne - 3 Etchings/Sigils Reward (Purse Costume)"), possible_ool | CanReachRegion("Area 2")) # Maybe add some number of Purse Quests as well
+    # world.set_rule(world.get_location("Vivienne - 4 Etchings/Sigils Reward (Purse Costume)"), possible_ool | CanReachRegion("Area 3")) # Maybe add some number of Purse Quests as well
+    # world.set_rule(world.get_location("Vivienne - 5 Etchings/Sigils Reward (Purse Costume)"), possible_ool | CanReachRegion("Area 3")) # Maybe add some number of Purse Quests as well
 
-    world.set_rule(world.get_location("Vivienne - First Hymn Reward (Satchel Costume)"), Has("Satchel") & (possible_ool | CanReachRegion("Area 2")))
-    world.set_rule(world.get_location("Vivienne - Second Hymn Reward (Satchel Costume)"), Has("Satchel") & (possible_ool | CanReachRegion("Area 3")))
+    # world.set_rule(world.get_location("Vivienne - First Hymn Reward (Satchel Costume)"), Has("Satchel") & (possible_ool | CanReachRegion("Area 2")))
+    # world.set_rule(world.get_location("Vivienne - Second Hymn Reward (Satchel Costume)"), Has("Satchel") & (possible_ool | CanReachRegion("Area 3")))
 
-    world.set_rule(world.get_location("Vivienne - First Rune Reward (Tote Costume)"), Has("Tote") & (possible_ool | CanReachRegion("Area 2")))
-    world.set_rule(world.get_location("Vivienne - Second Rune Reward (Tote Costume)"), Has("Tote") & (possible_ool | CanReachRegion("Area 3")))
+    # world.set_rule(world.get_location("Vivienne - First Rune Reward (Tote Costume)"), Has("Tote") & (possible_ool | CanReachRegion("Area 2")))
+    # world.set_rule(world.get_location("Vivienne - Second Rune Reward (Tote Costume)"), Has("Tote") & (possible_ool | CanReachRegion("Area 3")))
     
-    world.set_rule(world.get_location("Vivienne - First ??? Reward (Pochette Costume)"), Has("Pochette") & (possible_ool | CanReachRegion("Area 2")))
-    world.set_rule(world.get_location("Vivienne - Second ??? Reward (Pochette Costume)"), Has("Pochette") & (possible_ool | CanReachRegion("Area 3")))
+    # world.set_rule(world.get_location("Vivienne - First ??? Reward (Pochette Costume)"), Has("Pochette") & (possible_ool | CanReachRegion("Area 2")))
+    # world.set_rule(world.get_location("Vivienne - Second ??? Reward (Pochette Costume)"), Has("Pochette") & (possible_ool | CanReachRegion("Area 3")))
     
-    world.set_rule(world.get_location("Vivienne - First Floppy Disk Reward (CR-8 Costume)"), Has("CR-8") & (possible_ool | CanReachRegion("Area 2")))
-    world.set_rule(world.get_location("Vivienne - Second Floppy Disk Reward (CR-8 Costume)"), Has("CR-8") & (possible_ool | CanReachRegion("Area 3")))
+    # world.set_rule(world.get_location("Vivienne - First Floppy Disk Reward (CR-8 Costume)"), Has("CR-8") & (possible_ool | CanReachRegion("Area 2")))
+    # world.set_rule(world.get_location("Vivienne - Second Floppy Disk Reward (CR-8 Costume)"), Has("CR-8") & (possible_ool | CanReachRegion("Area 3")))
 
     world.set_rule(world.get_location("Purse Quest Reward - Coral 1 (Quest: Coral 2)"), CanReachLocation("(Event) Quest Complete: Coral 1")) 
     world.set_rule(world.get_location("Purse Quest Reward - Ghostly! (Spectral Orb)"), CanReachLocation("(Event) Quest Complete: Ghostly!")) 
@@ -227,6 +244,11 @@ def set_all_location_rules(world: BPHWorld) -> None:
     world.set_rule(world.get_location("CR-8 Quest Reward - Quad Core (Quest: Spinning Core)"), CanReachLocation("(Event) Quest Complete: Quad Core"))
 
 
+    world.set_rule(world.get_location("The Bramble - Recruit Satchel"), CanReachRegion("Sam") & Has("House"))
+    world.set_rule(world.get_location("The Enchanted Swamp - Recruit Tote"), Has("Magical Mycelium"))
+    world.set_rule(world.get_location("The Frozen Heart - Recruit Pochette"), CanReachLocation("The Deep Caves - Defeat Pochette Again"))
+
+
 
 def set_completion_condition(world: BPHWorld) -> None:
-    world.set_completion_rule(Has("Area 3 Clear", count=5) & Has("Beacon"))
+    world.set_completion_rule(Has("Conglaturations! You truly are a Backpack Hero.")) # This is a victory item that is defined in an event in locations.py

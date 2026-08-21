@@ -168,13 +168,13 @@ public static class GameInstance
     public static void DebugFreeItems(List<Item2> __result)
     {
 
-        foreach (Item2 item in __result)
-        {
-            if (receivedItems.Contains(Item2.GetDisplayName(item.name)))
-            {
-                BPHAP.Log("Received item found in pool: " + Item2.GetDisplayName(item.name));
-            }
-        }
+        // foreach (Item2 item in __result)
+        // {
+        //     if (receivedItems.Contains(Item2.GetDisplayName(item.name)))
+        //     {
+        //         BPHAP.Log("Received item found in pool: " + Item2.GetDisplayName(item.name));
+        //     }
+        // }
 
         if (!allowDebug) {
             return;

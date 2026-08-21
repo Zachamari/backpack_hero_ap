@@ -4,9 +4,9 @@ from typing import TYPE_CHECKING
 
 from BaseClasses import ItemClassification, Location
 
-from . import items
+from . import items, regions
 
-from rule_builder.rules import Has
+from rule_builder.rules import Has, CanReachRegion
 
 if TYPE_CHECKING:
     from .world import BPHWorld
@@ -269,7 +269,7 @@ LOCATION_NAME_TO_ID = {
 
 
     "Louis - Quest: Protector": 1 + NPC_LOCATION_OFFSET_LOUIS,
-    "Louis - Large Town Gift (Purse's House)": 2 + NPC_LOCATION_OFFSET_LOUIS,
+    "Louis - Built Town Hall Reward (Purse's House)": 2 + NPC_LOCATION_OFFSET_LOUIS,
 
     "Pasha - First Meeting Gift (Bounty Board)": 1 + NPC_LOCATION_OFFSET_PASHA,
 
@@ -287,29 +287,29 @@ LOCATION_NAME_TO_ID = {
     "Mayor Quillswish - Donation Reward 2 (House)": 2 + NPC_LOCATION_OFFSET_MAYOR,
     "Mayor Quillswish - Expanding Town Reward 1 (Town Hall)": 3 + NPC_LOCATION_OFFSET_MAYOR,
     "Mayor Quillswish - Expanding Town Reward 2 (Dirt Path)": 4 + NPC_LOCATION_OFFSET_MAYOR,
-    "Mayor Quillswish - Mayor Quillswish Plush Reward (Quest: Campaign Trail)": 5 + NPC_LOCATION_OFFSET_MAYOR,
+    "Mayor Quillswish - Limited Edition Mayor Quillswish Plush Reward (Quest: Campaign Trail)": 5 + NPC_LOCATION_OFFSET_MAYOR,
 
     "Sir Wartsley - First Meeting Gift 1 (Jeweler)": 1 + NPC_LOCATION_OFFSET_WART,
     "Sir Wartsley - First Meeting Gift 2 (Item Pedestal)": 2 + NPC_LOCATION_OFFSET_WART,
 
     "Vivienne - First Meeting Gift (Library)": 1 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - 1 Etching/Sigil Reward (Purse Costume)": 2 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - 2 Etchings/Sigils Reward (Purse Costume)": 3 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - 3 Etchings/Sigils Reward (Purse Costume)": 4 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - 4 Etchings/Sigils Reward (Purse Costume)": 5 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - 5 Etchings/Sigils Reward (Purse Costume)": 6 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - 1 Etching/Sigil Reward (Purse Costume)": 2 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - 2 Etchings/Sigils Reward (Purse Costume)": 3 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - 3 Etchings/Sigils Reward (Purse Costume)": 4 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - 4 Etchings/Sigils Reward (Purse Costume)": 5 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - 5 Etchings/Sigils Reward (Purse Costume)": 6 + NPC_LOCATION_OFFSET_VIV,
 
-    "Vivienne - First Hymn Reward (Satchel Costume)": 10 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - Second Hymn Reward (Satchel Costume)": 11 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - First Hymn Reward (Satchel Costume)": 10 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - Second Hymn Reward (Satchel Costume)": 11 + NPC_LOCATION_OFFSET_VIV,
 
-    "Vivienne - First Rune Reward (Tote Costume)": 15 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - Second Rune Reward (Tote Costume)": 16 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - First Rune Reward (Tote Costume)": 15 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - Second Rune Reward (Tote Costume)": 16 + NPC_LOCATION_OFFSET_VIV,
 
-    "Vivienne - First ??? Reward (Pochette Costume)": 20 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - Second ??? Reward (Pochette Costume)": 21 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - First ??? Reward (Pochette Costume)": 20 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - Second ??? Reward (Pochette Costume)": 21 + NPC_LOCATION_OFFSET_VIV,
     
-    "Vivienne - First Floppy Disk Reward (CR-8 Costume)": 25 + NPC_LOCATION_OFFSET_VIV,
-    "Vivienne - Second Floppy Disk Reward (CR-8 Costume)": 26 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - First Floppy Disk Reward (CR-8 Costume)": 25 + NPC_LOCATION_OFFSET_VIV,
+    # "Vivienne - Second Floppy Disk Reward (CR-8 Costume)": 26 + NPC_LOCATION_OFFSET_VIV,
     # Fix these names once I figure out the vanilla unlock conditions
 
     "Parcel - First-Time Customer Reward (Pouch)": 1 + NPC_LOCATION_OFFSET_PARCEL, # Likely will move this check to "OTHER", I don't think he gives you anything else
@@ -325,11 +325,13 @@ LOCATION_NAME_TO_ID = {
     "Fish Enthusiast - Fish Reward 1 (Quest: Fishy Business)": 2 + NPC_LOCATION_OFFSET_FISHER,
     "Fish Enthusiast - Fish Reward 2 (Fishing Shack)": 3 + NPC_LOCATION_OFFSET_FISHER,
 
+    "Constance - Meeting Gift (Constance's House)": 1 + NPC_LOCATION_OFFSET_CONST,
+
     # More locations go here once I remember that they exist
 
-    # I don't remember where these locations are unlocked, but I should be able to send them clientside anyway until I figure out when they get sent
-    "??? - ??? (Quest: Ghostly!)": 1 + NPC_LOCATION_OFFSET_OTHER, # this might be that one ghost character in town?
-    "??? - ??? (Quest: Master of Whetstones)": 2 + NPC_LOCATION_OFFSET_OTHER, # this is Felix
+
+    "Felix - Meeting Gift (Quest: Master of Whetstones)": 1 + NPC_LOCATION_OFFSET_OTHER,
+    "Ghost - Meeting Gift (Quest: Ghostly!)": 2 + NPC_LOCATION_OFFSET_OTHER,
 
 
     "Purse Quest Reward - Coral 1 (Quest: Coral 2)": 1 + QUEST_OFFSET_PURSE,
@@ -358,9 +360,11 @@ LOCATION_NAME_TO_ID = {
     "CR-8 Quest Reward - Quad Core (Quest: Spinning Core)": 2 + QUEST_OFFSET_CR8,
 
     
-    "Area 2 - Recruit Satchel": 1 + DUNGEON_LOCATION_OFFSET,
-    "Area 2 - Recruit Tote": 2 + DUNGEON_LOCATION_OFFSET,
-    "Area 3 - Recruit Pochette": 3 + DUNGEON_LOCATION_OFFSET,
+    "The Bramble - Recruit Satchel": 1 + DUNGEON_LOCATION_OFFSET,
+    "The Enchanted Swamp - Recruit Tote": 2 + DUNGEON_LOCATION_OFFSET,
+    "The Crypt - Defeat Pochette": 3 + DUNGEON_LOCATION_OFFSET,
+    "The Deep Caves - Defeat Pochette Again": 4 + DUNGEON_LOCATION_OFFSET,
+    "The Frozen Heart - Recruit Pochette": 5 + DUNGEON_LOCATION_OFFSET,
 
 }
 
@@ -379,196 +383,148 @@ def create_all_locations(world: BPHWorld) -> None:
 
 def create_regular_locations(world: BPHWorld) -> None:
     
-    haversack_hills = world.get_region("Haversack Hills")
-    
-    purse_quests_a1 = world.get_region("Purse Quests (Area 1)")
-    satchel_quests_a1 = world.get_region("Satchel Quests (Area 1)")
-    tote_quests_a1 = world.get_region("Tote Quests (Area 1)")
-    pochette_quests_a1 = world.get_region("Pochette Quests (Area 1)")
-    cr8_quests_a1 = world.get_region("CR-8 Quests (Area 1)")
-
-    purse_quests_a2 = world.get_region("Purse Quests (Area 2)")
-    satchel_quests_a2 = world.get_region("Satchel Quests (Area 2)")
-    tote_quests_a2 = world.get_region("Tote Quests (Area 2)")
-    pochette_quests_a2 = world.get_region("Pochette Quests (Area 2)")
-    cr8_quests_a2 = world.get_region("CR-8 Quests (Area 2)")
-
-    purse_quests_a3 = world.get_region("Purse Quests (Area 3)")
-    satchel_quests_a3 = world.get_region("Satchel Quests (Area 3)")
-    tote_quests_a3 = world.get_region("Tote Quests (Area 3)")
-    pochette_quests_a3 = world.get_region("Pochette Quests (Area 3)")
-    cr8_quests_a3 = world.get_region("CR-8 Quests (Area 3)")
-
-    crypt = world.get_region("The Crypt")
-    deep_caves = world.get_region("The Deep Caves")
-    bramble = world.get_region("The Bramble")
-    magma_core = world.get_region("The Magma Core")
-    frozen_heart = world.get_region("The Frozen Heart")
-    enchanted_swamp = world.get_region("The Enchanted Swamp")
-
-    area_1 = world.get_region("Area 1")
-    area_2 = world.get_region("Area 2")
-    area_3 = world.get_region("Area 3")
-
-    library = world.get_region("Library Research")
-    bounty_board = world.get_region("Bounty Board Research")
-    blacksmith = world.get_region("Blacksmith Research")
-    tavern = world.get_region("Tavern Research")
-    barracks = world.get_region("Barracks Research")
-    carpenter = world.get_region("Carpenter Research")
-    fletcher = world.get_region("Fletcher Research")
-    mycelium = world.get_region("Magical Mycelium Research")
-    jeweler = world.get_region("Jeweler Research")
-    greenhouse = world.get_region("Greenhouse Research")
-    schoolhouse = world.get_region("Schoolhouse Research")
-
-    louis = world.get_region("Louis")
-    mayor = world.get_region("Mayor Quillswish")
-    vivienne = world.get_region("Vivienne")
-    matthew = world.get_region("Matthew")
-    pasha = world.get_region("Pasha")
-    nora = world.get_region("Nora")
-    parcel = world.get_region("Parcel")
-    wartsley = world.get_region("Sir Wartsley")
-    fisher = world.get_region("Fish Enthusiast")
-    constance = world.get_region("Constance")
-    zaar = world.get_region("Zaar")
-    archer = world.get_region("Master Archer")
-    burrough = world.get_region("Miss Burrough")
-    doug = world.get_region("Doug")
-
+    REGIONS = regions.get_all_regions(world)
 
     # This might be really slow on gen, please lmk if there's an accepted "better way" to do this (bc I really don't wanna do all this manually)
     for location in LOCATION_NAME_TO_ID:
 
         if location.startswith("Bounty Board"):
-            bounty_board.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["bounty_board"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Blacksmith"):
-            blacksmith.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["blacksmith"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Tavern"):
-            tavern.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["tavern"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Barracks"):
-            barracks.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["barracks"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Carpenter"):
-            carpenter.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["carpenter"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Fletcher"):
-            fletcher.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["fletcher"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Magical"):
-            mycelium.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["mycelium"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Jeweler"):
-            jeweler.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["jeweler"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Library"):
-            library.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["library"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Greenhouse"):
-            greenhouse.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["greenhouse"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
 
 
         if location.startswith("Matthew"):
-            matthew.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["matthew"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Pasha"):
-            pasha.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["pasha"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Constance"):
-            constance.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["constance"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Zaar"):
-            zaar.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["zaar"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Mayor"):
-            mayor.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["mayor"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Vivienne"):
-            vivienne.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["vivienne"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Louis"):
-            louis.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["louis"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Nora"):
-            nora.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["nora"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Sir Wartsley"):
-            wartsley.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["wartsley"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Fish Enthusiast"):
-            fisher.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["fisher"].add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+        if location.startswith("Doug"):
+            REGIONS["doug"].add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+        if location.startswith("Sam"):
+            REGIONS["sam"].add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+        if location.startswith("Felix"):
+            REGIONS["felix"].add_locations(get_location_names_with_ids([location]), BPHLocation)
+            continue
+        if location.startswith("Ghost"):
+            REGIONS["ghost"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
 
 
             # NOTE: Below logic will not work, fix later after getting a list of all quest end points
         if location.startswith("Purse Quest"):
-            purse_quests_a1.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["purse_quests_a1"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Satchel Quest"):
-            satchel_quests_a1.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["satchel_quests_a1"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("CR-8 Quest"):
-            cr8_quests_a1.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["cr8_quests_a1"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Pochette Quest"):
-            pochette_quests_a1.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["pochette_quests_a1"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Tote Quest"):
-            tote_quests_a1.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["tote_quests_a1"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
 
 
         if location.startswith("Area 1"):
-            area_1.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["area_1"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Area 2"):
-            area_2.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["area_2"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Area 3"):
-            area_3.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["area_3"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
 
 
         # These regions only have 1 location each, so I put them at the end so it wouldn't have to iterate through all of them for all the larger regions
         if location.startswith("Master Archer"):
-            archer.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["archer"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Miss Burrough"):
-            burrough.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["burrough"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Parcel"):
-            parcel.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["parcel"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("Schoolhouse"):
-            schoolhouse.add_locations(get_location_names_with_ids([location]), BPHLocation)
-            continue
-        if location.startswith("Doug"):
-            doug.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["schoolhouse"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
 
 
         if location.startswith("The Crypt"):
-            crypt.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["crypt"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("The Bramble"):
-            bramble.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["bramble"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("The Deep Caves"):
-            deep_caves.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["deep_caves"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("The Enchanted Swamp"):
-            enchanted_swamp.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["enchanted_swamp"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("The Magma Core"):
-            magma_core.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["magma_core"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
         if location.startswith("The Frozen Heart"):
-            frozen_heart.add_locations(get_location_names_with_ids([location]), BPHLocation)
+            REGIONS["frozen_heart"].add_locations(get_location_names_with_ids([location]), BPHLocation)
             continue
 
 
@@ -661,3 +617,5 @@ def create_events(world: BPHWorld) -> None:
     cr8_quests_a3.add_event("(Event) Quest Complete: Duo Core", rule=Has("Quest: Duo Core"), location_type=BPHLocation, item_type=items.BPHItem)
     cr8_quests_a3.add_event("(Event) Quest Complete: Quad Core", rule=Has("Quest: Quad Core"), location_type=BPHLocation, item_type=items.BPHItem)
     cr8_quests_a3.add_event("(Event) Quest Complete: Spinning Core", rule=Has("Quest: Spinning Core"), location_type=BPHLocation, item_type=items.BPHItem)
+
+    purse_quests_a3.add_event("(Event) Defeat Prada", rule=Has("Area 3 Clear", count=5) & CanReachRegion("Constance") & Has("Beacon"), item_name="Conglaturations! You truly are a Backpack Hero.", location_type=BPHLocation, item_type=items.BPHItem)

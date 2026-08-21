@@ -312,6 +312,12 @@ public static class LocationChecked
         }
         else
         {
+            if (!BPHAP.APIDs.InternalUnlockToLocationID.Keys.Contains(__0))
+            {
+                BPHAP.Log("Building " + __0 + " was not found in location list. Allowing unlock.");
+                return true;
+            }
+
             BPHAP.Log("Building " + __0 + " was prevented from being unlocked.");
 
             return false;
@@ -335,6 +341,13 @@ public static class LocationChecked
                 BPHAP.Log("Store unlocked!");
                 return true;
             }
+            
+            if (!BPHAP.APIDs.InternalUnlockToLocationID.Keys.Contains(__0.name))
+            {
+                BPHAP.Log("Building " + __0.name + " was not found in location list. Allowing unlock.");
+                return true;
+            }
+
             BPHAP.Log("Building " + __0.name + " was prevented from being unlocked.");
 
             return false;
@@ -406,7 +419,7 @@ public static class LocationChecked
             case 9:
                 if (!metaProgressIsFromAP) {
                     BPHAP.Log("Pochette unlocked; Blocking progress marker.");
-                    BPHAP.APClient.SendCheck("Pochette");
+                    BPHAP.APClient.SendCheck("Pochette"); // check should already be sent by the time it gets here, but whatevs
                     return false;
                 } else { 
                     metaProgressIsFromAP = false;
@@ -485,6 +498,18 @@ public static class LocationChecked
             case 148:
                 BPHAP.Log("You win! Conglaturations!");
                 BPHAP.APClient.Goal();
+                return true;
+            case 153:
+                BPHAP.Log("Pochette defeated - sending check.");
+                BPHAP.APClient.SendCheck(3003);
+                return true;
+            case 154:
+                BPHAP.Log("Pochette defeated AGAIN - sending check.");
+                BPHAP.APClient.SendCheck(3004);
+                return true;
+            case 155:
+                BPHAP.Log("Pochette defeated for the third time - sending check.");
+                BPHAP.APClient.SendCheck(3005);
                 return true;
             default: 
                 return true;

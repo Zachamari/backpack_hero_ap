@@ -139,7 +139,7 @@ ITEM_NAME_TO_ID_AND_CLASSIFICATION = {
     "Red Pearl": [109 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Accessories", "Gems", "Legendary Items"]],
     "Magic Star Bag": [110 + ITEM_OFFSET, ItemClassification.progression_deprioritized, ["Dungeon Items", "Accessories", "Uncommon Items"]],
     "Large Heart Ring": [111 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Accessories", "Rings", "Rare Items"]],
-    "Emerald": [112 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Accessories", "Gems", "Rare Items"]],
+    "Emerald": [112 + ITEM_OFFSET, ItemClassification.progression_deprioritized, ["Dungeon Items", "Accessories", "Gems", "Rare Items"]],
     "Electric Stone": [113 + ITEM_OFFSET, ItemClassification.progression_deprioritized, ["Dungeon Items", "Accessories", "Gems", "Uncommon Items"]],
     "Diamond": [114 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Accessories", "Gems", "Rare Items"]],
     "Crab Cactus": [115 + ITEM_OFFSET, ItemClassification.useful, ["Dungeon Items", "Accessories", "Legendary Items"]],
@@ -240,6 +240,8 @@ ITEM_NAME_TO_ID_AND_CLASSIFICATION = {
     "Farm": [14 + BUILDING_OFFSET_PROG, ItemClassification.progression, ["Buildings", "Resource-Generating Buildings"]], # I think you need this for one of Mayor's requests iirc,
     "Purse's House": [15 + BUILDING_OFFSET_PROG, ItemClassification.progression, ["Buildings", "Important Buildings"]],
     "Beacon": [16 + BUILDING_OFFSET_PROG, ItemClassification.progression, ["Buildings", "Important Buildings"]],
+    "Bridge": [17 + BUILDING_OFFSET_PROG, ItemClassification.progression, ["Buildings", "Important Buildings"]],
+    "Constance's House": [18 + BUILDING_OFFSET_PROG, ItemClassification.progression, ["Buildings", "Important Buildings"]],
 
     "Quarry": [1 + BUILDING_OFFSET_USEFUL, ItemClassification.useful, ["Buildings", "Resource-Generating Buildings"]],
     "Bank": [2 + BUILDING_OFFSET_USEFUL, ItemClassification.useful, ["Buildings"]],
@@ -299,7 +301,7 @@ ITEM_NAME_TO_ID_AND_CLASSIFICATION = {
     "Purse": [5 + CHARACTERS_OFFSET, ItemClassification.progression | ItemClassification.useful, ["Playable Characters"]],
 
 
-    "Tote's Totem": [1 + OTHER_PROGRESSION_OFFSET, ItemClassification.progression_deprioritized, ["Other Progression Items"]], # not sure if this can be shuffled yet,
+    # "Tote's Totem": [1 + OTHER_PROGRESSION_OFFSET, ItemClassification.progression_deprioritized, ["Other Progression Items"]], # can't be shuffled yet
 
 
     "Blue Costume (Purse)": [1 + ALTERNATE_COSTUMES_OFFSET, ItemClassification.filler, ["Alternate Costumes"]],
@@ -556,6 +558,8 @@ def create_all_items(world: BPHWorld) -> None:
         world.create_item("Farm"),
         world.create_item("Purse's House"),
         world.create_item("Beacon"),
+        world.create_item("Bridge"),
+        world.create_item("Constance's House"),
 
         world.create_item("Quarry"),
         world.create_item("Bank"),
@@ -648,18 +652,18 @@ def create_all_items(world: BPHWorld) -> None:
         itempool.append(i)
 
 
-    # TODO: Add setting here
-    costumes: list[Item] = [
+    # # TODO: Add setting here
+    # costumes: list[Item] = [
         
-        world.create_item("Blue Costume (Purse)"),
-        world.create_item("Rogue Costume (Purse)"),
-        world.create_item("Feral Costume (Purse)"),
-        world.create_item("Elder Costume (Purse)"),
-        # TODO: add more here
-    ]
+    #     world.create_item("Blue Costume (Purse)"),
+    #     world.create_item("Rogue Costume (Purse)"),
+    #     world.create_item("Feral Costume (Purse)"),
+    #     world.create_item("Elder Costume (Purse)"),
+    #     # TODO: add more here
+    # ]
 
-    for i in costumes:
-        itempool.append(i)
+    # for i in costumes:
+    #     itempool.append(i)
 
 
     # Checking that num. items == num. locations and correcting if necessary
