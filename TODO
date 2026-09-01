@@ -4,6 +4,9 @@
 - Check if receiving an npc item from the mw makes it impossible to send the corresponding check (sometimes (tm))
     - Needs fix for Matthew and Constance
 - Fix logic for archery and magic research locations (half-fixed)
+
+- Method I'm using to get MetaProgSaveManager doesn't work if player backs out of save menu and reopens it
+
 <!-- - Costume was unlocked from vanilla function (ap recieving works tho)
     - Also CR-8 didn't unlock anything from bringing back 5/6 floppy disks. Might be better to leave out alt costumes for now or make every brought back thing a unique check, costume or not -->
 <!-- - Add COnstance's House and Bridge to item and location pool -->
