@@ -1,8 +1,11 @@
 using System;
+using System.Diagnostics.Tracing;
 using System.Runtime.CompilerServices;
+using Backpackipelago.Archipelago;
 using HarmonyLib;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.UI;
@@ -68,7 +71,7 @@ public static class UIManager
         [
             typeof(RectTransform), 
             typeof(CanvasRenderer), 
-            typeof(Options), 
+            typeof(APOptions), 
             // typeof(SingleUI), 
             typeof(DigitalCursorInterface), 
             typeof(CanvasGroup)
@@ -90,19 +93,54 @@ public static class UIManager
 
 }
 
-public class APOptions
+public class APOptions : MonoBehaviour
 {
     private void Start()
     {
         this.mask.enabled = true;
-        EventSystem.current.SetSelectedGameObject(this.slotName.gameObject);
+        // EventSystem.current.SetSelectedGameObject(this.slotName.gameObject);
+
+        // set all options to their defaults or stored values
+
+        slotName.characterLimit = 16;
+        slotName.lineType = TMP_InputField.LineType.SingleLine;
+        slotName.text = "Player1";
+        slotName.onSubmit.AddListener(slotName_OnSubmit);
         slotName.ActivateInputField();
+
+        server.lineType = TMP_InputField.LineType.SingleLine;
+        server.text = "archipelago.gg:38281";
+        server.ActivateInputField();
+
+        password.lineType = TMP_InputField.LineType.SingleLine;
+        password.inputType = TMP_InputField.InputType.Password;
+        password.text = "";
+        password.ActivateInputField();
+
+
+
 
     }
 
+    void slotName_OnSubmit()
+    {
+        BPHAP.Log("Slot Name submitted!");
+    }
 
-    private UnityEngine.UI.InputField slotName;
-    private UnityEngine.UI.InputField server;
-    private UnityEngine.UI.InputField password;
+    void scouts_OnValueChanged()
+    {
+        BPHAP.Log("Scout hints toggled!");
+    }
+
+    private UnityAction<string> slotNameListener;
+
+    private TMPro.TMP_InputField slotName;
+    private TMP_InputField server;
+    private TMP_InputField password;
+    private UnityEngine.GameObject connectButton;
+    private UnityEngine.UI.Toggle scoutHints;
+    private UnityEngine.UI.Slider resourceGainMult;
+    private UnityEngine.UI.Slider resourceLossMult;
+    private UnityEngine.UI.Toggle bonusFreeItems;
     private Mask mask;
 }
