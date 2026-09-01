@@ -95,13 +95,20 @@ public class APWorldIDs
                             break;
                         }
                     }
-                    if (item == "House")
+                    if (item == "House" || item == "Town Hall") // the Purse's House check contains both of these item names
                     {
                         if (specificLocation.Contains("Purse's House"))
                         {
                             temp.Add("Purse's House", LocationNameToID[location]);
                             break;
                         }
+                        
+                        if (specificLocation.Contains("Constance's House"))
+                        {
+                            temp.Add("Constance's House", LocationNameToID[location]);
+                            break;
+                        }
+                        
                     }
                     if (item == "Satchel" || item == "Tote" || item == "Pochette")
                     {
@@ -121,6 +128,9 @@ public class APWorldIDs
                         {
                             continue;
                             // CR-8 is a research location, so it has to be separate from the other 3 unlockable characters b/c no "Recruit" in name
+                        } else
+                        {
+                            temp.Add("gotAllCR8pieces", LocationNameToID[location]);
                         }
                     }
                     if (item.Contains("Quest:"))
@@ -279,6 +289,7 @@ public class APWorldIDs
             "Windmill 1" => "windmill 1",
             "Wizard's School" => "Wizard School",
             "Master of Whetstones" => "Whetstone",
+            "Ghostly!" => "Ghostly",
             _ => mission,
         };
     }

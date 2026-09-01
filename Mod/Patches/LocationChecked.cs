@@ -121,6 +121,10 @@ public static class LocationChecked
         {
             case PerformSpecialAction.ActionType.AddBuilding:
                 BPHAP.Log($"Building unlocked: {__instance.genericObject}");
+                if (__instance.genericObject.ToString() == "Store (UnityEngine.GameObject)")
+                {
+                    break;
+                }
                 BPHAP.APClient.SendCheck(__instance.genericObject.ToString());
                 break;
             case PerformSpecialAction.ActionType.UnlockCharacter:
@@ -135,7 +139,7 @@ public static class LocationChecked
                 break;
         }
 
-        return true; // remove after debugging
+        return true; // remove after debugging?
 
     }
 
@@ -514,6 +518,15 @@ public static class LocationChecked
             default: 
                 return true;
         }
+    }
+
+
+
+    [HarmonyPatch(typeof(SatchelEvent), nameof(SatchelEvent.CompleteEventAndLaunchConversation)), HarmonyPostfix]
+    public static void SendSatchelUnlockCheck()
+    {
+        BPHAP.Log("Satchel defeated; sending check. (Note: this was untested, lmk if this is triggered at the right time pls)");
+        BPHAP.APClient.SendCheck("Satchel");
     }
 
 }

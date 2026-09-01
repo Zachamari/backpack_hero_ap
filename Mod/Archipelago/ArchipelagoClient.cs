@@ -317,12 +317,11 @@ public class ArchipelagoClient
 
         if (itemId >= GENERIC_FILLER_OFFSET) {
 
-            // generic filler getting added to inventory goes here
+            ItemReceived.ReceiveInventoryItem(receivedItem.ItemName);
 
             return;
 
         }
-        
 
         if (itemId >= ALTERNATE_COSTUMES_OFFSET) {
 

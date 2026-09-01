@@ -34,6 +34,7 @@ namespace Backpackipelago
             HarmonyLib.Harmony.CreateAndPatchAll(typeof(LocationChecked));
             HarmonyLib.Harmony.CreateAndPatchAll(typeof(GameInstance));
             HarmonyLib.Harmony.CreateAndPatchAll(typeof(InventoryManagement));
+            HarmonyLib.Harmony.CreateAndPatchAll(typeof(UIManager));
             
 
             Log($"Backpackipelago v{Version} successfully loaded!");

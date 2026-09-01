@@ -1,11 +1,11 @@
-- Look in OverworldInventory class for adding things to inventory from AP
+
 - Matthew doesn't let you do his research after you receive every area key
 - Check if it's possible to get character unlock locations after the character has been received (technically, requires a workaround)
 - Check if receiving an npc item from the mw makes it impossible to send the corresponding check (sometimes (tm))
+    - Needs fix for Matthew and Constance
 - Fix logic for archery and magic research locations (half-fixed)
 <!-- - Costume was unlocked from vanilla function (ap recieving works tho)
     - Also CR-8 didn't unlock anything from bringing back 5/6 floppy disks. Might be better to leave out alt costumes for now or make every brought back thing a unique check, costume or not -->
-- "This One's On Me" works for being received, but not sent (fixed?)
 <!-- - Add COnstance's House and Bridge to item and location pool -->
 
 <!-- - Sam (bartender) spawns after building tavern, asks for 25 residents -->
@@ -19,15 +19,12 @@
         - (presumably same for Tote's Totem)
     - Satchel is only found in the Bramble -->
 
-<!-- - Tote is specifically found in Enchanted Swamp -->
-
 - Second checks for char unlocks are named "Satchel (Character)" etc
     - first run works fine tho, but will likely be a problem if char is already received
     - character locking works perfectly fine
 
-<!-- - Emerald is required for column chain star research (logic bug) -->
-
-- Make Quest: Standard Run (Tote) be force unlocked when tote is unlocked (and possibly same for other characters? Ithink it worked fine for CR8 tho which is a little odd)
+<!-- I think fixed
+- Make Quest: Standard Run (Tote) be force unlocked when tote is unlocked (and possibly same for other characters? Ithink it worked fine for CR8 tho which is a little odd) -->
 
 - Tote still shows up in dungeon after being unlocked as long as you bring Tote's Totem with you
     - However, check doesn't send because check is currently sent in town, figure out how to send as soon as fight is won
@@ -46,13 +43,12 @@ System.Collections.Generic.KeyNotFoundException: The given key 'Charging ManaSto
   at System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item (TKey key) [0x0001e] in <88e4733ac7bc4ae1b496735e6b83bbd3>:0
   at Backpackipelago.Archipelago.ArchipelagoClient.SendCheck (System.String locationName) [0x00068] in <95af3886c0ef43d59b7eac7dc170214d>:0
 
-- Quest reward for charging manastyone also doesnt work
-    - Recieving it works fine tho
+- Quest reward for charging manastone also doesnt work
+    - Receiving it works fine tho
 
-- Red Tusk quest unlock is sending library tusk location
+<!-- - (I think fixed) Red Tusk quest unlock is sending library tusk location -->
 
-- Pochette still stays in dungeon after unlocking her, even stays after being in go mode
-
+<!-- added - Pochette still stays in dungeon after unlocking her, even stays after being in go mode -->
 
 
 Future function notes:
@@ -60,9 +56,8 @@ Future function notes:
 - SaveIncrementer.GetFilenameForSlot() -> use for making seed-specific save files?
 - PopUpManager - create new instance, use PopUpManager.CreatePopUp(string) to create a popup message telling you to connect to server before allowing you to enter the save menu
     - Actually maybe do MenuManager.CreatePopUp() instead
-- SatchelEvent.CompleteEventAndLaunchConversation(int) -> check for sending Satchel recruit check, likely similar exists for Tote and Pochette as well
-- MenuManager.OpenSaveMenuManager() -> Patch it to return false and make the  AP connection box pop up instead (then run it again after it closes and make it return true)
-- MetaProgressSaveManager.AddItems() -> Might be how items are added to Haversack inventory?
+<!-- - SatchelEvent.CompleteEventAndLaunchConversation(int) -> check for sending Satchel recruit check, likely similar exists for Tote and Pochette as well --> < Not done for Tote specifically
+- MenuManager.OpenSaveMenuManager() -> Patch it to return false and make the AP connection box pop up instead (then run it again after it closes and make it return true)
 
 
 
@@ -73,10 +68,12 @@ Future function notes:
         - Gives Constance's House (internal = visual)
         - After building house, CR8 research becomes accessible (3 parts + 1 lost spark)
         - If you already built the Beacon before doing the research, the checks become missable. Possibly same for having CR8, not sure
-            - For some reason the Beacon check actually sends correctly
-        - CR8 check is internally called "gotAllCR8pieces" (lowercase p)
+            - For some reason the Beacon check actually sends correctly despite missing it
+        <!-- - CR8 check is internally called "gotAllCR8pieces" (lowercase p) -->
     - Ghost spawns, gives Ghostly! quest (internal location name is "Ghostly" (no exclamation))
     - Doug gives you Bridge (internal = visual)
     - Limited Edition Mayor Quillswish Plush quest begins
 
 - goal works properly! yay!
+
+- Eventually: Dungeon progression item shuffle (proto manastone, quillswish plush, CR8 pieces, etc)
