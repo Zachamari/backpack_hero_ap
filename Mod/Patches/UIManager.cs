@@ -15,6 +15,9 @@ namespace Backpackipelago.Patches;
 public static class UIManager
 {
     
+    // NOTE: Connection UI is NOT functional yet, currently it just displays an empty white box upon clicking the button to open the menu
+    // This means it's also impossible to connect to the server because of this file, remove this file entirely before compiling if you want to playtest
+
     private static bool connected = false;
 
     [HarmonyPatch(typeof(MenuManager), nameof(MenuManager.ShowButtons)), HarmonyPrefix]
@@ -26,7 +29,7 @@ public static class UIManager
         GameObject startQuickButton = GameObject.Find("Menu Animation/Canvas/Buttons/Start Game Button");
         startQuickButton.SetActive(false);
         
-        // I decided to override the Continue Quick Game button for the Archipelago menu. This is all that:
+        // I decided to override the Continue Quick Game button for opening the Archipelago menu
         GameObject contQuickButton = GameObject.Find("Menu Animation/Canvas/Buttons/Continue Save Game Button");
 
 
@@ -105,7 +108,7 @@ public class APOptions : MonoBehaviour
         slotName.characterLimit = 16;
         slotName.lineType = TMP_InputField.LineType.SingleLine;
         slotName.text = "Player1";
-        slotName.onSubmit.AddListener(slotName_OnSubmit);
+        // slotName.onSubmit.AddListener(slotName_OnSubmit);
         slotName.ActivateInputField();
 
         server.lineType = TMP_InputField.LineType.SingleLine;
