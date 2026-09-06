@@ -17,6 +17,7 @@ public static class UIManager
     
     // NOTE: Connection UI is NOT functional yet, currently it just displays an empty white box upon clicking the button to open the menu
     // This means it's also impossible to connect to the server because of this file, remove this file entirely before compiling if you want to playtest
+    // You'll also have to manually put the connection info into BPHAP.OnInitializeMelon() before compiling
 
     private static bool connected = false;
 
