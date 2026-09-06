@@ -45,4 +45,26 @@ public static class InventoryManagement
         
     }
 
+    public static void ReceiveInventoryItem(string itemName)
+    {
+        BPHAP.Log("Adding item to Haversack inventory: " + itemName);
+
+        Item2 item = GameInstance.DebugItemManagerInstance.GetItem2ByName(itemName);
+        if (item == null)
+        {
+            BPHAP.LogError("ERROR: Item with itemName " + itemName + " wasn't found in DIM (returned null).");
+            BPHAP.Log("Items in DIM:");
+            foreach (Item2 item2 in Item2.allItems)
+            {
+                BPHAP.Log("Item: " + item2);
+            }
+            return;
+        }
+
+        GameInstance.MetaProgressSaveManagerItems.AddItem(item); // adds item to haversack inventory
+
+        // maybe eventually make a popup window here
+
+    }
+
 }

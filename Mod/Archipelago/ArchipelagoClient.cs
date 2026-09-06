@@ -317,7 +317,7 @@ public class ArchipelagoClient
 
         if (itemId >= GENERIC_FILLER_OFFSET) {
 
-            ItemReceived.ReceiveInventoryItem(receivedItem.ItemName);
+            InventoryManagement.ReceiveInventoryItem(receivedItem.ItemName);
 
             return;
 

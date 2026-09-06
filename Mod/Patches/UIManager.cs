@@ -118,8 +118,6 @@ public class APOptions : MonoBehaviour
         password.ActivateInputField();
 
 
-
-
     }
 
     void slotName_OnSubmit()

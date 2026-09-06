@@ -46,9 +46,11 @@ public static class ItemReceived
             }
 
             GameInstance.MetaProgressSaveManagerItems.UnlockItem(item);
+
             // TODO: add a client toggle for this function call in the settings menu
             GameInstance.MetaProgressSaveManagerItems.AddItem(item); // adds item to haversack inventory
             // Overworld_Manager.main.OpenNewItemWindow(Item2.GetItemByName(itemName));
+            
         } else
         {
             BPHAP.Log($"Item {itemName} was not added to the pool since it was already found.");
@@ -147,27 +149,6 @@ public static class ItemReceived
     }
 
 
-    public static void ReceiveInventoryItem(string itemName)
-    {
-        BPHAP.Log("Adding item to Haversack inventory: " + itemName);
-
-        Item2 item = GameInstance.DebugItemManagerInstance.GetItem2ByName(itemName);
-        if (item == null)
-        {
-            BPHAP.LogError("ERROR: Item with itemName " + itemName + " wasn't found in DIM (returned null).");
-            BPHAP.Log("Items in DIM:");
-            foreach (Item2 item2 in Item2.allItems)
-            {
-                BPHAP.Log("Item: " + item2);
-            }
-            return;
-        }
-
-        GameInstance.MetaProgressSaveManagerItems.AddItem(item); // adds item to haversack inventory
-
-        // maybe eventually make a popup window here
-
-    }
 
     public static void UpdateReceivedItemQueues()
     {
