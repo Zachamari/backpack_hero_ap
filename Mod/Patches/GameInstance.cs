@@ -24,6 +24,9 @@ public static class GameInstance
         // We only want the fourth one, and I can't figure out a better way to isolate specifically the fourth one other than doing this
         // If I just take whatever the most recent one to be used is, it later gets overwritten and everything breaks
         // (I could figure out which save file the player clicked on in a different function, but this is easier)
+        
+        // EDIT: This actually doesn't work the way I think it does. It loads from all 3 slots whenever it opens the save data menu, meaning everything breaks if you back in and out of the menu twice
+        // So uh. TODO: Fix that
         if (count == 3) {        
             BPHAP.Log("MetaProgressSaveManager instance stored for Missions: " + __instance.ToString());
             MetaProgressSaveManagerMissions = __instance;
