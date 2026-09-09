@@ -10,46 +10,57 @@ using Backpackipelago.Patches;
 [assembly: MelonInfo(typeof(BPHAP), "Backpackipelago", BPHAP.Version, "Zachamari")]
 [assembly: MelonGame("TheJaspel", "Backpack Hero")]
 
-namespace Backpackipelago
+namespace Backpackipelago;
+public class BPHAP : MelonMod
 {
-    public class BPHAP : MelonMod
+    public const string Version = "0.0.0"; 
+
+    public static ArchipelagoClient APClient;
+
+    public static APWorldIDs APIDs = new APWorldIDs();
+
+    public static bool scoutHints = true;
+    public static bool freeInventoryItemCopy = true;
+
+    public override void OnInitializeMelon()
     {
-        public const string Version = "0.0.0"; 
 
-        public static ArchipelagoClient APClient;
+        // Mod startup logic goes here
 
-        public static APWorldIDs APIDs = new APWorldIDs();
+        APClient = new ArchipelagoClient();
+        ArchipelagoClient.ServerData.Uri = "localhost:38281";
+        ArchipelagoClient.ServerData.SlotName = "Player1";
+        ArchipelagoClient.ServerData.Password = "";
 
-        public override void OnInitializeMelon()
-        {
+        HarmonyLib.Harmony.CreateAndPatchAll(typeof(LocationChecked));
+        HarmonyLib.Harmony.CreateAndPatchAll(typeof(GameInstance));
+        HarmonyLib.Harmony.CreateAndPatchAll(typeof(InventoryManagement));
+        HarmonyLib.Harmony.CreateAndPatchAll(typeof(UIManager));
+        
+        MelonEvents.OnGUI.Subscribe(ArchipelagoConsole.Awake);
 
-            // Mod startup logic goes here
+        Log($"Backpackipelago v{Version} successfully loaded!");
 
-            APClient = new ArchipelagoClient();
-            ArchipelagoClient.ServerData.Uri = "localhost:38281";
-            ArchipelagoClient.ServerData.SlotName = "Player1";
-            ArchipelagoClient.ServerData.Password = "";
-
-            HarmonyLib.Harmony.CreateAndPatchAll(typeof(LocationChecked));
-            HarmonyLib.Harmony.CreateAndPatchAll(typeof(GameInstance));
-            HarmonyLib.Harmony.CreateAndPatchAll(typeof(InventoryManagement));
-            HarmonyLib.Harmony.CreateAndPatchAll(typeof(UIManager));
-            
-
-            Log($"Backpackipelago v{Version} successfully loaded!");
-
-            base.OnInitializeMelon();
-        }
-
-
-        public static void LogError(string message) {
-            MelonLogger.Error(message);
-        }
-        public static void Log(string message) {
-            MelonLogger.Msg(message);
-        }
-        public static void LogWarning(string message) {
-            MelonLogger.Warning(message);
-        }
+        base.OnInitializeMelon();
     }
+
+
+    public static void LogError(string message) {
+        MelonLogger.Error(message);
+    }
+    public static void Log(string message) {
+        MelonLogger.Msg(message);
+    }
+    public static void LogWarning(string message) {
+        MelonLogger.Warning(message);
+    }
+
+
+
+    public override void OnGUI()
+    {
+        if (UIManager.showMenu) {
+            UIManager.OnGUI();
+        }
+    }  
 }

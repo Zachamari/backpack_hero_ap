@@ -42,8 +42,9 @@ public static class LocationChecked
             // ResearchesComplete.Add(Item2.GetDisplayName(name));
             // return;
 
-            // if (scoutHints == true)
-            researchesToScout.Add(name);
+            if (BPHAP.scoutHints == true) {
+                researchesToScout.Add(name);
+            }
 
             return;
         }

@@ -59,11 +59,20 @@
         <Reference Include="Unity.2D.Tilemap.Extras">
             <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\Unity.2D.Tilemap.Extras.dll</HintPath>
         </Reference>
+        <Reference Include="UnityEngine">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\UnityEngine.dll</HintPath>
+        </Reference>
         <Reference Include="UnityEngine.UI">
             <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\UnityEngine.UI.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.UIModule">
             <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule">
+            <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.AnimationModule">
             <HintPath>C:\Program Files\Epic Games\BackpackHerog4I7F\Backpack Hero_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
