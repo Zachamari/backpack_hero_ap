@@ -42,7 +42,7 @@ public static class LocationChecked
             // ResearchesComplete.Add(Item2.GetDisplayName(name));
             // return;
 
-            if (BPHAP.scoutHints == true) {
+            if (UIManager.scoutHints == true) {
                 researchesToScout.Add(name);
             }
 

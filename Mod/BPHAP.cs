@@ -5,6 +5,7 @@ using HarmonyLib;
 using Backpackipelago;
 using Backpackipelago.Archipelago;
 using Backpackipelago.Patches;
+using UnityEngine.Windows;
 
 
 [assembly: MelonInfo(typeof(BPHAP), "Backpackipelago", BPHAP.Version, "Zachamari")]
@@ -19,8 +20,6 @@ public class BPHAP : MelonMod
 
     public static APWorldIDs APIDs = new APWorldIDs();
 
-    public static bool scoutHints = true;
-    public static bool freeInventoryItemCopy = true;
 
     public override void OnInitializeMelon()
     {

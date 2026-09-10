@@ -92,12 +92,6 @@ public static class GameInstance
     }
 
 
-    [HarmonyPatch(typeof(LoadStoryGame), nameof(LoadStoryGame.LoadStoryGameCommand)), HarmonyPostfix]
-    public static void TempConnectLate()
-    {
-        BPHAP.APClient.Connect();
-    }
-
     public static ItemStorage ItemStorage = null;
 
 

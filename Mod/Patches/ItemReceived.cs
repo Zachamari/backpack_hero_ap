@@ -47,8 +47,10 @@ public static class ItemReceived
 
             GameInstance.MetaProgressSaveManagerItems.UnlockItem(item);
 
-            // TODO: add a client toggle for this function call in the settings menu
-            GameInstance.MetaProgressSaveManagerItems.AddItem(item); // adds item to haversack inventory
+            if (UIManager.freeInventoryItemCopy) {
+                GameInstance.MetaProgressSaveManagerItems.AddItem(item); // adds item to haversack inventory
+            } 
+            
             // Overworld_Manager.main.OpenNewItemWindow(Item2.GetItemByName(itemName));
             
         } else

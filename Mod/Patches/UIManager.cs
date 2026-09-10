@@ -22,7 +22,7 @@ public static class UIManager
     // This means it's also impossible to connect to the server because of this file, remove this file entirely before compiling if you want to playtest
     // You'll also have to manually put the connection info into BPHAP.OnInitializeMelon() before compiling
 
-    private static bool connected = false;
+    private static bool connected => ArchipelagoClient.Authenticated;
     public static bool showMenu = false;
     public static MenuManager MenuManager;
 
@@ -42,7 +42,7 @@ public static class UIManager
         // override the continue button's display text   
         GameObject contQuickButtonText = GameObject.Find("Menu Animation/Canvas/Buttons/Continue Save Game Button/Start Game Button Image/Continue Text");
         TextMeshProUGUI contButtonText = contQuickButtonText.GetComponent<TMPro.TextMeshProUGUI>();
-        contButtonText.text = "Connect to Archipelago";
+        contButtonText.text = "Archipelago";
 
 
         if (!connected) {
@@ -51,6 +51,12 @@ public static class UIManager
             GameObject storyModeButton = GameObject.Find("Menu Animation/Canvas/Buttons/Story Mode");
             storyModeButton.SetActive(false);
 
+        } else
+        {
+            
+            BPHAP.Log("Bringing the story mode button back...");
+            GameObject storyModeButton = GameObject.Find("Menu Animation/Canvas/Buttons/Story Mode");
+            storyModeButton.SetActive(true);
         }
 
     }
@@ -72,19 +78,23 @@ public static class UIManager
         // Image menuBorder = child.GetComponent<Image>();
         // // current problem - it just displays a white box upon clicking the button
 
+        layout.fontSize = 500;
+        layout.wordWrap = true;
+        layout.clipping = TextClipping.Overflow;
 
         showMenu = true;
 
         // TODO: Close the main menu, make closing the AP menu reopen the main menu and turn showMenu to false
         GameObject.Find("Menu Animation/Canvas/Buttons").SetActive(false); // this ain't smooth, but it works (the normal closing animation doesn't work when I trigger it for some reason)
+        GameObject.Find("Menu Animation/Canvas/Title").SetActive(false);
         MenuManager = __instance;
 
-        // for some reason this makes the vanilla buttons disappear, idk why
-        GameObject menu = UnityEngine.Object.Instantiate<GameObject>(APMenu, Vector3.zero, Quaternion.identity, UnityEngine.Object.FindObjectOfType<Canvas>().transform);
 
 
         return false;
     }
+
+    private static GUIStyle layout = new GUIStyle();
 
 
     public static void OnGUI()
@@ -92,67 +102,220 @@ public static class UIManager
                 // This part is all copied from OnGUI() in alwaysintreble's bepinex template because i gave up on ui (for now)
         
         // show the mod is currently loaded in the corner
-        GUI.Label(new Rect(16, 16, 300, 20), $"Backpackipelago v{BPHAP.Version}");
-        ArchipelagoConsole.DisplayGUI();
+
+        GUI.backgroundColor = new Color(44, 30, 16, 1); // color of the background in vanilla menus
+        GUI.contentColor = Color.white;
+
+        GUI.Box(new Rect(Screen.width/4, Screen.height/4, Screen.width/2, (Screen.height/2) - 60), "ARCHIPELAGO OPTIONS");
+        GUILayout.BeginArea(new Rect(Screen.width/4, Screen.height/4, Screen.width/2, (Screen.height/2) - 60), layout);
+
+        GUILayout.Label($"Backpackipelago v{BPHAP.Version}");
+        
+        
+        // ArchipelagoConsole.DisplayGUI();
+
 
         string statusMessage;
 
-        statusMessage = " Status: Disconnected";
-        GUI.Label(new Rect(16, 50, 300, 20), $"Archipelago v{ArchipelagoClient.APVersion} -" + statusMessage);
-        GUI.Label(new Rect(16, 70, 150, 20), "Host: ");
-        GUI.Label(new Rect(16, 90, 150, 20), "Player Name: ");
-        GUI.Label(new Rect(16, 110, 150, 20), "Password: ");
+        GUILayout.Space(20);
 
 
-        if (ArchipelagoClient.Authenticated) {
+        if (!ArchipelagoClient.Authenticated) {
+            
+            statusMessage = "Status: Disconnected";
 
-            ArchipelagoClient.ServerData.Uri = GUI.TextField(new Rect(150, 70, 150, 20), ArchipelagoClient.ServerData.Uri);
-            ArchipelagoClient.ServerData.SlotName = GUI.TextField(new Rect(150, 90, 150, 20), ArchipelagoClient.ServerData.SlotName);
-            ArchipelagoClient.ServerData.Password = GUI.TextField(new Rect(150, 110, 150, 20), ArchipelagoClient.ServerData.Password);
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Host: ");
+            ArchipelagoClient.ServerData.Uri = GUILayout.TextField(ArchipelagoClient.ServerData.Uri);
+            GUILayout.EndHorizontal();
 
-            // requires that the player at least puts *something* in the slot name
-            if (GUI.Button(new Rect(16, 130, 100, 20), "Connect") &&
-                !string.IsNullOrWhiteSpace(ArchipelagoClient.ServerData.SlotName))
-            {
-                BPHAP.APClient.Connect();
-            }
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Player Name: ");
+            ArchipelagoClient.ServerData.SlotName = GUILayout.TextField(ArchipelagoClient.ServerData.SlotName);  
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();  
+            GUILayout.Label("Password: ");
+            ArchipelagoClient.ServerData.Password = GUILayout.TextField(ArchipelagoClient.ServerData.Password);
+            GUILayout.EndHorizontal();
 
         } else
         {
-            GUI.Label(new Rect(150, 70, 150, 20), ArchipelagoClient.ServerData.Uri);
-            GUI.Label(new Rect(150, 90, 150, 20), ArchipelagoClient.ServerData.SlotName);
-            GUI.Label(new Rect(150, 110, 150, 20), ArchipelagoClient.ServerData.Password);
+            statusMessage = "Status: Connected";
 
-            if (GUI.Button(new Rect(16, 130, 100, 20), "Disconnect"))
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Host: ");
+            GUILayout.FlexibleSpace();
+            GUILayout.Label(ArchipelagoClient.ServerData.Uri);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Player Name: ");
+            GUILayout.FlexibleSpace();
+            GUILayout.Label(ArchipelagoClient.ServerData.SlotName); 
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();  
+            GUILayout.Label("Password: ");
+            GUILayout.FlexibleSpace();
+            GUILayout.Label(ArchipelagoClient.ServerData.Password);
+            GUILayout.EndHorizontal();
+
+        }
+
+        GUILayout.Label(statusMessage);
+
+        GUILayout.Space(40);
+
+
+
+        // Settings buttons
+
+        scoutHints = GUILayout.Toggle(scoutHints, new GUIContent("Scout Research Locations [?]", "Sends a server-side hint for each research location you haven't found when closing a building's research menu."));
+        freeInventoryItemCopy = GUILayout.Toggle(freeInventoryItemCopy, new GUIContent("Bonus Inventory Items [?]", "Adds a free copy of every item you receive from AP to your inventory in Haversack Hill."));
+
+        GUILayout.BeginHorizontal();
+
+        GUILayout.Label(new GUIContent("Resource Gain Multiplier (percentage, default 100%): [?]", "Multiplies all resources gained (such as by selling items or traversing in the dungeon) by the given percentage."));
+        MultiplierPercentPositive = GUILayout.TextField(MultiplierPercentPositive);
+        MultiplierPercentPositive = GUILayout.HorizontalSlider(InventoryManagement.MultiplierPercentPositive, 50, 1000).ToString();
+
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+
+        GUILayout.Label(new GUIContent("Resource Loss Multiplier (percentage, default 100%): [?]", "Multiplies all resources lost (such as by constructing buildings or buying research) by the given percentage."));
+        MultiplierPercentNegative = GUILayout.TextField(MultiplierPercentNegative);
+        MultiplierPercentNegative = GUILayout.HorizontalSlider(InventoryManagement.MultiplierPercentNegative, 0, 200).ToString();
+
+        GUILayout.EndHorizontal();
+
+        GUILayout.FlexibleSpace();
+
+        GUILayout.Label(GUI.tooltip); // unfortunately the tooltip has to be down here or else it gets called before it gets set (and thus doesn't display at all)
+
+        GUILayout.BeginHorizontal();
+
+
+        if (GUILayout.Button("Close Menu"))
+        {
+
+            UIManager.showMenu = false;
+            GameObject.Find("Menu Animation/Canvas/Buttons").SetActive(true);
+            GameObject.Find("Menu Animation/Canvas/Title").SetActive(true);
+
+
+            // override the continue button's display text again  
+            GameObject contQuickButtonText = GameObject.Find("Menu Animation/Canvas/Buttons/Continue Save Game Button/Start Game Button Image/Continue Text");
+            TextMeshProUGUI contButtonText = contQuickButtonText.GetComponent<TMPro.TextMeshProUGUI>();
+            contButtonText.text = "Archipelago";
+
+            if (!connected) {
+
+                BPHAP.Log("Hiding the story mode button...");
+                GameObject storyModeButton = GameObject.Find("Menu Animation/Canvas/Buttons/Story Mode");
+                storyModeButton.SetActive(false);
+
+            } else
+            {
+                
+                BPHAP.Log("Bringing the story mode button back...");
+                GameObject storyModeButton = GameObject.Find("Menu Animation/Canvas/Buttons/Story Mode");
+                storyModeButton.SetActive(true);
+            }
+
+        }
+
+
+        if (!ArchipelagoClient.Authenticated)
+        {
+            // requires that the player at least puts *something* in the slot name
+            if (GUILayout.Button("Connect to Server") && !string.IsNullOrWhiteSpace(ArchipelagoClient.ServerData.SlotName))
+            {
+                BPHAP.APClient.Connect();
+            }
+        } else
+        {
+            if (GUILayout.Button("Disconnect from Server"))
             {
                 BPHAP.APClient.Disconnect();
             }
         }
 
-        if (GUI.Button(new Rect(136, 130, 100, 20), "Close"))
-        {
-            UIManager.showMenu = false;
-            GameObject.Find("Menu Animation/Canvas/Buttons").SetActive(true);
-        }
-        // this is a good place to create and add a bunch of debug buttons
 
-        BPHAP.scoutHints = GUI.Toggle(new Rect(16, 170, 220, 20), BPHAP.scoutHints, "Scout Research Locations");
-        GUI.Label(new Rect(16, 210, 220, 20), "Resource Gain Multiplier:");
-        InventoryManagement.MultiplierPercentPositive = GUI.HorizontalSlider(new Rect(16, 230, 220, 20), InventoryManagement.MultiplierPercentPositive, 50, 1000);
-        // TODO: Add a box to allow specific inputs
+        GUILayout.EndHorizontal();
+
+        GUILayout.EndArea();
+
     }
 
-    private static GameObject APMenu = new GameObject(
-        "Archipelago Menu", 
-        [
-            typeof(RectTransform), 
-            typeof(CanvasRenderer), 
-            // typeof(APOptions), 
-            typeof(SingleUI), 
-            typeof(DigitalCursorInterface), 
-            typeof(CanvasGroup)
-        ]
-    );
+
+
+    public static bool scoutHints = true;
+    public static bool freeInventoryItemCopy = true;
+    public static string MultiplierPercentPositive
+    {
+        get
+        {
+            return InventoryManagement.MultiplierPercentPositive.ToString();
+        }
+        set
+        {
+            try
+            {
+                float num = float.Parse(value);
+                if (num > 1000)
+                {
+                    InventoryManagement.MultiplierPercentPositive = 1000;
+                    return;
+                }
+                if (num < 50)
+                {
+                    InventoryManagement.MultiplierPercentPositive = 50;
+                    return;
+                }
+                InventoryManagement.MultiplierPercentPositive = num;
+            } catch { }
+        }
+    }
+    public static string MultiplierPercentNegative
+    {
+        get
+        {
+            return InventoryManagement.MultiplierPercentNegative.ToString();
+        }
+        set
+        {
+            try
+            {
+                float num = float.Parse(value);
+                if (num > 200)
+                {
+                    InventoryManagement.MultiplierPercentNegative = 200;
+                    return;
+                }
+                if (num < 0)
+                {
+                    InventoryManagement.MultiplierPercentNegative = 0;
+                    return;
+                }
+                InventoryManagement.MultiplierPercentNegative = num;
+            } catch { }
+        }
+    }
+
+
+    // private static GameObject APMenu = new GameObject(
+    //     "Archipelago Menu", 
+    //     [
+    //         typeof(RectTransform), 
+    //         typeof(CanvasRenderer), 
+    //         // typeof(APOptions), 
+    //         typeof(SingleUI), 
+    //         typeof(DigitalCursorInterface), 
+    //         typeof(CanvasGroup)
+    //     ]
+    // );
 
     // private static GameObject animator = new GameObject(
     //     "Animation",

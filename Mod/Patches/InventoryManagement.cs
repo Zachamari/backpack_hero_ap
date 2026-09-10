@@ -11,8 +11,8 @@ namespace Backpackipelago.Patches;
 
 public static class InventoryManagement
 {
-    public static float MultiplierPercentPositive = 400;
-    public static float MultiplierPercentNegative = 0;
+    public static float MultiplierPercentPositive = 100;
+    public static float MultiplierPercentNegative = 100;
 
 
     [HarmonyPatch(typeof(Overworld_ResourceManager), nameof(Overworld_ResourceManager.ChangeResourceAmountBy), new Type[] { typeof(List<Overworld_ResourceManager.Resource>), typeof(Overworld_ResourceManager.Resource.Type), typeof(int) }), HarmonyPrefix]
